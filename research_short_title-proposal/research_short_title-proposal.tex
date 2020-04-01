@@ -1,0 +1,572 @@
+\documentclass{strrespaper-trad}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\usepackage[english]{babel}
+
+% For better tables
+\usepackage{booktabs}
+\usepackage{threeparttable}
+
+% For images
+\usepackage{graphicx}
+
+% For subfigures
+\usepackage{subfig}
+
+% For landscape pages
+\usepackage{pdflscape}
+
+% For drawing
+\usepackage{tikz}
+\usetikzlibrary{shapes.multipart}
+
+% For plotting
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+
+% For units
+\usepackage{siunitx}
+\sisetup{
+	separate-uncertainty=true
+}
+
+% For Project Plan
+\usepackage{pgfgantt}
+\usepackage{tabularx}
+
+% For code listings (type "texdoc listings" [without the quotes] for more information)
+\usepackage{listings}
+
+% For scientific names/acronyms (type "texdoc glossaries" [without the quotes] for more information)
+\newscientificname[thale cress]{At}{A. thaliana}{Arabidopsis thaliana}
+\newscientificname{ecoli}{E. coli}{Escherichia coli}
+\newscientificname{sname}{S. name}{Scientific name}
+\newacronym{sus}{SUS}{System Usability Scale}
+
+% TODO: Feel free to remove once your remove all the dummy text
+\usepackage{blindtext} 
+\usepackage{dtk-logos} % For stylized LaTeX, BibTeX and BibLaTeX logos
+
+% Required for the citations
+\usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
+\addbibresource{../str-templates/sample-resources/bibliographies/str.bib} % TODO: Add your BibLaTeX files here
+
+ 
+\title{Effective Research Title Concerned with \snamelong} % TODO: Put your proper title here
+\dayofmonth{13} % TODO: Day of month (Depends on prof)
+\date{May 2020} % TODO: Date (MMMM-YYYY; Also depends on prof)
+
+\tptitle{
+	Effective Research Title Concerned\\
+	with \snamelong
+} % TODO: Format your title to make it an inverted pyramid
+
+% TODO: Names in alphabetical order (First M.I. Family Name)
+\addAuthor{Researcher D. Uno} 
+\addAuthor{A\~na B. Itto}
+\addAuthor{Francisco N. Bayan}
+
+\adviser{Adviser C. Adviser} % TODO: Name of adviser
+\level{1} % TODO: STR Year Level
+
+% TODO: If title page has revisions, edit this. Otherwise, delete completely.
+\renewcommand{\maketitle}{
+	\begin{titlepage}
+		\vspace*{12\baselineskip}
+			
+		A research proposal submitted to the\\
+		Faculty of the Philippine Science High School --\\
+		Cordillera Administrative Region Campus\\
+		in fulfillment of the course requirements in\\
+		Science, Technology, Engineering and Mathematics Research\\
+			
+		\vspace*{10\baselineskip}
+	\end{titlepage}
+} 
+% Delete up to here if title page has no revisions
+
+\begin{document}
+	\maketitle
+
+	\frontmatter
+
+	% TODO: Signature lines
+	\makeapprovalsheet{
+		\signatureline{Conrado C. Rotor, \NoCaseChange{Jr., Ph.D.}}{Chair}
+
+		\signatureline{Melba C. Patacsil}{Co-chair}
+
+		\vspace*{\baselineskip}
+
+		\begin{multicols}{2}
+			\begin{center}
+				\signatureline{Jay Jay F. Manuel}{Member}
+				\signatureline{Ricarido M. Saturay, \NoCaseChange{Jr.}}{Member}
+
+				\columnbreak
+
+				\signatureline{Marites P. Rivera}{Member}
+				\signatureline{Freda M. Wong}{Member}
+			\end{center}
+		\end{multicols}
+	}
+
+	\contents
+	\listoflistings
+
+	\mainmatter
+
+	\chapter{INTRODUCTION}
+		\section{Background of the Study}
+			% TODO: Background of the Study
+			\textquote[\cite{sachdevHowWriteBackground2018}]{%
+				The background of the study establishes the context of the research.
+				This section explains why this particular research topic is important and essential to understanding the main aspects of the study.
+				Usually, the background forms the first section of a research article/thesis and justifies the need for conducting the study and summarizes what the study aims to achieve.%
+			}
+
+			In the article \citetitle{sachdevHowWriteBackground2018} by \citeauthor{sachdevHowWriteBackground2018}, the ideal background is structured as follows: the current knowledge on the broad topic, the gaps in knowledge that needs to be addressed, the significance of addressing said gaps, and then the rationale of the study.
+
+			This paragraph is a demonstration of the features of the package \texttt{glossaries}.
+			Our specific example is the \acs{sus}.
+			The \ac{sus} is used in a variety of applications.
+			The \ac{sus} is a Likert scale.
+			The \acl{sus} is used in evaluating the usability of a system.
+			\Acf{sus} is the full form of the \ac{sus}.
+
+			This paragraph is a demonstration of the features of the scientific name support via \texttt{glossaries}. 
+			Note that sentences beginning with scientific names should have the scientific names in full.
+			For example, the \At.
+			Plant material composes \At.
+			\Atlong is a plant.
+			\AtCommon is the common name of \At.
+			This is the full version of \Atfirst.
+			Another example is \ecoli.
+			\ecolilong is a form of bacteria.
+			This is \ecoli shortened.
+
+			\Blindtext[2]
+
+		\section{Objectives of the Study}
+			% TODO: Objectives of the Study
+			% "Your objectives should be stated using action verbs that are specific enough to be measured, for example: to compare, to calculate, to assess, to determine, to verify, to calculate, to describe, to explain, etc.
+			% Avoid the use of vague non-active verbs such as: to appreciate, to understand, to believe, to study, etc., because it is difficult to evaluate whether they have been achieved." (The Open University, 2017)
+			\nocite{theopenuniversityHealthManagementEthics2017}
+			% Remember to use SMART (Specific, Measurable, Attainable, Realistic and Time-bound)
+			\subsection{General Objective}
+				% "The general objective of your study states what you expect to achieve in general terms." (The Open University, 2017)
+				\begin{itemize}
+					\item To identify factors that affects the acceptability of Voluntary Counselling and Testing (VCT) services and to assess community attitudes towards comprehensive care and support for people living with HIV/AIDS.
+				\end{itemize}
+			\subsection{Specific Objectives}
+				% "Specific objectives break down the general objective into smaller, logically connected parts that systematically address the various aspects of the problem.
+				% Your specific objectives should specify exactly what you will do in each phase of your study, how, where, when and for what purpose." (The Open University, 2017)
+				% There should be at least three
+				\begin{enumerate}
+					\item To assess the knowledge, attitude and practice of the community towards HIV/AIDS and VCT services.
+					\item To identify barriers and concerns related to VCT and its uptake.
+					\item To assess the awareness and perception of the study community regarding comprehensive care and support for people living with HIV/AIDS.
+				\end{enumerate}
+
+		\section{Significance of the Study}
+			% TODO: Significance of the Study
+			\textquote[\cite{WritingThesisSignificance2016}]{%
+				Significance of the study is written as part of the introduction section of a thesis.
+				It provides details to the reader on how the study will contribute to society such as what the study will contribute and who will benefit from it.
+				It also includes an explanation of the work’s importance as well as its potential benefits.
+				It is sometimes called rationale.%
+			}
+
+			Always keep in mind the main stakeholders that are affected by the problem that you tackle in the study.
+			List down the major benefits of your study to your stakeholders.
+
+		\section{Scope and Limitations of the Study}
+			% TODO: Scope and Limitations of the Study
+			\textquote[\cite{askmediagroupWhatAreScope2020}][.]{When identifying the scope, you need to address not only the problem or issue that you want to study but the population that you want to examine}. Remember to narrow your scope down as much as possible to ensure efficiency and accuracy during the execution of the research.
+
+			\enquote{%
+				There are numerous limitations that can impact your ability to complete quality research.
+				Research limitations may be methodological (related to how the study is completed) or a lack of researcher resources (such as time and research funds).%
+			}
+			Methodological limitations concerns the sample of the study and the efficiency of past techniques. This may include the size and diversity of the sample as well as the amount of research previously done that you can base your methods on.
+			Researcher-related limitations include time, budget and physical constraints, as well as personal biases that might impact the flow of the research \autocite{askmediagroupWhatAreScope2020}.
+
+	\unnumchapter{DEFINITION OF TERMS}
+		% TODO: Definition of Terms
+		% Remember to use the operational definition of the terms to clarify the terms you use in this paper that might have multiple meanings
+		\termdef{Banana}{
+			an elongated usually tapering tropical fruit with soft pulpy flesh enclosed in a soft usually yellow rind \autocite{merriam-websterDefinitionBanana}
+		}
+		\termdef{Definition}{
+			something you place here in the Definition of Terms to clarify your paper
+			\extradef operational definition for this section
+		}
+		\termdef{Fruit}{
+			the usually edible reproductive body of a seed plant\\
+			\textit{especially}: one having a sweet pulp associated with the seed \autocite{merriam-websterDefinitionFruit}
+		}
+		\termdef{Pig}{
+			a dirty, gluttonous, or repulsive person \autocite{merriam-websterDefinitionPig}
+		}
+
+	\chapter{REVIEW OF RELATED LITERATURE}
+		% TODO: Review of Related Literature
+		\textcite{mccombesLiteratureReviewComplete2019} lists five (5) important steps in writing an effective literature review: \textbf{Search} for relevant literature, \textbf{evaluate} sources, \textbf{identify} themes, debates and gaps, \textbf{outline} the structure, and \textbf{write} the literature review itself.
+
+		\section*{Searching for Relevant Literature}
+			\textcite{hardyGuidesLiteratureReview2020} provides a proper guide for searching effectively for a literature review.
+			The following ideas are abridged versions of the common search techniques employed when writing an effective literature review.
+			To begin searching, one must perform an analysis of the research topic.
+			This analysis must tackle the main ideas and synonyms, related words and phrases, and concepts and ideas already covered about the research topic.
+			In modern search engines, keywords exist to make searches more efficient such as: \textbf{OR} for synonymous terms, \textbf{AND} for joining words that make up the main ideas, and \textbf{NOT} for exclusion of irrelevant terms \autocite{hardyGuidesLiteratureReview2020}.
+
+			\textcite{mccombesLiteratureReviewComplete2019} lists the following databases that might aid in the search for related literature:
+			\begin{itemize}
+				\item Google Scholar (\url{https://scholar.google.com/})
+				\item JSTOR (\url{https://www.jstor.org/})
+				\item EBSCO (\url{https://www.ebsco.com/products/research-databases})
+				\item Project Muse for humanities and social sciences (\url{http://muse.jhu.edu/})
+				\item Medline for life sciences and biomedicine (\url{https://www.nlm.nih.gov/bsd/medline.html})
+				\item EconLit for economics (\url{https://www.aeaweb.org/econlit/})
+				\item Inspec for physics, engineering and computer science (\url{https://www.theiet.org/publishing/inspec/})
+			\end{itemize}
+			The importance of a proper abstract is highlighted during the search for related literature, as the abstract of a work will assist future researchers in selecting the work if they find the abstract to be relevant with their own research \autocite{mccombesLiteratureReviewComplete2019}.
+
+		\section*{Evaluating and Selecting Sources}
+			\textcite{mccombesLiteratureReviewComplete2019} emphasizes the fact that one cannot read and digest every single work written about the research topic, therefore each source should be evaluated to filter out the most relevant sources for the study.
+			\textcite{mccombesLiteratureReviewComplete2019} further writes:\\
+			\enquote{%
+				For each publication, ask yourself:
+				\begin{itemize}
+					\item What question or problem is the author addressing?
+					\item What are the key concepts and how are they defined?
+					\item What are the key theories, models and methods? Does the research use established frameworks or take an innovative approach?
+					\item What are the results and conclusions of the study?
+					\item How does the publication relate to other literature in the field? Does it confirm, add to, or challenge established knowledge?
+					\item How does the publication contribute to your understanding of the topic? What are its key insights and arguments?
+					\item What are the strengths and weaknesses of the research?
+				\end{itemize}
+
+				Make sure the sources you use are credible, and make sure you read any landmark studies and major theories in your field of research.
+
+				The scope of your review will depend on your topic and discipline: in the sciences you usually only review recent literature, but in the humanities you might take a long historical perspective (for example, to trace how a concept has changed in meaning over time).%
+			}
+
+			The need to take notes and keep track of sources is stressed by \textcite{mccombesLiteratureReviewComplete2019} by mentioning plagiarism.
+			Plagiarism is defined by \textcite{merriam-websterDefinitionPlagiarizing} as \enquote{[the act of] steal[ing] and pass[ing] off (the ideas or words of another) as one's own : us[ing] (another's production) without crediting the source}.
+			Such an act is frowned upon in the academic field, and must be avoided as much as possible.
+
+			One may use bibliography management software to keep notes and source information that might be valuable later on in paper writing.
+			Notes that are attached to a bibliographic entry in a bibliography management software can save time later on when one must remember the details of the source listed.
+			Modern bibliography management software such as \textbf{Zotero} (\url{https://www.zotero.org/}) and \textbf{Mendeley} (\url{https://www.mendeley.com/}) usually have the capability to maintain and track sources and said notes with the addition of producing citations and bibliographies as well as files for paper-writing software such as \LaTeX{} (via \BibTeX{} and \BibLaTeX{}).
+
+		\section*{Identifying Themes, Debates, and Gaps}
+			\textquote[\cite{mccombesLiteratureReviewComplete2019}]{%
+				To begin organizing your literature review’s argument and structure, you need to understand the connections and relationships between the sources you’ve read. Based on your reading and notes, you can look for:
+
+				\begin{itemize}
+					\item Trends and patterns (in theory, method or results): do certain approaches become more or less popular over time?
+					\item Themes: what questions or concepts recur across the literature?
+					\item Debates, conflicts and contradictions: where do sources disagree?
+					\item Pivotal publications: are there any influential theories or studies that changed the direction of the field?
+					\item Gaps: what is missing from the literature? Are there weaknesses that need to be addressed?
+				\end{itemize}
+
+				This step will help you work out the structure of your literature review and (if applicable) show how your own research will contribute to existing knowledge.%
+			}
+
+		\section*{Outlining the Structure of the Literature Review}
+			There are four (4) major principles of organization one may use in writing an effective Literature Review, and these are: Chronological Order or Order of Time, Spatial Order, Climactic Order or Order of Importance, and Topical Order \autocite{friedlanderPrinciplesOrganization2004}.
+			\subsection{Chronological Order}
+				\textquote[\cite{friedlanderPrinciplesOrganization2004}]{%
+					Chronological order can suit different rhetorical modes or patterns of exposition.
+					It naturally fits in narration, because when we tell a story, we usually follow the order in which events occur.
+					Chronological order applies to process in the same way, because when we describe or explain how something happens or works, we usually follow the order in which the events occur.
+					But chronological order may also apply to example, description, or parts of any other pattern of exposition.%
+				}
+			\subsection{Spatial Order}
+				\textquote[\cite{friedlanderPrinciplesOrganization2004}]{%
+					In this pattern, items are arranged according to their physical position or relationships.
+					\dots
+					In explaining some political or social problem, I might discuss first the concerns of the East Coast, then those of the Midwest, then those of the West Coast.
+					Describing a person, I might start at the feet and move up to the head, or just the other way around.
+					This pattern might use such transitions as just to the right, a little further on, to the south of Memphis, a few feet behind, in New Mexico, turning left on the pathway, and so on.%
+				}
+			\subsection{Climactic Order}
+				\enquote{%
+					In this pattern, items are arranged from least important to most important.
+					Typical transitions would include \textit{more important}, \textit{most difficult}, \textit{still harder}, \textit{by far the most expensive}, \textit{even more damaging}, \textit{worse yet}, and so on.
+					This is a flexible principle of organization, and may guide the organization of all or part of example, comparison \& contrast, cause \& effect, and description.
+
+					A variation of climactic order is called psychological order.
+					This pattern or organization grows from our learning that readers or listeners usually give most attention to what comes at the beginning and the end, and least attention to what is in the middle.
+					In this pattern, then, you decide what is most important and put it at the beginning or the end; next you choose what is second most important and put it at the end or the beginning (whichever remains); the less important or powerful items are then arranged in the middle. If the order of importance followed 1, 2, 3, 4, 5, with 5 being most important, psychological order might follow the order 4, 3, 1, 2, 5.
+
+					Still other principles of organization based on emphasis include:
+					\begin{itemize}
+						\item general-to-specific order,
+						\item specific-to general order,
+						\item most-familiar-to-least-familiar,
+						\item simplest-to-most-complex,
+						\item order of frequency,
+						\item order of familiarity, and so on.
+					\end{itemize}%
+				} This principle of organization is one of the most common. \autocite{friedlanderPrinciplesOrganization2004}
+			\subsection{Order of Importance}
+				\textquote[\cite{friedlanderPrinciplesOrganization2004}]{%
+					[The Order of Importance] refers to organization that emerges from the topic itself.
+					For example, a description of a computer might naturally involve the separate components of the central processing unit, the monitor, and the keyboard, while a discussion of a computer purchase might discuss needs, products, vendors, and service.
+					A discussion of a business might explore product, customer, and location, and so on.
+					Topical order, then, simply means an order that arises from the nature of the topic itself.
+					Transitions in this pattern will be a little vague--things like \textit{another factor}, \textit{the second component}, \textit{in addition}, and so on.%
+				}
+
+		\section*{Writing the Literature Review}
+			In writing a literature review, one must follow the general structure: introduction, main body, and then conclusion.
+			In the introduction, the central problem of the research must be reiterated and a summary must be provided of the current academic context.
+			Here the timeliness of the topic or the presence of a knowledge gap is highlighted.
+			In the body, subheadings divide major parts that are highlighted in the outline.
+			One must keep in mind the following ideas \autocite{mccombesLiteratureReviewComplete2019}:
+			\begin{itemize}
+				\item an overview of the main points of each source must be noted and combined into one coherent whole
+				\item analyses and interpretations must be provided regarding the findings of each source with respect to the research
+				\item the strengths and weaknesses of each source must be stated
+				\item the topic sentence of each paragraph must be clear and the flow between paragraphs must be maintained with transitions
+			\end{itemize}
+			In the conclusion, the key findings of each related literature should be summarized with emphasis on their significance to the research \autocite{mccombesLiteratureReviewComplete2019}.
+
+	\chapter{MATERIALS AND METHODS}
+		\section{Research Design}
+			% TODO: Research Design
+			\textcite{labareeTypesResearchDesigns2020} states: \textquote[][.]{The function of a research design is to ensure that the evidence obtained enables you to effectively address the research problem logically and as unambiguously as possible}.
+			You may use the article by \textcite{labareeTypesResearchDesigns2020} to figure out which research design will suit your study the best.
+			In this section of the paper, the research design is described, as well as the independent and dependent variables involved.
+			The description of how identified extraneous variables are held constant is also elaborated in the Research Design section.
+			If the study is developmental in nature, the stages of development may be stated in this section.
+
+		\section{Locale of the Study}
+			% TODO: Locale of the Study
+			The places where the study is executed should be stated in the Locale of the Study.
+			The population where samples are taken, as well as the sample size, should be mentioned here.
+			This section must also contain the reasoning for choosing the locale, with respect to the scope and limitations of the study.
+
+		\section{Materials and Research Instruments}
+			% TODO: Materials and Research Instruments
+			The materials required in the study as well as any instrumentation to be used should be mentioned in the Materials and Research Instruments.
+			The reasoning may involve any past researches or research-based handbooks that are relevant to the study and are published works (as published works tend to be peer-reviewed).
+			An example of a research-based handbook is \textcite{letcherWindEnergyEngineering2017}.
+
+		\section{Procedures}
+			% TODO: Procedures
+			An elaborate and chronological description of the procedures to be taken is provided in this section.
+			The proper reasoning for each step taken should be stated, as well as what materials and research instruments are used in each step.
+			\subsection{Subheadings}
+				Subheadings may be used to provide logical divisions of the procedure.
+				On a different note, there are deeper-level headings one might use, such as paragraph and subparagraph, shown here.
+				\paragraph{I am a paragraph}
+					\blindtext
+					\subparagraph{I am a subparagraph}
+						\blindtext
+				\paragraph{Supplementary information}
+					Hyphens are for putting together compound words such as \textit{self-love}, \textit{twenty-one}, and \textit{child-friendly}.
+					En dashes are for less-awkward compounding of words such as \textit{Bruce Lee--style fighting} and \textit{post--World War II paintings}, as well as for denoting ranges such as \textit{April--May}.
+					Em dashes are for slight pauses (stronger than a comma but weaker than a period or semicolon), parenthetical information (such as \enquote{the boy---who loved to play---walked around the park}), emphasis (such as \enquote{there she sits---my missing porcelain doll}), and sudden interruption (such as \enquote{I meant to say I l---}).
+					Through practice, a writer can be effective by using these symbols properly. \autocite{grammarly.comWhatDifferenceDashes2016}.
+
+		\section{Treatment of Data}
+			% TODO: Treatment of Data
+			\subsection{Statement of Hypotheses} \vspace{-\baselineskip}
+				\begin{align*}
+					H_0: & ~ \mu = 50 \\
+					H_a: & ~ \mu > 50
+				\end{align*}
+			\subsection{Analysis of Data}
+				The statistical tools as well as the significance level to be used is mentioned in this portion of the paper.
+				How the statistical tools will be used should also be detailed in this section.
+
+	\literaturecited
+
+	\appendix
+
+	\chapter{Sample Tables and Figures}
+		% TODO: Sample Tables and Figures
+		\begin{table}[htbp]
+			\centering
+			\caption{Example of Organisms Sorted Through a Classifier System}
+			\label{tab:ex_classifier}
+			\begin{tabular}{lccc}
+				\toprule
+				Aspect           & Human & Fish & Bacterium \\
+				\midrule
+				opposable thumbs & 1     & 0    & 0         \\
+				wings            & 0     & 0    & 0         \\
+				gills            & 0     & 1    & 0         \\
+				eyes             & 1     & 1    & 0         \\
+				requires oxygen  & 1     & 1    & 1         \\
+				\bottomrule
+			\end{tabular}
+		\end{table}
+
+		\begin{figure}[htbp]
+			\centering
+			\subfloat[We]{
+				\includegraphics[width=0.45\linewidth]{../str-templates/sample-resources/graphics/bernard-hermant-IhcSHrZXFs4-unsplash.jpg}
+			} \qquad
+			\subfloat[Are]{
+				\includegraphics[width=0.45\linewidth]{../str-templates/sample-resources/graphics/bernard-hermant-IhcSHrZXFs4-unsplash.jpg}
+			}
+
+			\quad
+
+			\subfloat[Watching]{
+				\includegraphics[width=0.45\linewidth]{../str-templates/sample-resources/graphics/bernard-hermant-IhcSHrZXFs4-unsplash.jpg}
+			} \qquad
+			\subfloat[You]{
+				\includegraphics[width=0.45\linewidth]{../str-templates/sample-resources/graphics/bernard-hermant-IhcSHrZXFs4-unsplash.jpg}
+			}
+			\caption{We are watching}
+			\label{fig:waw}
+		\end{figure}
+
+	\chapter{Project Plan}
+		% TODO: Task Lists and Duration
+		\begin{table}[htbp]
+			\centering
+			\caption{Task Lists and Duration}
+			\label{tab:task_lists_duration}
+			\begin{tabularx}{\linewidth}{cXcc}
+				\toprule
+				Task & Task Description                     & Preceding Tasks & Duration (in days) \\
+				\midrule
+				A    & Implementation of Algorithms         & ---             & 30                 \\
+				B    & Testing, Refinement and Optimization & A               & 31                 \\
+				C    & Data Collection                      & B               & 60                 \\
+				D    & Data Analysis                        & C               & 60                 \\
+				\bottomrule
+			\end{tabularx}
+		\end{table}
+
+		% TODO: Network Chart
+		\begin{figure}[htbp]
+			\centering
+			\newcommand{\netchart}[8]{
+				\node
+				[rectangle split,
+					rectangle split parts = 3,
+					draw,
+					minimum width = 3cm,
+					font = \small,
+					rectangle split part align = {center}
+				] (#8)
+				{
+					\centering
+					\begin{tabularx}{2.75cm}{@{} >{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X @{}}
+						#1 & #2 & #3 \\
+					\end{tabularx}
+					\nodepart{two}
+					#4
+					\nodepart{three}
+					\begin{tabularx}{2.75cm}{@{} >{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X @{}}
+						#5 & #6 & #7 \\
+					\end{tabularx}
+				};
+			}
+			\newcommand{\nchconnect}[2]{\draw[->] (#1.two east) to [out=0, in=180] (#2.two west);}
+			\tikzset{
+				block/.style={
+						rectangle,
+						draw,
+						minimum height=4em,
+						minimum width=4em,
+						text depth=1em,
+						outer sep=0pt,
+						font=\small
+					}
+			}
+			% !!! Disclaimer: shift distances are exaggerated to demonstrate functionality for more complex networks e.g. multiple threads. If your flow is linear, simply omit the yshift components
+			% TODO: Edit this TikZ Picture to suit your procedures
+			\begin{tikzpicture}
+				\netchart{0}{30}{30} {Task A} {0}{30}{30} {tA}
+				\begin{scope}[xshift=4cm]
+					\begin{scope}[yshift=2cm]
+						\netchart{30}{31}{61} {Task B} {30}{31}{61} {tB}
+						\begin{scope}[xshift=4cm, yshift=-4cm]
+							\netchart{61}{60}{121} {Task C} {61}{60}{121} {tC}
+						\end{scope}
+					\end{scope}
+					\begin{scope}[xshift=8cm]
+						\netchart{121}{60}{181} {Task D} {121}{60}{181} {tD}
+					\end{scope}
+				\end{scope}
+
+				\nchconnect{tA}{tB}
+				\nchconnect{tB}{tC}
+				\nchconnect{tC}{tD}
+			\end{tikzpicture}
+
+			\caption{Network chart}
+			\label{fig:network_chart}
+		\end{figure}
+
+
+		\begin{landscape}
+			\newpage
+			\newcommand{\allpersonnel}{
+				\begin{tabular}{c}All\\Personnel\end{tabular}
+			}
+			\newcommand{\threerowdate}[3]{
+				\begin{tabular}{c}#1\\#2\\#3\end{tabular}
+			}
+			% TODO: Task Schedule Management and Personnel Assignment Plan
+			\begin{table}[ht]
+				\centering
+				\caption{Task Schedule Management and Personnel Assignment Plan}
+				\label{tab:task_schedule_personnel_assignment}
+				\begin{tabular}{cccccccc}
+					\toprule
+					Task & Task Description                     & Personnel     & Duration (in days) & EST                          & LST                          & ECT                          & LCT                          \\
+					\midrule
+					A    & Implementation of Algorithms         & \allpersonnel & 30                 & \threerowdate{NOV}{01}{2019} & \threerowdate{NOV}{30}{2019} & \threerowdate{NOV}{01}{2019} & \threerowdate{NOV}{30}{2019} \\
+					B    & Testing, Refinement and Optimization & \allpersonnel & 31                 & \threerowdate{DEC}{01}{2019} & \threerowdate{DEC}{31}{2019} & \threerowdate{DEC}{01}{2019} & \threerowdate{DEC}{31}{2019} \\
+					C    & Data Collection                      & \allpersonnel & 60                 & \threerowdate{JAN}{01}{2019} & \threerowdate{FEB}{29}{2019} & \threerowdate{JAN}{01}{2019} & \threerowdate{FEB}{29}{2019} \\
+					D    & Data Analysis                        & \allpersonnel & 61                 & \threerowdate{MAR}{01}{2019} & \threerowdate{APR}{31}{2019} & \threerowdate{MAR}{01}{2019} & \threerowdate{APR}{31}{2019} \\
+					\bottomrule
+				\end{tabular}
+			\end{table} \newpage
+
+			% TODO: Material and Equipment Sourcing Plan
+			\begin{table}[htbp]
+				\centering
+				\caption{Material and Equipment Sourcing Plan}
+				\label{tab:material_equipment_sourcing}
+				\begin{tabular}{cccccc}
+					\toprule
+					Protocol                             & Date/s Needed    & Unit & Materials Needed         & Potential Source & Remarks \\
+					\midrule
+					Implementation of Algorithm          & NOV-01 to 30     & 1    & Laptop with Python       & From Home        & On Hand \\
+					Testing, Refinement and Optimization & DEC-01 to 31     & 1    & Laptop with Python       & From Home        & On Hand \\
+					Data Collection and Analysis         & JAN-01 to APR-31 & 1    & Laptop with Python and R & From Home        & On Hand \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
+
+			% TODO: Risk Management Plan
+			\begin{table}[htbp]
+				\centering
+				\caption{Risk Management Plan}
+				\label{tab:risk_management}
+				\begin{tabularx}{\textwidth}{cc}
+					\toprule
+					Risk                                  & Safety Measure/Protocol                     \\
+					\midrule
+					Development of Carpal Tunnel Syndrome & Frequent 5-minute breaks to relieve muscles \\
+					Electrocution                         & Proper usage of electronic devices          \\
+					Loss of data                          & Upload of data into the cloud               \\
+					Proprietary software trial expiry     & Use of free and open-source software        \\
+					\bottomrule
+				\end{tabularx}
+			\end{table}
+		\end{landscape}
+\end{document}

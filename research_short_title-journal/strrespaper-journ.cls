@@ -1,0 +1,1 @@
+../str-templates/strrespaper-journ/strrespaper-journ.cls

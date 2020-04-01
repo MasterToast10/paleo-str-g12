@@ -1,0 +1,1 @@
+../str-templates/strrespaper-trad/strrespaper-trad.cls

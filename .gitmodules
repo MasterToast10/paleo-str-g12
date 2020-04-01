@@ -1,0 +1,3 @@
+[submodule "str-templates"]
+	path = str-templates
+	url = https://github.com/MasterToast10/str-templates
