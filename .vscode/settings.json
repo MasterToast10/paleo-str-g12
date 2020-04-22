@@ -18,6 +18,9 @@
     "todo-tree.regex.regex": "((%|//|#|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
     "ltex.language": "en-CA",
     "todo-tree.filtering.excludeGlobs": [
-        "**/str-templates/*"
-    ]
+        "**/str-templates/*",
+        "**/genetic_algorithm-traditional/*",
+        "**/genetic_algorithm-journal/*"
+    ],
+    "python.pythonPath": "/usr/bin/python3.8"
 }
