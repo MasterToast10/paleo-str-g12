@@ -87,6 +87,9 @@ class GameController:
 
 
 class MoveGenerator:
+    def __init__(self, player_number):
+        self.PLAYER_NUMBER = player_number
+
     def move(self, game):
         tile_number = input(f"{STATE_CONVERT[game.current_player]} Tile: ")
         print()
@@ -94,5 +97,5 @@ class MoveGenerator:
 
 
 if __name__ == "__main__":
-    controller = GameController(MoveGenerator(), MoveGenerator())
+    controller = GameController(MoveGenerator(1), MoveGenerator(2))
     controller.start()
