@@ -23,10 +23,10 @@ WIN_CONDITIONS = (
 
 
 class Game:
-    def __init__(self, tiles=[0]*9, current_player=1):
-        self.tiles = tiles
+    def __init__(self):
+        self.tiles = [0]*9
         self.winner = 0
-        self.current_player = current_player
+        self.current_player = 1
         self.check_win()
 
     def check_win(self):
@@ -34,8 +34,8 @@ class Game:
             if all(self.tiles[x] == self.current_player for x in wincon):
                 self.winner = self.current_player
                 break
-            if all(self.tiles) and not self.winner:
-                self.winner = 3
+        if all(self.tiles) and not self.winner:
+            self.winner = 3
 
     def set_tile(self, tile_number):
         if self.tiles[tile_number]:
