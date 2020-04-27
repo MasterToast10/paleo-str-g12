@@ -77,7 +77,7 @@ class GameController:
                     print("Current Player: X")
                     print(current_game)  # end="")
             else:
-                o_move = self.o_player.move(self.current_game)
+                o_move = self.o_player.move(current_game)
                 current_game.set_tile(o_move)
                 if verbose:
                     print("Current Player: O")
@@ -87,6 +87,9 @@ class GameController:
 
 
 class MoveGenerator:
+    def __init__(self, player_number):
+        self.PLAYER_NUMBER = player_number
+
     def move(self, game):
         tile_number = input(f"{STATE_CONVERT[game.current_player]} Tile: ")
         print()
@@ -94,5 +97,5 @@ class MoveGenerator:
 
 
 if __name__ == "__main__":
-    controller = GameController(MoveGenerator(), MoveGenerator())
+    controller = GameController(MoveGenerator(1), MoveGenerator(2))
     controller.start()
