@@ -65,42 +65,11 @@
 \adviser{Kaye Melina Natividad B. Alamag} % Name of adviser
 \level{3} % STR Year Level
 
-% TODO: If title page has revisions, edit this. Otherwise, delete completely.
-\renewcommand{\maketitle}{
-	\begin{titlepage}
-		\vspace*{12\baselineskip}
-			
-		A research paper submitted to the\\
-		Faculty of the Philippine Science High School --\\
-		Cordillera Administrative Region Campus\\
-		in fulfillment of the course requirements in\\
-		Science, Technology, Engineering and Mathematics Research\\
-			
-		\vspace*{10\baselineskip}
-	\end{titlepage}
-} 
-% Delete up to here if title page has no revisions
-
-% TODO: If abstract has revisions, edit this (e.g. uncomment \keywords). Otherwise, delete completely.
-\makeatletter
-\renewcommand{\makeabstract}[1]{
-	\unnumchapter{ABSTRACT}
-	{\bfseries\printauthors}. Philippine Science High School -- Cordillera Administrative Region Campus, \ctuline{\the\dayofmonth \thickspace \@date}. \enquote{\MakeTextUppercase{\@title}} \\[2\baselineskip]
-	Adviser: {\bf \the\adviser}	\\
-	% Uncomment this to add indent to text
-	% \indent
-	#1
-	% \keywords{keywords; of; the; research}
-} 
-\makeatother 
-% Delete up to here if abstract has no revisions
-
 \begin{document}
 	\maketitle
 
 	\frontmatter
 
-	% TODO: Signature lines
 	\makeapprovalsheet{
 		\signatureline{Conrado C. Rotor, \NoCaseChange{Jr., Ph.D.}}{Chair}
 
