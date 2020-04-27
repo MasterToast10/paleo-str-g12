@@ -4,6 +4,7 @@ from random import choice as random_choice
 BOARD_CORNERS = (0, 2, 6, 8)
 BOARD_SIDES = (1, 3, 5, 7)
 
+
 class UnbeatableMoveGenerator(MoveGenerator):
     def __init__(self, player_number: int):
         self.PLAYER_NUMBER = player_number
@@ -34,7 +35,7 @@ class UnbeatableMoveGenerator(MoveGenerator):
                     return a
                 if aT == cT == self.PLAYER_NUMBER and not bT:
                     return b
-            
+
             # Defensive
             for a, b, c in WIN_CONDITIONS:
                 aT, bT, cT = [game.tiles[i] for i in (a, b, c)]
@@ -53,7 +54,7 @@ class UnbeatableMoveGenerator(MoveGenerator):
                 for side in BOARD_SIDES:
                     if game.tiles[side] == self.OTHER_PLAYER:
                         num_other_player_sides += 1
-                
+
                 if num_other_player_sides >= 1 and not all(game.tiles[corner] for corner in BOARD_CORNERS):
                     return self.choose_random_corner(game.tiles)
                 else:
