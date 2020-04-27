@@ -77,7 +77,7 @@ class GameController:
                     print("Current Player: X")
                     print(current_game)  # end="")
             else:
-                o_move = self.o_player.move(self.current_game)
+                o_move = self.o_player.move(current_game)
                 current_game.set_tile(o_move)
                 if verbose:
                     print("Current Player: O")
