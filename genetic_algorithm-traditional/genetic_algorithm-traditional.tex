@@ -50,9 +50,10 @@
 \title{Comparison of Genetic Algorithm Training Methods As Applied To Tic-Tac-Toe}
 
 \usepackage[calc]{datetime2}
-\DTMsavenow{now}
-\dayofmonth{\DTMfetchday{now}}
-\date{\DTMmonthname{\DTMfetchmonth{now}} \DTMfetchyear{now}}
+\makeatletter
+\newcommand{\daymonthyear}{\@dtm@day{} \DTMenglishmonthname{\@dtm@month} \@dtm@year}
+\makeatother
+\date{\daymonthyear}
 
 \tptitle{
 	Comparison Of Genetic Algorithm Training Methods\\
@@ -70,23 +71,31 @@
 	\frontmatter
 
 	\makeapprovalsheet{
-		\signatureline{Conrado C. Rotor, \NoCaseChange{Jr., Ph.D.}}{Chair}
+		\noindent This research paper has been approved for submission in fulfillment of the requirements in Research \the\level.
 
-		\signatureline{Melba C. Patacsil}{Co-chair}
+		{\centering
+			\signatureline{Jay Jay F. Manuel} {Research Teacher}
+		}
 
-		\vspace*{\baselineskip}
+		\vspace{3\baselineskip}
 
-		\begin{multicols}{2}
-			\begin{center}
-				\signatureline{Jay Jay F. Manuel}{Member}
-				\signatureline{Ricarido M. Saturay, \NoCaseChange{Jr.}}{Member}
+		\noindent This is to certify that the research paper has been accepted.
 
+		{\centering
+			\begin{multicols}{2}
+				\signatureline{Marites P. Rivera} {Panel Member}
 				\columnbreak
+				\signatureline{Freda M. Wong} {Panel Member}
+			\end{multicols}
 
-				\signatureline{Marites P. Rivera}{Member}
-				\signatureline{Freda M. Wong}{Member}
-			\end{center}
-		\end{multicols}
+			\signatureline{Ricarido M. Saturay, \NoCaseChange{Jr.}} {Panel Member}
+
+			\vfill
+
+			\signatureline{Melba C. Patacsil} {CID Chief}
+
+			\signatureline{Conrado C. Rotor, \NoCaseChange{Jr., Ph.D.}} {Campus Director}
+		}
 	}
 
 	% TODO: Acknowledgement
