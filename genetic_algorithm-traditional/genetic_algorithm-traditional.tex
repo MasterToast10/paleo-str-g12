@@ -42,28 +42,27 @@
 % For scientific names/acronyms (type "texdoc glossaries" [without the quotes] for more information)
 \newacronym{sus}{SUS}{System Usability Scale}
 
-% TODO: Feel free to remove once your remove all the dummy text
-\usepackage{blindtext} 
-\usepackage{dtk-logos} % For stylized LaTeX, BibTeX and BibLaTeX logos
-
 % Required for the citations
 \usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
-\addbibresource{../str-templates/sample-resources/bibliographies/str.bib} % TODO: Add your BibLaTeX files here
+\addbibresource{../str-templates/sample-resources/bibliographies/str.bib} % TODO: Replace with real .bib file
 
  
-\title{Comparison of Genetic Algorithm Training Methods As Applied To Tic-Tac-Toe} % Put your proper title here
-\dayofmonth{4} % Depends on prof
-\date{March 2019} % Also depends on prof
+\title{Comparison of Genetic Algorithm Training Methods As Applied To Tic-Tac-Toe}
+
+\usepackage[calc]{datetime2}
+\DTMsavenow{now}
+\dayofmonth{\DTMfetchday{now}}
+\date{\DTMmonthname{\DTMfetchmonth{now}} \DTMfetchyear{now}}
 
 \tptitle{
 	Comparison Of Genetic Algorithm Training Methods\\
 	As Applied To Tic-Tac-Toe
-} % Format this to make it the title an inverted pyramid
-\addAuthor{Vash Patrick B. Ancheta} % Names in alphabetical order (First M.I. Family Name)
+}
+\addAuthor{Vash Patrick B. Ancheta}
 \addAuthor{Diego Sulayman R. Pascua}
 \addAuthor{Resh Vnzi S. Togue\~no}
-\adviser{Kaye Melina Natividad B. Alamag} % Name of adviser
-\level{3} % STR Year Level
+\adviser{Kaye Melina Natividad B. Alamag}
+\level{3}
 
 \begin{document}
 	\maketitle
@@ -131,8 +130,6 @@
 			This paragraph is a demonstration of the features of the scientific name support via \texttt{glossaries}. 
 			Note that sentences beginning with scientific names should have the scientific names in full.
 
-			\Blindtext[2]
-
 		\section{Objectives of the Study}
 			% TODO: Objectives of the Study
 			% "Your objectives should be stated using action verbs that are specific enough to be measured, for example: to compare, to calculate, to assess, to determine, to verify, to calculate, to describe, to explain, etc.
@@ -179,6 +176,7 @@
 
 	\unnumchapter{DEFINITION OF TERMS}
 		% TODO: Definition of Terms
+		% TODO: Define training in the operational sense
 		% Remember to use the operational definition of the terms to clarify the terms you use in this paper that might have multiple meanings
 		\termdef{Banana}{
 			an elongated usually tapering tropical fruit with soft pulpy flesh enclosed in a soft usually yellow rind \autocite{merriam-websterDefinitionBanana}
@@ -244,7 +242,7 @@
 
 			One may use bibliography management software to keep notes and source information that might be valuable later on in paper writing.
 			Notes that are attached to a bibliographic entry in a bibliography management software can save time later on when one must remember the details of the source listed.
-			Modern bibliography management software such as \textbf{Zotero} (\url{https://www.zotero.org/}) and \textbf{Mendeley} (\url{https://www.mendeley.com/}) usually have the capability to maintain and track sources and said notes with the addition of producing citations and bibliographies as well as files for paper-writing software such as \LaTeX{} (via \BibTeX{} and \BibLaTeX{}).
+			Modern bibliography management software such as \textbf{Zotero} (\url{https://www.zotero.org/}) and \textbf{Mendeley} (\url{https://www.mendeley.com/}) usually have the capability to maintain and track sources and said notes with the addition of producing citations and bibliographies as well as files for paper-writing software such as \LaTeX.
 
 		\section*{Identifying Themes, Debates, and Gaps}
 			\textquote[\cite{mccombesLiteratureReviewComplete2019}]{%
@@ -346,18 +344,6 @@
 			% TODO: Procedures
 			An elaborate and chronological description of the procedures to be taken is provided in this section.
 			The proper reasoning for each step taken should be stated, as well as what materials and research instruments are used in each step.
-			\subsection{Subheadings}
-				Subheadings may be used to provide logical divisions of the procedure.
-				On a different note, there are deeper-level headings one might use, such as paragraph and subparagraph, shown here.
-				\paragraph{I am a paragraph}
-					\blindtext
-					\subparagraph{I am a subparagraph}
-						\blindtext
-				\paragraph{Supplementary information}
-					Hyphens are for putting together compound words such as \textit{self-love}, \textit{twenty-one}, and \textit{child-friendly}.
-					En dashes are for less-awkward compounding of words such as \textit{Bruce Lee--style fighting} and \textit{post--World War II paintings}, as well as for denoting ranges such as \textit{April--May}.
-					Em dashes are for slight pauses (stronger than a comma but weaker than a period or semicolon), parenthetical information (such as \enquote{the boy---who loved to play---walked around the park}), emphasis (such as \enquote{there she sits---my missing porcelain doll}), and sudden interruption (such as \enquote{I meant to say I l---}).
-					Through practice, a writer can be effective by using these symbols properly. \autocite{grammarly.comWhatDifferenceDashes2016}.
 
 		\section{Treatment of Data}
 			% TODO: Treatment of Data
@@ -380,7 +366,6 @@
 		Brief descriptions of the results should be provided when clarification is needed.
 
 		\section*{Softening Points}
-			\blindtext
 			\begin{figure}[ht]
 				\centering
 				\definecolor{grrayt}{HTML}{848484}
@@ -449,7 +434,7 @@
 				\end{threeparttable}
 			\end{table}
 			Take advantage of \texttt{siunitx} package like so: \SI{5.67(12)e6}{\ampere}.
-			Take advantage of citations with \BibLaTeX{} like so: The question is posed as to whether or not writing systems influence the associations between phonological awareness, morphological awareness, and reading \autocite[180--183]{ruanDoesWritingSystem2018}.
+			Take advantage of citations with BibLaTeX like so: The question is posed as to whether or not writing systems influence the associations between phonological awareness, morphological awareness, and reading \autocite[180--183]{ruanDoesWritingSystem2018}.
 			More examples are in the \href{http://tug.ctan.org/info/biblatex-cheatsheet/biblatex-cheatsheet.pdf}{\texttt{biblatex-cheatsheet} on CTAN}.
 
 			\vspace{-\baselineskip}
