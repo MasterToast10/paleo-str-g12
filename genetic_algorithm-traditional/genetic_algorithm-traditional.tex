@@ -71,49 +71,43 @@
 
 	\frontmatter
 
-	\makeapprovalsheet{
-		\noindent This research paper has been approved for submission in fulfillment of the requirements in Research \the\level.
+	\unnumchapter*{APPROVAL SHEET}
+		\makeapprovalsheet{
+			\signatureline{Conrado C. Rotor, \NoCaseChange{Jr., Ph.D.}}{Chair}
 
-		{\centering
-			\signatureline{Jay Jay F. Manuel} {Research Teacher}
-		}
+			\signatureline{Melba C. Patacsil}{Co-chair}
 
-		\vspace{3\baselineskip}
+			\vspace*{\baselineskip}
 
-		\noindent This is to certify that the research paper has been accepted.
-
-		{\centering
 			\begin{multicols}{2}
-				\signatureline{Marites P. Rivera} {Panel Member}
-				\columnbreak
-				\signatureline{Freda M. Wong} {Panel Member}
+				\begin{center}
+					\signatureline{Jay Jay F. Manuel}{Member}
+					\signatureline{Ricarido M. Saturay, \NoCaseChange{Jr.}}{Member}
+
+					\columnbreak
+
+					\signatureline{Marites P. Rivera}{Member}
+					\signatureline{Freda M. Wong}{Member}
+				\end{center}
 			\end{multicols}
-
-			\signatureline{Ricarido M. Saturay, \NoCaseChange{Jr.}} {Panel Member}
-
-			\vfill
-
-			\signatureline{Melba C. Patacsil} {CID Chief}
-
-			\signatureline{Conrado C. Rotor, \NoCaseChange{Jr., Ph.D.}} {Campus Director}
 		}
-	}
 
-	\makeacknowledgement{
+	\unnumchapter*{ACKNOWLEDGEMENT}
 		We are grateful for our friends and family for their continued support in our continuous lives.
 		We are also thankful to our teachers, research teacher, and research adviser for their unwavering assistance in having the research completed.
 		Without these people, this research would never be successful.
-	}
 
-	% TODO: Abstract
-	% Do note that abstracts should not contain references.
-	\makeabstract{
-		According to \textcite{georgemasonuniversityWritingAbstract2020}, \blockquote{An abstract is a 150- to 250-word paragraph that provides readers with a quick overview of your essay or report and its organization. It should express your thesis (or central idea) and your key points; it should also suggest any implications or applications of the research you discuss in the paper.}
-		\textcite{georgemasonuniversityWritingAbstract2020} also states that the common abstract is divided into such: 25\% of space on the purpose and importance of the research (Introduction), 25\% of space on what was done (Methods), 35\% of space on what was found (Results), and 15\% of space on the implications of the research.
-	}
+	\unnumchapter{ABSTRACT}
+		% TODO: Abstract
+		% Do note that abstracts should not contain references.
+		\makeabstract{
+			According to \textcite{georgemasonuniversityWritingAbstract2020}, \blockquote{An abstract is a 150- to 250-word paragraph that provides readers with a quick overview of your essay or report and its organization. It should express your thesis (or central idea) and your key points; it should also suggest any implications or applications of the research you discuss in the paper.}
+			\textcite{georgemasonuniversityWritingAbstract2020} also states that the common abstract is divided into such: 25\% of space on the purpose and importance of the research (Introduction), 25\% of space on what was done (Methods), 35\% of space on what was found (Results), and 15\% of space on the implications of the research.
+		}
 
-	\contents
-	\listoflistings
+	\unnumchapter*{Table of Contents}
+		\contents
+		\listoflistings
 
 	\mainmatter
 
@@ -135,7 +129,7 @@
 			The sus is used in evaluating the usability of a system.
 			Sus is the full form of the sus.
 
-			This paragraph is a demonstration of the features of the scientific name support via \texttt{glossaries}. 
+			This paragraph is a demonstration of the features of the scientific name support via \texttt{glossaries}.
 			Note that sentences beginning with scientific names should have the scientific names in full.
 
 		\section{Objectives of the Study}
