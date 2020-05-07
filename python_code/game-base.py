@@ -1,5 +1,7 @@
 from engine import Game
 from math import prod
+from collections import deque
+from copy import deepcopy
 
 
 GAME_ROTATIONS = (
@@ -67,8 +69,44 @@ def find_base_case(game: Game):
     return base_case
 
 
-if __name__ == "__main__":
-    game_base = []
+game_base = []
 
-    temp = Game([1, 0, 0, 1, 0, 0, 2, 2, 0])
-    print(find_base_case(temp))
+
+def add_to_game_base(game: Game):
+    base_case = find_base_case(game)
+
+    if base_case not in game_base:
+        game_base.append(base_case)
+
+if __name__ == "__main__":
+    inspect_queue = deque([Game()])
+
+    while len(inspect_queue):
+        game = inspect_queue.popleft()
+
+        empty_tiles = tuple(i for i in range(9) if not game.tiles[i])
+
+        add_to_game_base(game)
+
+        for tile in empty_tiles:
+            game_copy = deepcopy(game)
+            if not game.winner:
+                game_copy.set_tile(tile)
+                inspect_queue.append(game_copy)
+
+    num_unique_cases = 0
+    file = open("python_code/game-base.txt", "w")
+    for unique_case in game_base:
+        num_unique_cases += 1
+        for tile in unique_case.tiles:
+            file.write(tile, end="")
+        file.write("\n")
+    file.close()
+
+    with open("python_code/game-base.txt", 'r+') as file:
+        content = file.read()
+        file.seek(0, 0)
+        file.write(f"Unique_Cases: {num_unique_cases}".rstrip(
+            '\r\n') + '\n' + content)
+
+    print(f"Unique Cases: {num_unique_cases}")
