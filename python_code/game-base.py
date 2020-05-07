@@ -1,4 +1,5 @@
-import logging, subprocess
+import logging
+import subprocess
 
 
 from engine import Game
@@ -78,16 +79,18 @@ def in_game_base(base_case: Game):
     with open("python_code/game-base.txt", "r") as file:
         for line in file:
             if line == stringified:
-                logging.debug(f"{game.tiles} generic BASE_CASE={base_case.tiles}")
+                logging.debug(
+                    f"{game.tiles} generic BASE_CASE={base_case.tiles}")
                 return True
-    
+
     logging.debug(f"{game.tiles} unique BASE_CASE={base_case.tiles}")
     return False
+
 
 def add_to_game_base(game: Game):
     logging.basicConfig(filename="it.log", filemode="w", level=logging.DEBUG)
     base_case = find_base_case(game)
-    
+
     with open("python_code/game-base.txt", "a") as file:
         if not in_game_base(base_case):
             file.write(f"{' '.join(f'{tile}' for tile in base_case.tiles)}\n")
@@ -106,7 +109,8 @@ if __name__ == "__main__":
 
         # print(game)
         add_to_game_base(game)
-        num_unique_cases = int(subprocess.check_output("/usr/bin/wc -l python_code/game-base.txt", shell=True).split()[0])
+        num_unique_cases = int(subprocess.check_output(
+            "/usr/bin/wc -l python_code/game-base.txt", shell=True).split()[0])
 
         for tile in empty_tiles:
             game_copy = deepcopy(game)
