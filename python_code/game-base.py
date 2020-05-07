@@ -1,3 +1,6 @@
+import logging
+
+
 from engine import Game
 from math import prod
 from collections import deque
@@ -73,10 +76,15 @@ game_base = []
 
 
 def add_to_game_base(game: Game):
+    logging.basicConfig(filename="it.log", filemode="w", level=logging.DEBUG)
     base_case = find_base_case(game)
+    
+    if base_case.tiles not in game_base:
+        game_base.append(base_case.tiles)
+        logging.debug(f"{game.tiles} unique")
+    else:
+        logging.debug(f"{game.tiles} generic")
 
-    if base_case not in game_base:
-        game_base.append(base_case)
 
 if __name__ == "__main__":
     inspect_queue = deque([Game()])
@@ -86,6 +94,7 @@ if __name__ == "__main__":
 
         empty_tiles = tuple(i for i in range(9) if not game.tiles[i])
 
+        # print(game)
         add_to_game_base(game)
 
         for tile in empty_tiles:
