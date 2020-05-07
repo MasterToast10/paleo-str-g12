@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 STATE_CONVERT = {
     0: "~",
     1: "X",
@@ -23,10 +26,20 @@ WIN_CONDITIONS = (
 
 
 class Game:
-    def __init__(self):
-        self.tiles = [0]*9
+    def __init__(self, tiles=[0]*9):
+        if len(tiles) < 9:
+            raise Exception("Game is invalid")
+        self.tiles = tiles
         self.winner = 0
-        self.current_player = 1
+        tile_counter = Counter(tiles)
+        tile_counter.update({1:0, 2:0})
+        if tile_counter[1] == tile_counter[2]:
+            self.current_player = 1
+        elif tile_counter[1] > tile_counter[2]:
+            self.current_player = 2
+        else:
+            raise Exception("Game is invalid")
+        
         self.check_win()
 
     def check_win(self):
@@ -49,7 +62,7 @@ class Game:
 
     def __str__(self):
         if self.winner:
-        ret_cache = [f"Winner: {STATE_CONVERT[self.winner]}\n"]
+            ret_cache = [f"Winner: {STATE_CONVERT[self.winner]}\n"]
         else:
             ret_cache = [f"Current Player: {STATE_CONVERT[self.current_player]}\n"]
         for i in range(3):
