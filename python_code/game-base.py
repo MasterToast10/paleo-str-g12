@@ -83,7 +83,7 @@ def add_to_game_base(game: Game):
         game_base.append(base_case.tiles)
         logging.debug(f"{game.tiles} unique")
     else:
-        logging.debug(f"{game.tiles} generic BASE_CASE={base_case}")
+        logging.debug(f"{game.tiles} generic BASE_CASE={base_case.tiles}")
 
 
 if __name__ == "__main__":
