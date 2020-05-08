@@ -78,7 +78,7 @@ class Game:
 
 class GameController:
     def __init__(self, x_player, o_player, verbose=True):
-        self.current_game = Game()
+        self.current_game = deepcopy(Game())
         self.x_player = x_player
         self.o_player = o_player
         self.verbose = verbose
