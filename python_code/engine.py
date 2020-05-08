@@ -60,6 +60,9 @@ class Game:
         self.check_win()
         self.current_player = INVERT_PLAYER[self.current_player]
 
+    def __repr__(self):
+        return f"{' '.join(f'{tile}' for tile in self.tiles)}"
+
     def __str__(self):
         if self.winner:
             ret_cache = [f"Winner: {STATE_CONVERT[self.winner]}\n"]
