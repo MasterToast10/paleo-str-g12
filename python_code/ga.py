@@ -1,10 +1,12 @@
-from random import choice as random_choice
+from random import choice as random_choice, sample as random_sample
+from linecache import getline as file_getline
 from engine import MoveGenerator, Game, GameController
 from game_base import GAME_ROTATIONS, find_base_case
+from rmg import RandomMoveGenerator
 
 
 class Organism(MoveGenerator):
-    def __init__(self, player_number: int, genome: str = None):
+    def __init__(self, player_number: int = 1, genome: str = None):
         self.PLAYER_NUMBER = player_number
         self.fitness = None
 
@@ -51,7 +53,16 @@ class Organism(MoveGenerator):
                                 if base_case_index == base_case_move:
                                     return index
 
-    def mutate(self):
+    def mutate(self, num_to_mutate: int):
+        positions = random_sample(range(1, 766), num_to_mutate)
+        for position in positions:
+            game = Game([int(x) for x in file_getline(
+                "python_code/game-base.txt", position).split()])
+            print(game)
+            if not game.winner:
+                self.genome = f"{self.genome[:position-1]}{random_choice(tuple(i for i in range(9) if not game.tiles[i]))}{self.genome[position:]}"
+            else:
+                self.mutate(1)
         self.fitness = None
 
     def get_fitness(self):
@@ -66,4 +77,10 @@ class Organism(MoveGenerator):
 
 
 if __name__ == "__main__":
-    GameController(MoveGenerator(1), Organism(2), verbose=True).start()
+    for i in range(10000):
+        organ = Organism()
+        print(organ)
+        organ.mutate(5)
+        print(organ)
+        boi = GameController(RandomMoveGenerator(1), organ, verbose=True)
+        boi.start()
