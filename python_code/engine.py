@@ -1,4 +1,5 @@
 from collections import Counter
+from copy import deepcopy
 
 
 STATE_CONVERT = {
@@ -90,15 +91,16 @@ class GameController:
             print(current_game)
         while not current_game.winner:
             if current_game.current_player == 1:
-                x_move = self.x_player.move(current_game)
+                x_move = self.x_player.move(deepcopy(current_game))
                 current_game.set_tile(x_move)
                 if verbose:
                     print(current_game)  # end="")
             else:
-                o_move = self.o_player.move(current_game)
+                o_move = self.o_player.move(deepcopy(current_game))
                 current_game.set_tile(o_move)
                 if verbose:
                     print(current_game)  # end="")
+            current_game.check_win()
 
         return self.current_game.winner
 
