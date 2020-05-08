@@ -120,10 +120,4 @@ if __name__ == "__main__":
 
         logging.info(f"Unique_Cases: {num_unique_cases}")
 
-    with open("python_code/game-base.txt", 'r+') as file:
-        content = file.read()
-        file.seek(0, 0)
-        file.write(f"Unique_Cases: {num_unique_cases}".rstrip(
-            '\r\n') + '\n' + content)
-
     print(f"Unique Cases: {num_unique_cases}")
