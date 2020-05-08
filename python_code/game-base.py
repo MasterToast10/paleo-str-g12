@@ -74,7 +74,7 @@ def find_base_case(game: Game):
 
 
 def in_game_base(base_case: Game):
-    stringified = f"{' '.join(f'{tile}' for tile in base_case.tiles)}\n"
+    stringified = f"{repr(base_case)}\n"
 
     with open("python_code/game-base.txt", "r") as file:
         for line in file:
@@ -93,7 +93,7 @@ def add_to_game_base(game: Game):
 
     with open("python_code/game-base.txt", "a") as file:
         if not in_game_base(base_case):
-            file.write(f"{' '.join(f'{tile}' for tile in base_case.tiles)}\n")
+            file.write(f"{repr(base_case)}\n")
 
 
 if __name__ == "__main__":
