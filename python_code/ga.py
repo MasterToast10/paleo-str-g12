@@ -3,8 +3,6 @@ from linecache import getline as file_getline
 from engine import MoveGenerator, Game, GameController
 from game_base import GAME_ROTATIONS, find_base_case
 from rmg import RandomMoveGenerator
-from collections import deque
-from copy import deepcopy
 
 
 class Organism(MoveGenerator):
@@ -66,72 +64,12 @@ class Organism(MoveGenerator):
             else:
                 self.mutate(1)
         self.fitness = None
-        self.get_fitness()
 
     def get_fitness(self):
         if self.fitness is not None:
             return self.fitness
         else:
-            # TODO: Evaluate as first player
-            self.win_x = 0
-            self.draw_x = 0
-            self.loss_x = 0
-
-            empty_game = deepcopy(Game())
-            empty_game.set_tile(self.move(empty_game))
-            anal_queue = deque([empty_game])
-
-            while len(anal_queue):
-                to_analyze = anal_queue.popleft()
-
-                if to_analyze.winner:
-                    if to_analyze.winner == 1:
-                        self.win_x += 1
-                    elif to_analyze.winner == 2:
-                        self.loss_x += 1
-                    else:
-                        self.draw_x += 1
-                else:
-                    for empty_tile in (i for i in range(9) if not to_analyze.tiles[i]):
-                        to_analyze_clone = deepcopy(to_analyze)
-                        to_analyze_clone.set_tile(empty_tile)
-                        if not to_analyze_clone.winner:
-                            to_analyze_clone.set_tile(self.move(to_analyze_clone))
-                        anal_queue.append(to_analyze_clone)
-            
-            # TODO: Evaluate as second player
-            self.win_o = 0
-            self.draw_o = 0
-            self.loss_o = 0
-
-            empty_game = deepcopy(Game())
-            anal_queue = deque()
-            for empty_tile in (i for i in range(9) if not empty_game.tiles[i]):
-                empty_game_clone = deepcopy(empty_game)
-                empty_game_clone.set_tile(empty_tile)
-                empty_game_clone.set_tile(self.move(empty_game_clone))
-                anal_queue.append(empty_game_clone)
-
-            while len(anal_queue):
-                to_analyze = anal_queue.popleft()
-
-                if to_analyze.winner:
-                    if to_analyze.winner == 1:
-                        self.win_o += 1
-                    elif to_analyze.winner == 2:
-                        self.loss_o += 1
-                    else:
-                        self.draw_o += 1
-                else:
-                    for empty_tile in (i for i in range(9) if not to_analyze.tiles[i]):
-                        to_analyze_clone = deepcopy(to_analyze)
-                        to_analyze_clone.set_tile(empty_tile)
-                        if not to_analyze_clone.winner:
-                            to_analyze_clone.set_tile(self.move(to_analyze_clone))
-                        anal_queue.append(to_analyze_clone)
-
-            self.fitness = (self.loss_x + self.loss_o) / (self.win_x + self.draw_x + self.loss_x + self.win_o + self.draw_o + self.loss_o)
-
+            # TODO: fitness function
             return self.fitness
 
     def __repr__(self):
@@ -139,13 +77,10 @@ class Organism(MoveGenerator):
 
 
 if __name__ == "__main__":
-    # for i in range(10000):
-    #     organ = Organism()
-    #     print(organ)
-    #     organ.mutate(5)
-    #     print(organ)
-    #     boi = GameController(RandomMoveGenerator(1), organ, verbose=True)
-    #     boi.start()
-    organ = Organism()
-    for i in range(50):
-        print(organ.get_fitness())
+    for i in range(10000):
+        organ = Organism()
+        print(organ)
+        organ.mutate(5)
+        print(organ)
+        boi = GameController(RandomMoveGenerator(1), organ, verbose=True)
+        boi.start()
