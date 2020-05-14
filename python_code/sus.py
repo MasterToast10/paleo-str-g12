@@ -5,14 +5,32 @@ import random
 
 
 from ga import Organism
+from collections import Counter
+
+
+def get_m(population):
+    same_counter = Counter(p.get_fitness() for p in population)
+    num_similar_fitness = 0
+    for _, count in same_counter.items():
+        if count > 1:
+            num_similar_fitness += count
+    return num_similar_fitness
+
+
+def fitness(organism: Organism, m: int):
+    if m == 0:
+        return 1 - organism.get_fitness()
+    else:
+        return (1/m)*(1 - organism.get_fitness())
 
 
 def make_wheel(population):
     wheel = []
-    total = sum(p.get_fitness() for p in population)
+    num_similar_fitness = get_m(population)
+    total = sum(fitness(p, num_similar_fitness) for p in population)
     top = 0
     for p in population:
-        f = p.get_fitness()/total
+        f = fitness(p, num_similar_fitness)/total
         wheel.append((top, top+f, p))
         top += f
     return wheel
