@@ -8,8 +8,7 @@ from copy import deepcopy
 
 
 class Organism(MoveGenerator):
-    def __init__(self, genome: str = None, player_number: int = 1):
-        self.PLAYER_NUMBER = player_number
+    def __init__(self, genome: str = None):
         self.fitness = None
 
         if genome is None:
