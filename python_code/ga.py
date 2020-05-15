@@ -8,8 +8,7 @@ from copy import deepcopy
 
 
 class Organism(MoveGenerator):
-    def __init__(self, player_number: int = 1, genome: str = None):
-        self.PLAYER_NUMBER = player_number
+    def __init__(self, genome: str = None):
         self.fitness = None
 
         if genome is None:
@@ -96,9 +95,10 @@ class Organism(MoveGenerator):
                         to_analyze_clone = deepcopy(to_analyze)
                         to_analyze_clone.set_tile(empty_tile)
                         if not to_analyze_clone.winner:
-                            to_analyze_clone.set_tile(self.move(to_analyze_clone))
+                            to_analyze_clone.set_tile(
+                                self.move(to_analyze_clone))
                         anal_queue.append(to_analyze_clone)
-            
+
             # TODO: Evaluate as second player
             self.win_o = 0
             self.draw_o = 0
@@ -127,15 +127,49 @@ class Organism(MoveGenerator):
                         to_analyze_clone = deepcopy(to_analyze)
                         to_analyze_clone.set_tile(empty_tile)
                         if not to_analyze_clone.winner:
-                            to_analyze_clone.set_tile(self.move(to_analyze_clone))
+                            to_analyze_clone.set_tile(
+                                self.move(to_analyze_clone))
                         anal_queue.append(to_analyze_clone)
 
-            self.fitness = (self.loss_x + self.loss_o) / (self.win_x + self.draw_x + self.loss_x + self.win_o + self.draw_o + self.loss_o)
+            self.fitness = (self.loss_x + self.loss_o) / (self.win_x +
+                                                          self.draw_x + self.loss_x + self.win_o + self.draw_o + self.loss_o)
 
             return self.fitness
 
     def __repr__(self):
         return f"Organism <{self.genome}>"
+
+
+def crossover(parent1: Organism, parent2: Organism):
+    cross_sites = sorted(random_sample(range(1, 766), 50))
+    pre_cross_sites = deque(cross_sites)
+    pre_cross_sites.appendleft(None)
+    post_cross_sites = deque(cross_sites)
+    post_cross_sites.append(None)
+    parent1_genome = parent1.genome
+    parent2_genome = parent2.genome
+    offspring1_genome = []
+    offspring2_genome = []
+    alternator = True
+    for pre, post in zip(pre_cross_sites, post_cross_sites):
+        if alternator:
+            offspring1_genome.extend(parent1_genome[pre:post])
+            offspring2_genome.extend(parent2_genome[pre:post])
+            alternator = False
+        else:
+            offspring1_genome.extend(parent2_genome[pre:post])
+            offspring2_genome.extend(parent1_genome[pre:post])
+            alternator = True
+    return Organism("".join(offspring1_genome)), Organism("".join(offspring2_genome))
+
+
+def population_after_mating(mating_pool):
+    rotated = deque(mating_pool)
+    rotated.rotate(-1)
+    ret_list = []
+    for parent_pair in zip(mating_pool, rotated):
+        ret_list.extend(crossover(*parent_pair))
+    return ret_list
 
 
 if __name__ == "__main__":
@@ -146,6 +180,12 @@ if __name__ == "__main__":
     #     print(organ)
     #     boi = GameController(RandomMoveGenerator(1), organ, verbose=True)
     #     boi.start()
-    organ = Organism()
-    for i in range(50):
-        print(organ.get_fitness())
+    # organ = Organism()
+    # for i in range(50):
+    #     print(organ.get_fitness())
+    parents = [Organism(), Organism()]
+    for org in parents:
+        print(org.genome)
+    print()
+    for org in population_after_mating(parents):
+        print(org.genome)
