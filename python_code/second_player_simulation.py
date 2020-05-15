@@ -35,9 +35,9 @@ class NewOrganism(Organism):
                 to_analyze = anal_queue.popleft()
 
                 if to_analyze.winner:
-                    if to_analyze.winner == 1:
+                    if to_analyze.winner == 2:
                         self.win_o += 1
-                    elif to_analyze.winner == 2:
+                    elif to_analyze.winner == 1:
                         self.loss_o += 1
                     else:
                         self.draw_o += 1
