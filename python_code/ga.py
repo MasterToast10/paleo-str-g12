@@ -72,7 +72,6 @@ class Organism(MoveGenerator):
         if self.fitness is not None:
             return self.fitness
         else:
-            # TODO: Evaluate as first player
             self.win_x = 0
             self.draw_x = 0
             self.loss_x = 0
@@ -99,38 +98,6 @@ class Organism(MoveGenerator):
                             to_analyze_clone.set_tile(
                                 self.move(to_analyze_clone))
                         anal_queue.append(to_analyze_clone)
-
-            # TODO: Evaluate as second player
-            # self.win_o = 0
-            # self.draw_o = 0
-            # self.loss_o = 0
-
-            # empty_game = deepcopy(Game())
-            # anal_queue = deque()
-            # for empty_tile in (i for i in range(9) if not empty_game.tiles[i]):
-            #     empty_game_clone = deepcopy(empty_game)
-            #     empty_game_clone.set_tile(empty_tile)
-            #     empty_game_clone.set_tile(self.move(empty_game_clone))
-            #     anal_queue.append(empty_game_clone)
-
-            # while len(anal_queue):
-            #     to_analyze = anal_queue.popleft()
-
-            #     if to_analyze.winner:
-            #         if to_analyze.winner == 1:
-            #             self.win_o += 1
-            #         elif to_analyze.winner == 2:
-            #             self.loss_o += 1
-            #         else:
-            #             self.draw_o += 1
-            #     else:
-            #         for empty_tile in (i for i in range(9) if not to_analyze.tiles[i]):
-            #             to_analyze_clone = deepcopy(to_analyze)
-            #             to_analyze_clone.set_tile(empty_tile)
-            #             if not to_analyze_clone.winner:
-            #                 to_analyze_clone.set_tile(
-            #                     self.move(to_analyze_clone))
-            #             anal_queue.append(to_analyze_clone)
 
             self.fitness = (self.loss_x) / (self.win_x +
                                             self.draw_x + self.loss_x)
