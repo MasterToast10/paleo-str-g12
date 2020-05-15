@@ -5,8 +5,10 @@ from game_base import GAME_ROTATIONS, find_base_case
 from rmg import RandomMoveGenerator
 from collections import deque
 from copy import deepcopy
+from functools import total_ordering
 
 
+@total_ordering
 class Organism(MoveGenerator):
     def __init__(self, genome: str = None):
         self.fitness = None
@@ -59,7 +61,6 @@ class Organism(MoveGenerator):
         for position in positions:
             game = Game([int(x) for x in file_getline(
                 "python_code/game-base.txt", position).split()])
-            print(game)
             if not game.winner:
                 self.genome = f"{self.genome[:position-1]}{random_choice(tuple(i for i in range(9) if not game.tiles[i]))}{self.genome[position:]}"
             else:
@@ -100,41 +101,47 @@ class Organism(MoveGenerator):
                         anal_queue.append(to_analyze_clone)
 
             # TODO: Evaluate as second player
-            self.win_o = 0
-            self.draw_o = 0
-            self.loss_o = 0
+            # self.win_o = 0
+            # self.draw_o = 0
+            # self.loss_o = 0
 
-            empty_game = deepcopy(Game())
-            anal_queue = deque()
-            for empty_tile in (i for i in range(9) if not empty_game.tiles[i]):
-                empty_game_clone = deepcopy(empty_game)
-                empty_game_clone.set_tile(empty_tile)
-                empty_game_clone.set_tile(self.move(empty_game_clone))
-                anal_queue.append(empty_game_clone)
+            # empty_game = deepcopy(Game())
+            # anal_queue = deque()
+            # for empty_tile in (i for i in range(9) if not empty_game.tiles[i]):
+            #     empty_game_clone = deepcopy(empty_game)
+            #     empty_game_clone.set_tile(empty_tile)
+            #     empty_game_clone.set_tile(self.move(empty_game_clone))
+            #     anal_queue.append(empty_game_clone)
 
-            while len(anal_queue):
-                to_analyze = anal_queue.popleft()
+            # while len(anal_queue):
+            #     to_analyze = anal_queue.popleft()
 
-                if to_analyze.winner:
-                    if to_analyze.winner == 1:
-                        self.win_o += 1
-                    elif to_analyze.winner == 2:
-                        self.loss_o += 1
-                    else:
-                        self.draw_o += 1
-                else:
-                    for empty_tile in (i for i in range(9) if not to_analyze.tiles[i]):
-                        to_analyze_clone = deepcopy(to_analyze)
-                        to_analyze_clone.set_tile(empty_tile)
-                        if not to_analyze_clone.winner:
-                            to_analyze_clone.set_tile(
-                                self.move(to_analyze_clone))
-                        anal_queue.append(to_analyze_clone)
+            #     if to_analyze.winner:
+            #         if to_analyze.winner == 1:
+            #             self.win_o += 1
+            #         elif to_analyze.winner == 2:
+            #             self.loss_o += 1
+            #         else:
+            #             self.draw_o += 1
+            #     else:
+            #         for empty_tile in (i for i in range(9) if not to_analyze.tiles[i]):
+            #             to_analyze_clone = deepcopy(to_analyze)
+            #             to_analyze_clone.set_tile(empty_tile)
+            #             if not to_analyze_clone.winner:
+            #                 to_analyze_clone.set_tile(
+            #                     self.move(to_analyze_clone))
+            #             anal_queue.append(to_analyze_clone)
 
-            self.fitness = (self.loss_x + self.loss_o) / (self.win_x +
-                                                          self.draw_x + self.loss_x + self.win_o + self.draw_o + self.loss_o)
+            self.fitness = (self.loss_x) / (self.win_x +
+                                            self.draw_x + self.loss_x)
 
             return self.fitness
+
+    def __eq__(self, other):
+        return self.get_fitness() == other.get_fitness()
+
+    def __lt__(self, other):
+        return self.get_fitness() < other.get_fitness()
 
     def __repr__(self):
         return f"Organism <{self.genome}>"
@@ -172,6 +179,16 @@ def population_after_mating(mating_pool):
     return ret_list
 
 
+def population_after_mutation(population_to_mutate):
+    probability_of_mutation = min(o.get_fitness()
+                                  for o in population_to_mutate)
+    num_to_mutate = int(250*probability_of_mutation + 10)
+    print(num_to_mutate)
+    for organism in population_to_mutate:
+        organism.mutate(num_to_mutate)
+    return population_to_mutate
+
+
 if __name__ == "__main__":
     # for i in range(10000):
     #     organ = Organism()
@@ -186,6 +203,10 @@ if __name__ == "__main__":
     parents = [Organism(), Organism()]
     for org in parents:
         print(org.genome)
-    print()
-    for org in population_after_mating(parents):
-        print(org.genome)
+        print(org.get_fitness())
+    # print()
+    # for org in population_after_mating(parents):
+    #     print(org.genome)
+    for mutated in population_after_mutation(parents):
+        print(mutated.genome)
+        print(mutated.get_fitness())
