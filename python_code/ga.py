@@ -5,8 +5,10 @@ from game_base import GAME_ROTATIONS, find_base_case
 from rmg import RandomMoveGenerator
 from collections import deque
 from copy import deepcopy
+from functools import total_ordering
 
 
+@total_ordering
 class Organism(MoveGenerator):
     def __init__(self, genome: str = None):
         self.fitness = None
@@ -134,6 +136,12 @@ class Organism(MoveGenerator):
                                             self.draw_x + self.loss_x)
 
             return self.fitness
+
+    def __eq__(self, other):
+        return self.get_fitness() == other.get_fitness()
+
+    def __lt__(self, other):
+        return self.get_fitness() < other.get_fitness()
 
     def __repr__(self):
         return f"Organism <{self.genome}>"
