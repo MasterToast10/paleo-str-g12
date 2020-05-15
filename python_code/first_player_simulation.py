@@ -20,7 +20,8 @@ def simulate(population_size: int, num_generations: int, folder_name="test"):
 
     for generation_number in range(1, num_generations + 1):
         found_no_loss = False
-        after_mating = population_after_mating(population)
+        to_mate = select(make_wheel(population), population_size // 2)
+        after_mating = population_after_mating(to_mate)
         after_mutation = population_after_mutation(after_mating)
         population = next_generation(
             population, after_mating, after_mutation, population_size)
