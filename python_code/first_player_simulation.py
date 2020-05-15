@@ -19,6 +19,7 @@ def simulate(population_size: int, num_generations: int, folder_name="test"):
         population.append(Organism())
 
     for generation_number in range(1, num_generations + 1):
+        found_no_loss = False
         after_mating = population_after_mating(population)
         after_mutation = population_after_mutation(after_mating)
         population = next_generation(
@@ -26,8 +27,12 @@ def simulate(population_size: int, num_generations: int, folder_name="test"):
         with open(f"sim/x/{folder_name}/{generation_number}.csv", "w") as file:
             file.write("Genome, Fitness, Wins (X), Losses (X), Draws (X)\n")
             for organism in population:
+                if organism.get_fitness() == 0:
+                    found_no_loss = True
                 file.write(
                     f"{organism.genome}, {organism.get_fitness()}, {organism.win_x}, {organism.loss_x}, {organism.draw_x}\n")
+        if found_no_loss:
+            return population
 
     return population
 
