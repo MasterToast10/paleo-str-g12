@@ -59,7 +59,6 @@ class Organism(MoveGenerator):
         for position in positions:
             game = Game([int(x) for x in file_getline(
                 "python_code/game-base.txt", position).split()])
-            print(game)
             if not game.winner:
                 self.genome = f"{self.genome[:position-1]}{random_choice(tuple(i for i in range(9) if not game.tiles[i]))}{self.genome[position:]}"
             else:
