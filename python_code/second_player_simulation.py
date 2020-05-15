@@ -106,7 +106,6 @@ def simulate(population_size: int, num_generations: int, folder_name="test"):
         with open(f"sim/o/{folder_name}/{generation_number}.csv", "w") as file:
             file.write("Genome, Fitness, Wins (O), Losses (O), Draws (O)\n")
             for organism in population:
-                print(organism.get_fitness())
                 file.write(
                     f"{organism.genome}, {organism.get_fitness()}, {organism.win_o}, {organism.loss_o}, {organism.draw_o}\n")
 
