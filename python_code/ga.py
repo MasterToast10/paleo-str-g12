@@ -171,6 +171,16 @@ def population_after_mating(mating_pool):
     return ret_list
 
 
+def population_after_mutation(population_to_mutate):
+    probability_of_mutation = min(o.get_fitness()
+                                  for o in population_to_mutate)
+    num_to_mutate = int(250*probability_of_mutation + 10)
+    print(num_to_mutate)
+    for organism in population_to_mutate:
+        organism.mutate(num_to_mutate)
+    return population_to_mutate
+
+
 if __name__ == "__main__":
     # for i in range(10000):
     #     organ = Organism()
@@ -185,6 +195,10 @@ if __name__ == "__main__":
     parents = [Organism(), Organism()]
     for org in parents:
         print(org.genome)
-    print()
-    for org in population_after_mating(parents):
-        print(org.genome)
+        print(org.get_fitness())
+    # print()
+    # for org in population_after_mating(parents):
+    #     print(org.genome)
+    for mutated in population_after_mutation(parents):
+        print(mutated.genome)
+        print(mutated.get_fitness())
