@@ -150,7 +150,6 @@ def population_after_mutation(population_to_mutate):
     probability_of_mutation = min(o.get_fitness()
                                   for o in population_to_mutate)
     num_to_mutate = int(250*probability_of_mutation + 10)
-    print(num_to_mutate)
     for organism in population_to_mutate:
         organism.mutate(num_to_mutate)
     return population_to_mutate
