@@ -13,9 +13,7 @@ def mg_result(organism: Organism, mg: MoveGenerator):
     print(loss_counter, end=" ")
     return loss_counter
 
-
-
-def next_generation(population_before_selection, population_after_mating, population_after_mutation, population_size = 100):
+def next_generation(population_before_selection, population_after_mating, population_after_mutation, population_size=100):
     UMG = UnbeatableMoveGenerator(2)
     combined_list = []
     for organism in population_before_selection:
@@ -27,10 +25,12 @@ def next_generation(population_before_selection, population_after_mating, popula
 
     ret_list = []
     for i in range(1, population_size + 1):
-        j = int(i + (2*population_size) * (((i - 1)*(i - 2))/((population_size - 1)*(population_size - 2))))
+        j = int(i + (2*population_size) * (((i - 1)*(i - 2)) /
+                                           ((population_size - 1)*(population_size - 2))))
         ret_list.append(combined_list[j - 1][1])
     return sorted(ret_list)
 
 
 if __name__ == "__main__":
-    print(next_generation([Organism(), Organism(), Organism()], [Organism(), Organism(), Organism()], [Organism(), Organism(), Organism()], 3))
+    print(next_generation([Organism(), Organism(), Organism()], [
+          Organism(), Organism(), Organism()], [Organism(), Organism(), Organism()], 3))
