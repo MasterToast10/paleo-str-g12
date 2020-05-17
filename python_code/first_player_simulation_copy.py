@@ -40,5 +40,5 @@ def simulate(population_size: int, num_generations: int, folder_name="test"):
 
 
 if __name__ == "__main__":
-    for i in range(1, 16):
+    for i in range(16, 31):
         simulate(100, 500, f"sim_{i}")
