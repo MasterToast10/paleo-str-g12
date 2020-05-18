@@ -53,7 +53,7 @@
 
 \usepackage[calc]{datetime2}
 \makeatletter
-\newcommand{\daymonthyear}{\@dtm@day{} \DTMenglishmonthname{\@dtm@month} \@dtm@year}
+\newcommand{\daymonthyear}{\@dtm@day\ \DTMenglishmonthname{\@dtm@month} \@dtm@year}
 \makeatother
 \date{\daymonthyear}
 
@@ -163,21 +163,38 @@
 
 	\unnumchapter{DEFINITION OF TERMS}
 		% TODO: Definition of Terms
-		% TODO: Define training in the operational sense
-		% Remember to use the operational definition of the terms to clarify the terms you use in this paper that might have multiple meanings
-		\termdef{Banana}{
-			an elongated usually tapering tropical fruit with soft pulpy flesh enclosed in a soft usually yellow rind \autocite{merriam-websterDefinitionBanana}
+		\termdef{\mnk}{
+			a game where there is an $m \times n$ grid where two players alternate turns trying to earn $k$ pieces adjacent to each other horizontally, vertically or diagonally
 		}
-		\termdef{Definition}{
-			something you place here in the Definition of Terms to clarify your paper
-			\extradef operational definition for this section
+		\termdef{Artificial Intelligence (AI)}{
+			program that simulates human actions, can simulate a human player in a game.
 		}
-		\termdef{Fruit}{
-			the usually edible reproductive body of a seed plant\\
-			\textit{especially}: one having a sweet pulp associated with the seed \autocite{merriam-websterDefinitionFruit}
+		\termdef{Allele}{
+			the configuration value of a gene given a unique organism
 		}
-		\termdef{Pig}{
-			a dirty, gluttonous, or repulsive person \autocite{merriam-websterDefinitionPig}
+		\termdef{Genetic Algorithm (GA)}{
+			algorithm that simulates natural selection and biological reproduction to produce solutions to a problem
+		}
+		\termdef{Gene}{
+			representation of a unique and distinct situation in a game given the game rules
+		}
+		\termdef{Genome}{
+			mapping table of genes with corresponding alleles
+		}
+		\termdef{Machine Learning (ML)}{
+			a heuristic where a program learns rather than strictly follow a given instruction
+		}
+		\termdef{Machine Learning (MLM)}{
+			algorithms used in machine learning
+		}
+		\termdef{Organism}{
+			an algorithm represented by a genome
+		}
+		\termdef{Probability Valuation (PV)}{
+			classical probability of a player winning at a given game state
+		}
+		\termdef{\ttt}{
+			\mnk\ configured as 3,3,3
 		}
 
 	\chapter{REVIEW OF RELATED LITERATURE}
