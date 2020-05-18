@@ -310,12 +310,13 @@
 
 	\chapter{MATERIALS AND METHODS}
 		\section{Research Design}
-			% TODO: Research Design
-			\textcite{labareeTypesResearchDesigns2020} states: \textquote[][.]{The function of a research design is to ensure that the evidence obtained enables you to effectively address the research problem logically and as unambiguously as possible}.
-			You may use the article by \textcite{labareeTypesResearchDesigns2020} to figure out which research design will suit your study the best.
-			In this section of the paper, the research design is described, as well as the independent and dependent variables involved.
-			The description of how identified extraneous variables are held constant is also elaborated in the Research Design section.
-			If the study is developmental in nature, the stages of development may be stated in this section.
+			This Developmental Research is composed of two components: Software Development and Data Collection.
+			In Software Development the code for the move generators and genetic algorithms are initialized, and the efficiency of its implementation is optimized.
+			In Data Collection the organisms will be trained for 500 generations, and the fitness data collected will be analyzed using $R$.
+			The independent variable is the elite preservation method.
+			The dependent variable is the number of generations the specific GA takes to find a no-loss solution.
+			Extraneous variables such as the software specifications can be held constant by the use of the same software such as the operating system and the same Python version (3.8.3 64-bit).
+			The study will not be affected by hardware specifications as it concerns the number of generations instead of the time taken on the system.
 
 		\section{Locale of the Study}
 			% TODO: Locale of the Study
@@ -486,12 +487,12 @@
 			\label{tab:task_lists_duration}
 			\begin{tabularx}{\linewidth}{cXcc}
 				\toprule
-				Task & Task Description                                                     & Preceding Tasks & Duration (in days) \\
+				Task & Task Description                                                    & Preceding Tasks & Duration (in days) \\
 				\midrule
 				A    & Development of \ttt\ Game Platform and Implementation of Algorithms & ---             & 30                 \\
-				B    & Testing, Refinement and Optimization of Implemented Programs         & A               & 31                 \\
-				C    & Data Collection                                                      & B               & 60                 \\
-				D    & Data Analysis                                                        & C               & 60                 \\
+				B    & Testing, Refinement and Optimization of Implemented Programs        & A               & 31                 \\
+				C    & Data Collection                                                     & B               & 60                 \\
+				D    & Data Analysis                                                       & C               & 60                 \\
 				\bottomrule
 			\end{tabularx}
 		\end{table}
@@ -570,12 +571,12 @@
 				\label{tab:task_schedule_personnel_assignment}
 				\begin{tabular}{cccccccc}
 					\toprule
-					Task & Task Description                                                                    & Personnel     & Duration (in days) & EST                          & LST                          & ECT                          & LCT                          \\
+					Task & Task Description                                                                   & Personnel     & Duration (in days) & EST                          & LST                          & ECT                          & LCT                          \\
 					\midrule
 					A    & \tworowcell{Development of \ttt\ Game Platform and} {Implementation of Algorithms} & \allpersonnel & 30                 & \threerowdate{NOV}{01}{2019} & \threerowdate{NOV}{30}{2019} & \threerowdate{NOV}{01}{2019} & \threerowdate{NOV}{30}{2019} \\
-					B    & \tworowcell{Testing, Refinement and Optimization} {of Implemented Programs}         & \allpersonnel & 31                 & \threerowdate{DEC}{01}{2019} & \threerowdate{DEC}{31}{2019} & \threerowdate{DEC}{01}{2019} & \threerowdate{DEC}{31}{2019} \\
-					C    & Data Collection                                                                     & \allpersonnel & 60                 & \threerowdate{JAN}{01}{2019} & \threerowdate{FEB}{29}{2019} & \threerowdate{JAN}{01}{2019} & \threerowdate{FEB}{29}{2019} \\
-					D    & Data Analysis                                                                       & \allpersonnel & 61                 & \threerowdate{MAR}{01}{2019} & \threerowdate{APR}{31}{2019} & \threerowdate{MAR}{01}{2019} & \threerowdate{APR}{31}{2019} \\
+					B    & \tworowcell{Testing, Refinement and Optimization} {of Implemented Programs}        & \allpersonnel & 31                 & \threerowdate{DEC}{01}{2019} & \threerowdate{DEC}{31}{2019} & \threerowdate{DEC}{01}{2019} & \threerowdate{DEC}{31}{2019} \\
+					C    & Data Collection                                                                    & \allpersonnel & 60                 & \threerowdate{JAN}{01}{2019} & \threerowdate{FEB}{29}{2019} & \threerowdate{JAN}{01}{2019} & \threerowdate{FEB}{29}{2019} \\
+					D    & Data Analysis                                                                      & \allpersonnel & 61                 & \threerowdate{MAR}{01}{2019} & \threerowdate{APR}{31}{2019} & \threerowdate{MAR}{01}{2019} & \threerowdate{APR}{31}{2019} \\
 					\bottomrule
 				\end{tabular}
 			\end{table} \newpage
@@ -586,11 +587,11 @@
 				\label{tab:material_equipment_sourcing}
 				\begin{tabular}{cccccc}
 					\toprule
-					Protocol                                                                           & Date/s Needed    & Unit & Materials Needed         & Potential Source & Remarks \\
+					Protocol                                                                          & Date/s Needed    & Unit & Materials Needed         & Potential Source & Remarks \\
 					\midrule
 					\tworowcell{Development of \ttt\ Game Platform} {and Implementation of Algorithm} & NOV-01 to 30     & 1    & Laptop with Python       & From Home        & On Hand \\
-					\tworowcell{Testing, Refinement and Optimization} {of Implemented Programs}        & DEC-01 to 31     & 1    & Laptop with Python       & From Home        & On Hand \\
-					Data Collection and Analysis                                                       & JAN-01 to APR-31 & 1    & Laptop with Python and R & From Home        & On Hand \\
+					\tworowcell{Testing, Refinement and Optimization} {of Implemented Programs}       & DEC-01 to 31     & 1    & Laptop with Python       & From Home        & On Hand \\
+					Data Collection and Analysis                                                      & JAN-01 to APR-31 & 1    & Laptop with Python and R & From Home        & On Hand \\
 					\bottomrule
 				\end{tabular}
 			\end{table}
