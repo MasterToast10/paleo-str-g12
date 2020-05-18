@@ -148,20 +148,20 @@
 
 		\section{Significance of the Study}
 			% TODO: Significance of the Study
-			This study will contribute to the body of knowledge in ML.
+			This study contributes to the body of knowledge in ML.
 			Through this study, more can be known about how information gained from one method of AI can be passed on to another mechanism of AI through training.
-			This will shed light on how information from one AI player can be transmitted to an MLM such as GA.
+			This sheds light on how information from one AI player can be transmitted to an MLM such as GA.
 			This, by extension, can improve the comprehension of how machines can learn strategies in games from one with greater skill.
 
 		\section{Scope and Limitations of the Study}
 			% TODO: Scope and Limitations of the Study
-			This study will focus only on \ttt\ and not other games such as Chess or G\=o because it is the simplest game to conduct the research on heuristics, namely the training of the GA under different MGs.
+			This study focuses only on \ttt\ and not other games such as Chess or G\=o because it is the simplest game to conduct the research on heuristics, namely the training of the GA under different MGs.
 			The complexity of the board game is not relevant to the study because the focus of the research is to compare the effectiveness of trained GA organisms given an \mnk.
 			Applying these heuristics on other \mnkpl\ however are beyond the time frame of the research.
-			The study will only develop three GAs.
+			Only three GAs were developed in this study.
 			The first is a Python implementation of the GA in the work of \textcite{bhattSearchNolossStrategies2008}.
 			Using developed AI, the second and third are modified implementations of the same GA.
-			The performance of each GA will be based on how many generations it will take for the GA to find a no-loss first player for \ttt.
+			The performance of each GA is based on how many generations it takes for the GA to find a no-loss first player for \ttt.
 			This basis for comparison of performance, specifically using the skill of an organism as a first player, is due to the fact that Python is known for being slow.
 			In line with this, indices are 0-based in this paper, as they are in Python.
 
@@ -311,30 +311,30 @@
 		\section{Research Design}
 			This Developmental Research is composed of two components: Software Development and Data Collection.
 			In Software Development the code for the move generators and genetic algorithms are initialized, and the efficiency of its implementation is optimized.
-			In Data Collection the organisms will be trained for 500 generations, and the fitness data collected will be analyzed using $R$.
+			In Data Collection the organisms were trained for 500 generations, and the fitness data collected was analyzed using $R$.
 			The independent variable is the elite preservation method.
 			The dependent variable is the number of generations the specific GA takes to find a no-loss solution.
 			Extraneous variables such as the software specifications can be held constant by the use of the same software such as the operating system and the same Python version (3.8.3 64-bit).
-			The study will not be affected by hardware specifications as it concerns the number of generations instead of the time taken on the system.
+			The study was not affected by hardware specifications as it concerns the number of generations instead of the time taken on the system.
 
 		\section{Locale of the Study}
-			The software will be developed and data will be collected mainly at the Philippine Science High School -- Cordillera Administrative Region Campus.
-			The training and data collection will proceed at the aforementioned location on various personal computers.
+			The software was developed and data was collected mainly at the Philippine Science High School -- Cordillera Administrative Region Campus.
+			The training and data collection occurred at the aforementioned location on various personal computers.
 
 		\section{Materials and Research Instruments}
-			The software will be developed with Python 3.8.3 on KDE Neon 5.18 using Visual Studio Code 1.45.1 and hosted on GitHub.
+			The software was developed with Python 3.8.3 on KDE Neon 5.18 using Visual Studio Code 1.45.1 and hosted on GitHub.
 			A link to the repository hosting the software is located in \ref{apx:documentation}.
 			The developmental computer is equipped with 4 GB of Random Access Memory (RAM).
-			Various personal computers will be used to perform the training.
+			Various personal computers were used to perform the training.
 
 		\section{Procedures}
 			\subsection{Software Development}
 				The study aims to compare the performance of the genetic algorithms with different elite preservation methods.
 				The three are: an unmodified Python implementation of the work of \textcite{bhattSearchNolossStrategies2008}, and two with modified elite preservation methods based on MGs.
 				A preliminary for the accomplishment of such task is a game engine for the interaction between trained GA organisms.
-				This will be coded in Python, as application programming interfaces (APIs) for machine learning have already been implemented in Python.
+				This was coded in Python, as application programming interfaces (APIs) for machine learning have already been implemented in Python.
 
-				After the development of a platform for play of \ttt\ between trained organisms, the development of the required MGs will then follow.
+				After the development of a platform for play of \ttt\ between trained organisms, the development of the required MGs followed.
 				The Random Move Generator (RMG) returns one of all possible moves in \ttt\ with equal probability.
 				Another MG is Unbeatable Move Generator (UMG).
 
@@ -344,8 +344,8 @@
 				In line with this, the GA might be able to use said exploit to have better performance.
 
 				\paragraph{Genetic Algorithm}
-					The organisms to be trained will then be implemented in Python as well.
-					The GA will be composed of unique genomes with genes for each possible game state with alleles that correspond to the moves to be taken.
+					The organisms to be trained were implemented in Python as well.
+					The GA was composed of unique genomes with genes for each possible game state with alleles that correspond to the moves to be taken.
 					Following the flow represented in Figure~\ref{fig:genetic}, the operators are adapted from \textcite{bhattSearchNolossStrategies2008}.
 					The only aspect of the GA that differs from the implementation of that in \textcite{bhattSearchNolossStrategies2008} is the organism representation.
 					\subparagraph{Organism Representation}
@@ -406,9 +406,9 @@
 					H_a & : \text{The means are not all equal}
 				\end{align*}
 			\subsection{Analysis of Data}
-				The data will be analyzed through the $R$ with the use of Analysis of Variance (ANOVA) which gives the $p$-value to test the hypotheses at a given confidence interval.
-				The study will utilize $\alpha = 0.10$.
-				Should the alternative hypothesis be true, Tukey Honest Significant Differences (Tukey HSD) will be applied to locate the different mean.
+				The data was analyzed through the $R$ with the use of Analysis of Variance (ANOVA) which gives the $p$-value to test the hypotheses at a given confidence interval.
+				The study utilizes $\alpha = 0.10$.
+				Should the alternative hypothesis be true, Tukey Honest Significant Differences (Tukey HSD) is applied to locate the different mean.
 
 	\chapter{RESULTS AND DISCUSSION}
 		% TODO: Results and Discussion
