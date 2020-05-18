@@ -4,6 +4,9 @@
 \usepackage{csquotes}
 \usepackage[english]{babel}
 
+% For math
+\usepackage{amsmath}
+
 % For better tables
 \usepackage{booktabs}
 \usepackage{threeparttable}
@@ -334,15 +337,15 @@
 			The proper reasoning for each step taken should be stated, as well as what materials and research instruments are used in each step.
 
 		\section{Treatment of Data}
-			% TODO: Treatment of Data
-			\subsection{Statement of Hypotheses} \vspace{-\baselineskip}
+			\subsection{Statement of Hypotheses} \vspace{-2em}
 				\begin{align*}
-					H_0: & ~ \mu = 50 \\
-					H_a: & ~ \mu > 50
+					H_0&: \mu_\mathrm{UMG} = \mu_\mathrm{fitness} = \mu_\mathrm{RMG} \\
+					H_a&: \text{The means are not all equal}
 				\end{align*}
 			\subsection{Analysis of Data}
-				The statistical tools as well as the significance level to be used is mentioned in this portion of the paper.
-				How the statistical tools will be used should also be detailed in this section.
+				The data will be analyzed through the $R$ with the use of ANOVA which gives the $p$-value to test the hypotheses at a given confidence interval.
+				The study will utilize $\alpha = 0.10$.
+				Should the alternative hypothesis be true, Tukey Honest Significant Differences (Tukey HSD) will be applied to locate the different mean.
 
 
 	\chapter{RESULTS AND DISCUSSION}
