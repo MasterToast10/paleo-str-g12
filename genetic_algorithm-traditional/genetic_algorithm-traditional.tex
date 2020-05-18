@@ -328,9 +328,76 @@
 			Various personal computers will be used to perform the training.
 
 		\section{Procedures}
-			% TODO: Procedures
-			An elaborate and chronological description of the procedures to be taken is provided in this section.
-			The proper reasoning for each step taken should be stated, as well as what materials and research instruments are used in each step.
+			\subsection{Software Development}
+				The study aims to compare the performance of the genetic algorithms with different elite preservation methods.
+				The three are: an unmodified Python implementation of the work of \textcite{bhattSearchNolossStrategies2008}, and two with modified elite preservation methods based on MGs.
+				A preliminary for the accomplishment of such task is a game engine for the interaction between trained GA organisms.
+				This will be coded in Python, as application programming interfaces (APIs) for machine learning have already been implemented in Python.
+
+				After the development of a platform for play of \ttt\ between trained organisms, the development of the required MGs will then follow.
+				The Random Move Generator (RMG) returns one of all possible moves in \ttt\ with equal probability.
+				Another MG is Unbeatable Move Generator (UMG).
+
+				UMG is based off of the work of \textcite{barratRobbiebarratUnbeatableTictactoe2019}.
+				It is stated to be unbeatable, however, due to the fact that there are random moves involved in the code, the Move Generator has a small chance of being beat.
+				This makes an ideal opponent for trained organisms, given that the GA will find an exploit eventually.
+				In line with this, the GA might be able to use said exploit to have better performance.
+
+				\paragraph{Genetic Algorithm}
+					The organisms to be trained will then be implemented in Python as well.
+					The GA will be composed of unique genomes with genes for each possible game state with alleles that correspond to the moves to be taken.
+					Following the flow represented in Figure~\ref{fig:genetic}, the operators are adapted from \textcite{bhattSearchNolossStrategies2008}.
+					The only aspect of the GA that differs from the implementation of that in \textcite{bhattSearchNolossStrategies2008} is the organism representation.
+					\subparagraph{Organism Representation}
+						Organisms are represented with genomes, as shown in Figure~\ref{fig:genome}.
+						Each gene in the genome represents a game state that considers rotation and symmetry using an implementation of the game-base used by \textcite{bhattSearchNolossStrategies2008}.
+						These genes have a corresponding allele that represents the move the organism will take.
+						\begin{figure}[htbp]
+							\centering
+							\includegraphics[width=0.75\textwidth]{representation}
+							\caption{Genome of an organism}
+							\label{fig:genome}
+						\end{figure}
+					\subparagraph{Initial Population}
+						For each game state represented by genes in the genome, the organism is given a random possible move for that game state.
+						Any valid move in a given game state is considered in choosing the allele randomly.
+					\subparagraph{Selection Operator}
+						Using a modified implementation of the Stochastic Universal Selection (SUS) Operator by \textcite{panchapakesanStochasticUniversalSampling2014}, the following niched fitness equation was used \autocite{bhattSearchNolossStrategies2008}:
+						\begin{equation*}
+							f_\mathrm{niched}(x_i) = \frac{1}{m} * [1 - f(x_i)]
+						\end{equation*}
+						where $m$ is the number of organisms with the same fitness.
+						In this specific case, half of the population is selected via SUS.
+					\subparagraph{Crossover Operator}
+						Similar to that of \textcite{bhattSearchNolossStrategies2008}, 50 cross-sites are randomly chosen per parent pair which is used to take alternate series of alleles from each parent.
+						This produces two new offspring with alleles from each parent.
+						The mating pool is linear, with parent pairs formed from a mating pool individual and the individual adjacent to it.
+						If the individual is last in the linear mating pool, it is paired with the first individual in the mating pool.
+					\subparagraph{Mutation Operator}
+						Using random reset mutation, $n_m$ genes are mutated based on the best fitness in the population.
+						This basis is formalized by \textcite{bhattSearchNolossStrategies2008} in the following equation:
+						\begin{equation*}
+							n_m = 250 * f_\mathrm{minimum} + 10
+						\end{equation*}
+					\subparagraph{Controlled Elite Preservation}
+						In the control genetic algorithm, the organisms from the population before crossover, the population before mutation, and the population after mutation are sorted by fitness in increasing order.
+						The solutions with sorted index $j - 1$ are chosen:
+						\begin{equation*}
+							j(i) = i + 2N * \frac{(i - 1)(i - 2)}{(N - 1)(N - 2)},~~i = 1, 2, \dots, N
+						\end{equation*}
+					\subparagraph{Modified Controlled Elite Preservation}
+						The following modifications were made to the elite preservation method to produce two other GAs:
+						In UMG-Controlled Elite Preservation, the organisms are sorted by the number of losses of each organism when played against the UMG for 300 games.
+						In RMG-Controlled Elite Preservation, the organisms are sorted by the number of losses of each organism when played against the RMG for 300 games.
+
+			\subsection{Data Collection}
+				In the beginning of the GA the organisms were behaving randomly.
+				The fitness function for the organisms was based on the possible results based on an unpredictable opponent, thus every possible win, loss and draw is computed and plugged into Equation~\ref{eqn:fitness} to retrieve the fitness of an organism.
+				Through natural selection the \enquote{best} organism prevails.
+				When the \enquote{best} organism has zero fitness, the GA stops and snapshots the population for the last time.
+				If no zero-fitness organism is found before 500 generations have passed, the GA stops itself.
+				Using this method, 30 simulations per elite preservation method was run, with 100 organisms per population.
+				The number of generations before a simulation encounters a zero-fitness or no-loss solution is recorded for each simulation.
 
 		\section{Treatment of Data}
 			\subsection{Statement of Hypotheses} \vspace{-2em}
