@@ -323,10 +323,10 @@
 			The training and data collection will proceed at the aforementioned location on various personal computers.
 
 		\section{Materials and Research Instruments}
-			% TODO: Materials and Research Instruments
-			The materials required in the study as well as any instrumentation to be used should be mentioned in the Materials and Research Instruments.
-			The reasoning may involve any past researches or research-based handbooks that are relevant to the study and are published works (as published works tend to be peer-reviewed).
-			An example of a research-based handbook is \textcite{letcherWindEnergyEngineering2017}.
+			The software will be developed with Python 3.8.3 on KDE Neon 5.18 using Visual Studio Code 1.45.1 and hosted on GitHub.
+			A link to the repository hosting the software is located in \ref{apx:documentation}.
+			The developmental computer is equipped with 4 GB of Random Access Memory (RAM).
+			Various personal computers will be used to perform the training.
 
 		\section{Procedures}
 			% TODO: Procedures
@@ -628,27 +628,23 @@
 
 	\chapter{Statistical Tables}
 		% TODO: Statistical Tables
+		\begin{table}[htbp]
+			\centering
+			\caption{ANOVA Table}
+			\label{tab:ANOVA}
+			\begin{tabular}{lllll}
+				\toprule
+				Source            & SS  & DF  & MS        & F       \\
+				\midrule
+				Treatments        & SST & k-1 & SST/(k-1) & MST/MSE \\
+				Error             & SSE & N-k & SSE/(N-k) &         \\
+				Total (corrected) & SS  & N-1 &           &         \\
+				\bottomrule
+			\end{tabular}
+		\end{table}
 
 	\chapter{Documentation} \label{apx:documentation}
 		% TODO: Documentation
-		\begin{figure}[htbp]
-			\centering
-			\subfloat[We]{
-				\includegraphics[width=0.45\linewidth]{../str-templates/sample-resources/graphics/bernard-hermant-IhcSHrZXFs4-unsplash.jpg}
-			} \qquad
-			\subfloat[Are]{
-				\includegraphics[width=0.45\linewidth]{../str-templates/sample-resources/graphics/bernard-hermant-IhcSHrZXFs4-unsplash.jpg}
-			}
-
-			\quad
-
-			\subfloat[Watching]{
-				\includegraphics[width=0.45\linewidth]{../str-templates/sample-resources/graphics/bernard-hermant-IhcSHrZXFs4-unsplash.jpg}
-			} \qquad
-			\subfloat[You]{
-				\includegraphics[width=0.45\linewidth]{../str-templates/sample-resources/graphics/bernard-hermant-IhcSHrZXFs4-unsplash.jpg}
-			}
-			\caption{We are watching}
-			\label{fig:waw}
-		\end{figure}
+		\medskip\bigskip
+		GitHub Repository: \url{https://github.com/MasterToast10/paleo-str-g12}
 \end{document}
