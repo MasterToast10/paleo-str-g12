@@ -199,129 +199,114 @@
 
 	\chapter{REVIEW OF RELATED LITERATURE}
 		% TODO: Review of Related Literature
-		\textcite{mccombesLiteratureReviewComplete2019} lists five (5) important steps in writing an effective literature review: \textbf{Search} for relevant literature, \textbf{evaluate} sources, \textbf{identify} themes, debates and gaps, \textbf{outline} the structure, and \textbf{write} the literature review itself.
+		\section*{Effective Computer Algorithms on \ttt}
+			There have already been precedents in investigating the proper method of winning classic \ttt.
+			Examples such as prioritizing the center or placement of pieces in the opposite cell of the opponent's previous move are frequently cited as techniques to beat the opponent \autocite{aycockHowWinTicTacToe2002}.
+			Multiple discussions gave occurred on how many distinct games one can play in \ttt.
+			\textcite{schaeferHowManyGames2002} argues that the common answer of 9! or 362,880 possible games is misleading for it ignores the symmetrical properties of the game.
+			There are games that have exactly the same pieces placed on the board but are oriented differently in relation to the board.
+			For example, a gametree turned 90\textdegree\ is considered a distinct game state in the 9! calculation.
+			According to \textcite{schaeferHowManyGames2002}, it is of more concern to count game states that end when there are $k$ adjacent pieces.
+			Using this method of counting game states, \textcite{schaeferHowManyGames2002} computed a total number of 765 distinct game states.
 
-		\section*{Searching for Relevant Literature}
-			\textcite{hardyGuidesLiteratureReview2020} provides a proper guide for searching effectively for a literature review.
-			The following ideas are abridged versions of the common search techniques employed when writing an effective literature review.
-			To begin searching, one must perform an analysis of the research topic.
-			This analysis must tackle the main ideas and synonyms, related words and phrases, and concepts and ideas already covered about the research topic.
-			In modern search engines, keywords exist to make searches more efficient such as: \textbf{OR} for synonymous terms, \textbf{AND} for joining words that make up the main ideas, and \textbf{NOT} for exclusion of irrelevant terms \autocite{hardyGuidesLiteratureReview2020}.
+			Numerous studies have been performed on the most effective algorithms for a computer program to win in \ttt.
+			In organizing the results of a computer algorithm, one of the most common methods of organization is the use of a game tree.
+			A game tree is a collection of all possible game states arranged in chronological order.
+			The root node represents the current state, its child node the set possible game states.
+			The edges represent the moves and the terminal nodes represent game states that indicate a completed game.
+			The game tree begins from the root node and branches out into nodes that have their own children \autocite{adamchikGameTrees2009}.
+			A diverse game tree is optimal for exploring the capabilities of the different machine learning methods to be used in the study.
 
-			\textcite{mccombesLiteratureReviewComplete2019} lists the following databases that might aid in the search for related literature:
-			\begin{itemize}
-				\item Google Scholar (\url{https://scholar.google.com/})
-				\item JSTOR (\url{https://www.jstor.org/})
-				\item EBSCO (\url{https://www.ebsco.com/products/research-databases})
-				\item Project Muse for humanities and social sciences (\url{http://muse.jhu.edu/})
-				\item Medline for life sciences and biomedicine (\url{https://www.nlm.nih.gov/bsd/medline.html})
-				\item EconLit for economics (\url{https://www.aeaweb.org/econlit/})
-				\item Inspec for physics, engineering and computer science (\url{https://www.theiet.org/publishing/inspec/})
-			\end{itemize}
-			The importance of a proper abstract is highlighted during the search for related literature, as the abstract of a work will assist future researchers in selecting the work if they find the abstract to be relevant with their own research \autocite{mccombesLiteratureReviewComplete2019}.
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.7\linewidth]{gametree}
+				\caption{Game tree}
+				\label{fig:gametree}
+			\end{figure}
 
-		\section*{Evaluating and Selecting Sources}
-			\textcite{mccombesLiteratureReviewComplete2019} emphasizes the fact that one cannot read and digest every single work written about the research topic, therefore each source should be evaluated to filter out the most relevant sources for the study.
-			\textcite{mccombesLiteratureReviewComplete2019} further writes:\\
-			\enquote{%
-				For each publication, ask yourself:
-				\begin{itemize}
-					\item What question or problem is the author addressing?
-					\item What are the key concepts and how are they defined?
-					\item What are the key theories, models and methods? Does the research use established frameworks or take an innovative approach?
-					\item What are the results and conclusions of the study?
-					\item How does the publication relate to other literature in the field? Does it confirm, add to, or challenge established knowledge?
-					\item How does the publication contribute to your understanding of the topic? What are its key insights and arguments?
-					\item What are the strengths and weaknesses of the research?
-				\end{itemize}
+			A study by \textcite{cranenburghTicTacToe2007} is concerned with the use and implementation of a heuristic known as depth-first search. Depth-first search is a machine learning method that utilizes \textit{backtracking}.
+			When the algorithm encounters a terminal node, it returns to the previous nodes to find other possible nodes, hence the term \textit{backtracking} \autocite{hackerearthDepthFirstSearch2019}.
+			According to \textcite{cranenburghTicTacToe2007}, a higher depth search with more game states, leads to a higher win rate or at least, leads the program to reach a draw better.
 
-				Make sure the sources you use are credible, and make sure you read any landmark studies and major theories in your field of research.
+			Researches that deal with the more complex \ttt\ variant Ultimate/Super \ttt\ seek to find the patterns and implementing these patterns into AI.
+			Analogous to how classic \ttt\ is symmetric, a study by \textcite{georgeGroupActionsWinning2016} specifies the rotational and reflectional symmetry of Ultimate/Super \ttt.
+			A study by \textcite{lifshitzAIApproachesUltimate} deals with the use of a mixture of heuristics and algorithms such as MiniMax (an algorithm that traverses the whole game tree) and ExpectiMax (an algorithm that analyzes the expectations of the opponent's moves).
+			Given a controlled set of parameters, ExpectiMax won against a random algorithm most of the time.
+			When played against MiniMax however, ExpectiMax was more likely to lose.
+			This is in agreement with the aforementioned conclusion that an increased depth produces better results.
+			A caveat for this machine learning method is the drastic duration of time the algorithm requires with each increase in depth.
+			The higher the depth of the depth-first search, the longer the time needed for the algorithm to provide the most optimal move.
 
-				The scope of your review will depend on your topic and discipline: in the sciences you usually only review recent literature, but in the humanities you might take a long historical perspective (for example, to trace how a concept has changed in meaning over time).%
-			}
+		\section*{Machine Learning Methods}
+			Various methods of machine learning have been discovered prior.
+			One of the earliest examples of machine learning methods is Hexapawn formulated by Martin Gardner.
+			The game is composed of a $3 \times 3$ board with two sets of three pawns in a row on opposite sides of the board, and the players move alternately.
+			The game is typically played by a human (who always goes first) and an AI player.
+			A player wins the game by accomplishing one of three goals: move a pawn to the opposite edge, capture all enemy pieces, or leave the enemy with no moves.
+			Because of the small scale of the game and its symmetry, all the possible game states can be represented in 24 cards.
+			Each of these cards contains a move performed by the human player and arrows of different colors representing the possible moves the AI player can take \autocite{ortizMachineLearningHexapawn2017}.
+			The AI player contains a matchbox for each card representing a game state.
+			These matchboxes contain beads that correspond to the possible moves the AI player may make.
+			During play, the beads are chosen at random and the AI player moves according to the bead taken.
+			If the move made by the AI player leads to the loss of the AI, the bead corresponding to the move is taken away.
+			Otherwise, the bead is returned to the matchbox.
+			After 50 games, the AI player is practically unbeatable as game states with high probability of loss is reduced \autocite{gardnerMathematicalGames1958}.
 
-			The need to take notes and keep track of sources is stressed by \textcite{mccombesLiteratureReviewComplete2019} by mentioning plagiarism.
-			Plagiarism is defined by \textcite{merriam-websterDefinitionPlagiarizing} as \enquote{[the act of] steal[ing] and pass[ing] off (the ideas or words of another) as one's own : us[ing] (another's production) without crediting the source}.
-			Such an act is frowned upon in the academic field, and must be avoided as much as possible.
+		\section*{Genetic Algorithm}
+			Living organisms exhibit a level of problems solving that is almost impossible to be recreated by a computer scientist.
+			Even more, the complexity that living organisms show is one that is incredibly enviable to a computer scientist wanting to achieve some problem solving program; problems that computer scientists have spent endless amounts of intellectual effort on have been solved by living organism without any thought, relying on the process of evolution.
 
-			One may use bibliography management software to keep notes and source information that might be valuable later on in paper writing.
-			Notes that are attached to a bibliographic entry in a bibliography management software can save time later on when one must remember the details of the source listed.
-			Modern bibliography management software such as \textbf{Zotero} (\url{https://www.zotero.org/}) and \textbf{Mendeley} (\url{https://www.mendeley.com/}) usually have the capability to maintain and track sources and said notes with the addition of producing citations and bibliographies as well as files for paper-writing software such as \LaTeX.
+			Due to this, many researchers have began emulating the process of evolution on their algorithms, subjecting their own programs to a process of reproduction and natural selection.
+			This method is widely used in the realm of machine learning, since it eliminates a great hurdle in software engineering: programmers need not to specify the individual aspects of each program and the means that actions are carried out.
 
-		\section*{Identifying Themes, Debates, and Gaps}
-			\textquote[\cite{mccombesLiteratureReviewComplete2019}]{%
-				To begin organizing your literature review’s argument and structure, you need to understand the connections and relationships between the sources you’ve read. Based on your reading and notes, you can look for:
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.7\linewidth]{genetic}
+				\caption{Flowchart of GA training}
+				\label{fig:genetic}
+			\end{figure}
 
-				\begin{itemize}
-					\item Trends and patterns (in theory, method or results): do certain approaches become more or less popular over time?
-					\item Themes: what questions or concepts recur across the literature?
-					\item Debates, conflicts and contradictions: where do sources disagree?
-					\item Pivotal publications: are there any influential theories or studies that changed the direction of the field?
-					\item Gaps: what is missing from the literature? Are there weaknesses that need to be addressed?
-				\end{itemize}
+			There are two aspects of the evolution process that computer scientists want to emulate: natural selection and reproduction. "Natural selection" is the process of choosing which solutions survive to make a new generation of algorithms, the survivors govern the characteristics of next generation. Reproduction is the recombination of genes from parent to offspring, making the "child" algorithm of an organism have similar characteristics to their two parent algorithms.
 
-				This step will help you work out the structure of your literature review and (if applicable) show how your own research will contribute to existing knowledge.%
-			}
+			Programming natural selection is done by giving an algorithm a test of fitness, going through numerous iterations, then giving a fitness score based on that performance \autocite{hochmuthGeneticEvolutionPerfect2003}.
+			Fitness scores are usually calculated based on the ratio of games won, as shown in Figure \ref{fig:fitness}.
+			The higher the fitness score, the higher the changes of winning with the solution or the move done in the game.
+			Algorithms with low fitness scores are discarded and those with high fitness scores move on to reproduction.
+			\begin{figure}[tbp]
+				\centering
+				\begin{equation*}
+					f(x_i) = \sum n_{wins}
+				\end{equation*}
+				\caption{Formula for the fitness score of algorithm $x$ where $n_\mathrm{wins}$ is the number of games won}
+				\label{fig:fitness}
+			\end{figure}
+			The emulation of reproduction is far more complicated.
+			Originally, it was based on random mutation of the algorithms, however this oftentimes produces algorithms that would not run, or are drastically different from the intended purpose of the program.
+			Later development focuses on adding together characteristics from the two parents.
+			This was also limited since this could only be done to characteristics that could be added meaningfully \autocite{hollandGeneticAlgorithms}.
 
-		\section*{Outlining the Structure of the Literature Review}
-			There are four (4) major principles of organization one may use in writing an effective Literature Review, and these are: Chronological Order or Order of Time, Spatial Order, Climactic Order or Order of Importance, and Topical Order \autocite{friedlanderPrinciplesOrganization2004}.
-			\subsection{Chronological Order}
-				\textquote[\cite{friedlanderPrinciplesOrganization2004}]{%
-					Chronological order can suit different rhetorical modes or patterns of exposition.
-					It naturally fits in narration, because when we tell a story, we usually follow the order in which events occur.
-					Chronological order applies to process in the same way, because when we describe or explain how something happens or works, we usually follow the order in which the events occur.
-					But chronological order may also apply to example, description, or parts of any other pattern of exposition.%
-				}
-			\subsection{Spatial Order}
-				\textquote[\cite{friedlanderPrinciplesOrganization2004}]{%
-					In this pattern, items are arranged according to their physical position or relationships.
-					\dots
-					In explaining some political or social problem, I might discuss first the concerns of the East Coast, then those of the Midwest, then those of the West Coast.
-					Describing a person, I might start at the feet and move up to the head, or just the other way around.
-					This pattern might use such transitions as just to the right, a little further on, to the south of Memphis, a few feet behind, in New Mexico, turning left on the pathway, and so on.%
-				}
-			\subsection{Climactic Order}
-				\enquote{%
-					In this pattern, items are arranged from least important to most important.
-					Typical transitions would include \textit{more important}, \textit{most difficult}, \textit{still harder}, \textit{by far the most expensive}, \textit{even more damaging}, \textit{worse yet}, and so on.
-					This is a flexible principle of organization, and may guide the organization of all or part of example, comparison \& contrast, cause \& effect, and description.
+			Currently, reproduction is done by means of a classifier system.
+			A classifier system is a system where conditions and actions are represented by strings of ones and zeroes corresponding to the presence or absence of that characteristic.
+			For example, as shown in Table \ref{tab:ex_classifier}, since humans have eyes and opposable thumbs and require oxygen, but do not have wings or gills, humans can be recorded as [10011], while the only recorded characteristic of the bacterium that is present is that it requires oxygen, so it is recorded as [00001].
+			Reproduction can now be done on these "genes" by recombining different genes and making new offspring.
+			In the computer science world, these aspects are usually very basic and primitive, but with strings with lengths reaching tens of thousands of bits long.
 
-					A variation of climactic order is called psychological order.
-					This pattern or organization grows from our learning that readers or listeners usually give most attention to what comes at the beginning and the end, and least attention to what is in the middle.
-					In this pattern, then, you decide what is most important and put it at the beginning or the end; next you choose what is second most important and put it at the end or the beginning (whichever remains); the less important or powerful items are then arranged in the middle. If the order of importance followed 1, 2, 3, 4, 5, with 5 being most important, psychological order might follow the order 4, 3, 1, 2, 5.
-
-					Still other principles of organization based on emphasis include:
-					\begin{itemize}
-						\item general-to-specific order,
-						\item specific-to general order,
-						\item most-familiar-to-least-familiar,
-						\item simplest-to-most-complex,
-						\item order of frequency,
-						\item order of familiarity, and so on.
-					\end{itemize}%
-				} This principle of organization is one of the most common. \autocite{friedlanderPrinciplesOrganization2004}
-			\subsection{Order of Importance}
-				\textquote[\cite{friedlanderPrinciplesOrganization2004}]{%
-					[The Order of Importance] refers to organization that emerges from the topic itself.
-					For example, a description of a computer might naturally involve the separate components of the central processing unit, the monitor, and the keyboard, while a discussion of a computer purchase might discuss needs, products, vendors, and service.
-					A discussion of a business might explore product, customer, and location, and so on.
-					Topical order, then, simply means an order that arises from the nature of the topic itself.
-					Transitions in this pattern will be a little vague--things like \textit{another factor}, \textit{the second component}, \textit{in addition}, and so on.%
-				}
-
-		\section*{Writing the Literature Review}
-			In writing a literature review, one must follow the general structure: introduction, main body, and then conclusion.
-			In the introduction, the central problem of the research must be reiterated and a summary must be provided of the current academic context.
-			Here the timeliness of the topic or the presence of a knowledge gap is highlighted.
-			In the body, subheadings divide major parts that are highlighted in the outline.
-			One must keep in mind the following ideas \autocite{mccombesLiteratureReviewComplete2019}:
-			\begin{itemize}
-				\item an overview of the main points of each source must be noted and combined into one coherent whole
-				\item analyses and interpretations must be provided regarding the findings of each source with respect to the research
-				\item the strengths and weaknesses of each source must be stated
-				\item the topic sentence of each paragraph must be clear and the flow between paragraphs must be maintained with transitions
-			\end{itemize}
-			In the conclusion, the key findings of each related literature should be summarized with emphasis on their significance to the research \autocite{mccombesLiteratureReviewComplete2019}.
+			\begin{table}[htbp]
+				\centering
+				\begin{tabular}{lccc}
+					\toprule
+					Aspect           & Human & Fish & Bacterium \\
+					\midrule
+					opposable thumbs & 1     & 0    & 0         \\
+					wings            & 0     & 0    & 0         \\
+					gills            & 0     & 1    & 0         \\
+					eyes             & 1     & 1    & 0         \\
+					requires oxygen  & 1     & 1    & 1         \\
+					\bottomrule
+				\end{tabular}
+				\caption{Example of Organisms Sorted Through a Classifier System}
+				\label{tab:ex_classifier}
+			\end{table}
 
 	\chapter{MATERIALS AND METHODS}
 		\section{Research Design}
@@ -644,22 +629,6 @@
 
 	\chapter{Statistical Tables}
 		% TODO: Statistical Tables
-		\begin{table}[htbp]
-			\centering
-			\caption{Example of Organisms Sorted Through a Classifier System}
-			\label{tab:ex_classifier}
-			\begin{tabular}{lccc}
-				\toprule
-				Aspect           & Human & Fish & Bacterium \\
-				\midrule
-				opposable thumbs & 1     & 0    & 0         \\
-				wings            & 0     & 0    & 0         \\
-				gills            & 0     & 1    & 0         \\
-				eyes             & 1     & 1    & 0         \\
-				requires oxygen  & 1     & 1    & 1         \\
-				\bottomrule
-			\end{tabular}
-		\end{table}
 
 	\chapter{Documentation} \label{apx:documentation}
 		% TODO: Documentation
