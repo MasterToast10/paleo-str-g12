@@ -1,7 +1,6 @@
 from engine import GameController, MoveGenerator
 from rmg import RandomMoveGenerator
 from robbiebarrat_unbeatable import UnbeatableMoveGenerator
-from ga import Organism
 
 
 def playGame(move_generator_x: MoveGenerator, move_generator_o: MoveGenerator, verbose=True):
@@ -13,7 +12,7 @@ if __name__ == "__main__":
 
     for i in range(10):
         the_winner = playGame(RandomMoveGenerator,
-                              Organism, verbose=True)
+                              UnbeatableMoveGenerator, verbose=True)
 
         counters[the_winner - 1] += 1
 
