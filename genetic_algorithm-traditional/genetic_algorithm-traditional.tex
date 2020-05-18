@@ -264,7 +264,7 @@
 
 			\begin{figure}
 				\centering
-				\includegraphics[width=0.7\linewidth]{genetic}
+				\includegraphics[width=0.6\linewidth]{genetic}
 				\caption{Flowchart of GA training}
 				\label{fig:genetic}
 			\end{figure}
@@ -272,17 +272,12 @@
 			There are two aspects of the evolution process that computer scientists want to emulate: natural selection and reproduction. "Natural selection" is the process of choosing which solutions survive to make a new generation of algorithms, the survivors govern the characteristics of next generation. Reproduction is the recombination of genes from parent to offspring, making the "child" algorithm of an organism have similar characteristics to their two parent algorithms.
 
 			Programming natural selection is done by giving an algorithm a test of fitness, going through numerous iterations, then giving a fitness score based on that performance \autocite{hochmuthGeneticEvolutionPerfect2003}.
-			Fitness scores are usually calculated based on the ratio of games won, as shown in Figure \ref{fig:fitness}.
+			Fitness scores are usually calculated based on the ratio of games won, as shown in Equation~\ref{eqn:fitness}.
 			The higher the fitness score, the higher the changes of winning with the solution or the move done in the game.
 			Algorithms with low fitness scores are discarded and those with high fitness scores move on to reproduction.
-			\begin{figure}[tbp]
-				\centering
-				\begin{equation*}
-					f(x_i) = \sum n_{wins}
-				\end{equation*}
-				\caption{Formula for the fitness score of algorithm $x$ where $n_\mathrm{wins}$ is the number of games won}
-				\label{fig:fitness}
-			\end{figure}
+			\begin{equation}
+				f(x_i) = \frac{n_\mathrm{lost}}{n_\mathrm{games}} \label{eqn:fitness}
+			\end{equation}
 			The emulation of reproduction is far more complicated.
 			Originally, it was based on random mutation of the algorithms, however this oftentimes produces algorithms that would not run, or are drastically different from the intended purpose of the program.
 			Later development focuses on adding together characteristics from the two parents.
