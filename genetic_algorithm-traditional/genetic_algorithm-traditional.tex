@@ -37,7 +37,7 @@
 \usepackage{tabularx}
 
 % For code listings (type "texdoc listings" [without the quotes] for more information)
-\usepackage{listings}
+% \usepackage{listings}
 
 \newcommand{\mnk}{\textit{m, n, k} game}
 \newcommand{\mnkpl}{\textit{m, n, k} games}
@@ -107,7 +107,7 @@
 
 	\unnumchapter*{Table of Contents}
 		\contents
-		\listoflistings
+		% \listoflistings
 
 	\mainmatter
 
@@ -439,7 +439,6 @@
 			\end{align}
 
 			One may refer to figures within this section or in the appendix, similar to the following: % However, the following demonstration might be overkill.
-			\blockquote{\textcite{al-shemmeriWindTurbines2010} states that the solution to Equation~\ref{eqn:meeq} is Equation~\ref{eqn:samp} and is shown in Figure~\ref{fig:samplebargraph} and Table~\ref{tab:sample_characteristics}  (Listing~\ref{lst:game.py}).}
 			One may also refer to appendices similar to the following:
 			\blockquote{Relevant documentation is included in \ref{apx:documentation}.}
 
@@ -631,9 +630,6 @@
 				\bottomrule
 			\end{tabular}
 		\end{table}
-		\lstset{language=Python, breaklines=true, numbers=left, stringstyle=\ttfamily\small, basicstyle=\singlespacing}
-
-		\lstinputlisting[caption={game.py}, label={lst:game.py}]{../str-templates/sample-resources/code/game.py}
 
 	\chapter{Statistical Tables}
 		% TODO: Statistical Tables
