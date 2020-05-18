@@ -4,6 +4,9 @@
 \usepackage{csquotes}
 \usepackage[english]{babel}
 
+% For math
+\usepackage{amsmath}
+
 % For better tables
 \usepackage{booktabs}
 \usepackage{threeparttable}
@@ -37,28 +40,30 @@
 \usepackage{tabularx}
 
 % For code listings (type "texdoc listings" [without the quotes] for more information)
-\usepackage{listings}
+% \usepackage{listings}
 
 \newcommand{\mnk}{\textit{m, n, k} game}
 \newcommand{\mnkpl}{\textit{m, n, k} games}
 \newcommand{\ttt}{Tic-Tac-Toe}
+\newcommand{\TTT}{TIC-TAC-TOE}
 
 % Required for the citations
 \usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
-\addbibresource{../str-templates/sample-resources/bibliographies/str.bib} % TODO: Replace with real .bib file
+\addbibresource{../str-templates/sample-resources/bibliographies/str.bib} % TODO: Remove
+\addbibresource{../paleo-str-g12.bib}
 
  
 \title{Comparison of Genetic Algorithm Training Methods As Applied To \ttt}
 
 \usepackage[calc]{datetime2}
 \makeatletter
-\newcommand{\daymonthyear}{\@dtm@day{} \DTMenglishmonthname{\@dtm@month} \@dtm@year}
+\newcommand{\daymonthyear}{\@dtm@day\ \DTMenglishmonthname{\@dtm@month} \@dtm@year}
 \makeatother
 \date{\daymonthyear}
 
 \tptitle{
 	Comparison Of Genetic Algorithm Training Methods\\
-	As Applied To \ttt
+	As Applied To \TTT
 }
 \addAuthor{Vash Patrick B. Ancheta}
 \addAuthor{Diego Sulayman R. Pascua}
@@ -107,35 +112,32 @@
 
 	\unnumchapter*{Table of Contents}
 		\contents
-		\listoflistings
+		% \listoflistings
 
 	\mainmatter
 
 	\chapter{INTRODUCTION}
 		\section{Background of the Study}
 			% TODO: Background of the Study
-			\textquote[\cite{sachdevHowWriteBackground2018}]{%
-				The background of the study establishes the context of the research.
-				This section explains why this particular research topic is important and essential to understanding the main aspects of the study.
-				Usually, the background forms the first section of a research article/thesis and justifies the need for conducting the study and summarizes what the study aims to achieve.%
-			}
+			Machine learning (ML) is vast---it is used in different situations such as spam detectors, web search engines, photo tagging applications and game development \autocite{sharmaMachineLearningApplications2016}.
+			There have been researches that are aimed at improving the implementation of ML in various games.
+			A category of games under investigation through ML is the set of \mnk\ games, comprised of games where there is an $m \times n$ grid and two players alternate turns trying to earn $k$ pieces adjacent to each other horizontally, vertically or diagonally \autocite{hayesDevelopingMemoryEfficient2016}.
+			Among the most common examples of \mnkpl\ are G\=o, Othello, and Chess.
+			\ttt, the game under investigation in this study, is an example of an \mnk.
+			A \ttt\ board is composed of three rows and three columns, and requires three adjacent pieces of the same player to render a win, thus it is considered to have a $3, 3, 3$ configuration.
 
-			In the article \citetitle{sachdevHowWriteBackground2018} by \citeauthor{sachdevHowWriteBackground2018}, the ideal background is structured as follows: the current knowledge on the broad topic, the gaps in knowledge that needs to be addressed, the significance of addressing said gaps, and then the rationale of the study.
+			Improvements in ML have lead to the development of artificial intelligence (AI) players that can beat even the most competitive human players around the world.
+			Machine learning methods (MLMs) are algorithms where machines are not explicitly programmed to do what is tasked.
+			Rather, similar to its namesake, MLM-trained machines are capable of performing tasks given its own internal code without any human interference.
+			In short, the machine \textit{learns} \autocite{geeksforgeeksMachineLearning}.
+			An example of an MLM is the genetic algorithm (GA).
 
-			This paragraph is a demonstration of the features of the package \texttt{glossaries}.
-			Our specific example is the sus.
-			The sus is used in a variety of applications.
-			The sus is a Likert scale.
-			The sus is used in evaluating the usability of a system.
-			Sus is the full form of the sus.
-
-			This paragraph is a demonstration of the features of the scientific name support via \texttt{glossaries}.
-			Note that sentences beginning with scientific names should have the scientific names in full.
+			This study aims to develop multiple GAs with different elite preservation methods and compare their performance in \ttt\ based on the possible situations.
 
 		\section{Objectives of the Study}
 			\subsection{General Objective}
 				\begin{itemize}
-					\item To compare the effectiveness of trained genetic algorithm (GA) organisms among each other as applied to \ttt{}
+					\item To compare the effectiveness of trained genetic algorithm (GA) organisms among each other as applied to \ttt
 				\end{itemize}
 			\subsection{Specific Objectives}
 				\begin{enumerate}
@@ -146,209 +148,267 @@
 
 		\section{Significance of the Study}
 			% TODO: Significance of the Study
-			\textquote[\cite{WritingThesisSignificance2016}]{%
-				Significance of the study is written as part of the introduction section of a thesis.
-				It provides details to the reader on how the study will contribute to society such as what the study will contribute and who will benefit from it.
-				It also includes an explanation of the work’s importance as well as its potential benefits.
-				It is sometimes called rationale.%
-			}
-
-			Always keep in mind the main stakeholders that are affected by the problem that you tackle in the study.
-			List down the major benefits of your study to your stakeholders.
+			This study contributes to the body of knowledge in ML.
+			Through this study, more can be known about how information gained from one method of AI can be passed on to another mechanism of AI through training.
+			This sheds light on how information from one AI player can be transmitted to an MLM such as GA.
+			This, by extension, can improve the comprehension of how machines can learn strategies in games from one with greater skill.
 
 		\section{Scope and Limitations of the Study}
 			% TODO: Scope and Limitations of the Study
-			\textquote[\cite{askmediagroupWhatAreScope2020}][.]{When identifying the scope, you need to address not only the problem or issue that you want to study but the population that you want to examine}. Remember to narrow your scope down as much as possible to ensure efficiency and accuracy during the execution of the research.
-
-			\enquote{%
-				There are numerous limitations that can impact your ability to complete quality research.
-				Research limitations may be methodological (related to how the study is completed) or a lack of researcher resources (such as time and research funds).%
-			}
-			Methodological limitations concerns the sample of the study and the efficiency of past techniques. This may include the size and diversity of the sample as well as the amount of research previously done that you can base your methods on.
-			Researcher-related limitations include time, budget and physical constraints, as well as personal biases that might impact the flow of the research \autocite{askmediagroupWhatAreScope2020}.
+			This study focuses only on \ttt\ and not other games such as Chess or G\=o because it is the simplest game to conduct the research on heuristics, namely the training of the GA under different MGs.
+			The complexity of the board game is not relevant to the study because the focus of the research is to compare the effectiveness of trained GA organisms given an \mnk.
+			Applying these heuristics on other \mnkpl\ however are beyond the time frame of the research.
+			Only three GAs were developed in this study.
+			The first is a Python implementation of the GA in the work of \textcite{bhattSearchNolossStrategies2008}.
+			Using developed AI, the second and third are modified implementations of the same GA.
+			The performance of each GA is based on how many generations it takes for the GA to find a no-loss first player for \ttt.
+			This basis for comparison of performance, specifically using the skill of an organism as a first player, is due to the fact that Python is known for being slow.
+			In line with this, indices are 0-based in this paper, as they are in Python.
 
 	\unnumchapter{DEFINITION OF TERMS}
 		% TODO: Definition of Terms
-		% TODO: Define training in the operational sense
-		% Remember to use the operational definition of the terms to clarify the terms you use in this paper that might have multiple meanings
-		\termdef{Banana}{
-			an elongated usually tapering tropical fruit with soft pulpy flesh enclosed in a soft usually yellow rind \autocite{merriam-websterDefinitionBanana}
+		\termdef{\mnk}{
+			a game where there is an $m \times n$ grid where two players alternate turns trying to earn $k$ pieces adjacent to each other horizontally, vertically or diagonally
 		}
-		\termdef{Definition}{
-			something you place here in the Definition of Terms to clarify your paper
-			\extradef operational definition for this section
+		\termdef{Artificial Intelligence (AI)}{
+			program that simulates human actions, can simulate a human player in a game.
 		}
-		\termdef{Fruit}{
-			the usually edible reproductive body of a seed plant\\
-			\textit{especially}: one having a sweet pulp associated with the seed \autocite{merriam-websterDefinitionFruit}
+		\termdef{Allele}{
+			the configuration value of a gene given a unique organism
 		}
-		\termdef{Pig}{
-			a dirty, gluttonous, or repulsive person \autocite{merriam-websterDefinitionPig}
+		\termdef{Genetic Algorithm (GA)}{
+			algorithm that simulates natural selection and biological reproduction to produce solutions to a problem
+		}
+		\termdef{Gene}{
+			representation of a unique and distinct situation in a game given the game rules
+		}
+		\termdef{Genome}{
+			mapping table of genes with corresponding alleles
+		}
+		\termdef{Machine Learning (ML)}{
+			a heuristic where a program learns rather than strictly follow a given instruction
+		}
+		\termdef{Machine Learning (MLM)}{
+			algorithms used in machine learning
+		}
+		\termdef{Organism}{
+			an algorithm represented by a genome
+		}
+		\termdef{Probability Valuation (PV)}{
+			classical probability of a player winning at a given game state
+		}
+		\termdef{\ttt}{
+			\mnk\ configured as 3,3,3
 		}
 
 	\chapter{REVIEW OF RELATED LITERATURE}
 		% TODO: Review of Related Literature
-		\textcite{mccombesLiteratureReviewComplete2019} lists five (5) important steps in writing an effective literature review: \textbf{Search} for relevant literature, \textbf{evaluate} sources, \textbf{identify} themes, debates and gaps, \textbf{outline} the structure, and \textbf{write} the literature review itself.
+		\section*{Effective Computer Algorithms on \ttt}
+			There have already been precedents in investigating the proper method of winning classic \ttt.
+			Examples such as prioritizing the center or placement of pieces in the opposite cell of the opponent's previous move are frequently cited as techniques to beat the opponent \autocite{aycockHowWinTicTacToe2002}.
+			Multiple discussions gave occurred on how many distinct games one can play in \ttt.
+			\textcite{schaeferHowManyGames2002} argues that the common answer of 9! or 362,880 possible games is misleading for it ignores the symmetrical properties of the game.
+			There are games that have exactly the same pieces placed on the board but are oriented differently in relation to the board.
+			For example, a gametree turned 90\textdegree\ is considered a distinct game state in the 9! calculation.
+			According to \textcite{schaeferHowManyGames2002}, it is of more concern to count game states that end when there are $k$ adjacent pieces.
+			Using this method of counting game states, \textcite{schaeferHowManyGames2002} computed a total number of 765 distinct game states.
 
-		\section*{Searching for Relevant Literature}
-			\textcite{hardyGuidesLiteratureReview2020} provides a proper guide for searching effectively for a literature review.
-			The following ideas are abridged versions of the common search techniques employed when writing an effective literature review.
-			To begin searching, one must perform an analysis of the research topic.
-			This analysis must tackle the main ideas and synonyms, related words and phrases, and concepts and ideas already covered about the research topic.
-			In modern search engines, keywords exist to make searches more efficient such as: \textbf{OR} for synonymous terms, \textbf{AND} for joining words that make up the main ideas, and \textbf{NOT} for exclusion of irrelevant terms \autocite{hardyGuidesLiteratureReview2020}.
+			Numerous studies have been performed on the most effective algorithms for a computer program to win in \ttt.
+			In organizing the results of a computer algorithm, one of the most common methods of organization is the use of a game tree.
+			A game tree is a collection of all possible game states arranged in chronological order.
+			The root node represents the current state, its child node the set possible game states.
+			The edges represent the moves and the terminal nodes represent game states that indicate a completed game.
+			The game tree begins from the root node and branches out into nodes that have their own children \autocite{adamchikGameTrees2009}.
+			A diverse game tree is optimal for exploring the capabilities of the different machine learning methods to be used in the study.
 
-			\textcite{mccombesLiteratureReviewComplete2019} lists the following databases that might aid in the search for related literature:
-			\begin{itemize}
-				\item Google Scholar (\url{https://scholar.google.com/})
-				\item JSTOR (\url{https://www.jstor.org/})
-				\item EBSCO (\url{https://www.ebsco.com/products/research-databases})
-				\item Project Muse for humanities and social sciences (\url{http://muse.jhu.edu/})
-				\item Medline for life sciences and biomedicine (\url{https://www.nlm.nih.gov/bsd/medline.html})
-				\item EconLit for economics (\url{https://www.aeaweb.org/econlit/})
-				\item Inspec for physics, engineering and computer science (\url{https://www.theiet.org/publishing/inspec/})
-			\end{itemize}
-			The importance of a proper abstract is highlighted during the search for related literature, as the abstract of a work will assist future researchers in selecting the work if they find the abstract to be relevant with their own research \autocite{mccombesLiteratureReviewComplete2019}.
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.7\linewidth]{gametree}
+				\caption{Game tree}
+				\label{fig:gametree}
+			\end{figure}
 
-		\section*{Evaluating and Selecting Sources}
-			\textcite{mccombesLiteratureReviewComplete2019} emphasizes the fact that one cannot read and digest every single work written about the research topic, therefore each source should be evaluated to filter out the most relevant sources for the study.
-			\textcite{mccombesLiteratureReviewComplete2019} further writes:\\
-			\enquote{%
-				For each publication, ask yourself:
-				\begin{itemize}
-					\item What question or problem is the author addressing?
-					\item What are the key concepts and how are they defined?
-					\item What are the key theories, models and methods? Does the research use established frameworks or take an innovative approach?
-					\item What are the results and conclusions of the study?
-					\item How does the publication relate to other literature in the field? Does it confirm, add to, or challenge established knowledge?
-					\item How does the publication contribute to your understanding of the topic? What are its key insights and arguments?
-					\item What are the strengths and weaknesses of the research?
-				\end{itemize}
+			A study by \textcite{cranenburghTicTacToe2007} is concerned with the use and implementation of a heuristic known as depth-first search. Depth-first search is a machine learning method that utilizes \textit{backtracking}.
+			When the algorithm encounters a terminal node, it returns to the previous nodes to find other possible nodes, hence the term \textit{backtracking} \autocite{hackerearthDepthFirstSearch2019}.
+			According to \textcite{cranenburghTicTacToe2007}, a higher depth search with more game states, leads to a higher win rate or at least, leads the program to reach a draw better.
 
-				Make sure the sources you use are credible, and make sure you read any landmark studies and major theories in your field of research.
+			Researches that deal with the more complex \ttt\ variant Ultimate/Super \ttt\ seek to find the patterns and implementing these patterns into AI.
+			Analogous to how classic \ttt\ is symmetric, a study by \textcite{georgeGroupActionsWinning2016} specifies the rotational and reflectional symmetry of Ultimate/Super \ttt.
+			A study by \textcite{lifshitzAIApproachesUltimate} deals with the use of a mixture of heuristics and algorithms such as MiniMax (an algorithm that traverses the whole game tree) and ExpectiMax (an algorithm that analyzes the expectations of the opponent's moves).
+			Given a controlled set of parameters, ExpectiMax won against a random algorithm most of the time.
+			When played against MiniMax however, ExpectiMax was more likely to lose.
+			This is in agreement with the aforementioned conclusion that an increased depth produces better results.
+			A caveat for this machine learning method is the drastic duration of time the algorithm requires with each increase in depth.
+			The higher the depth of the depth-first search, the longer the time needed for the algorithm to provide the most optimal move.
 
-				The scope of your review will depend on your topic and discipline: in the sciences you usually only review recent literature, but in the humanities you might take a long historical perspective (for example, to trace how a concept has changed in meaning over time).%
-			}
+		\section*{Machine Learning Methods}
+			Various methods of machine learning have been discovered prior.
+			One of the earliest examples of machine learning methods is Hexapawn formulated by Martin Gardner.
+			The game is composed of a $3 \times 3$ board with two sets of three pawns in a row on opposite sides of the board, and the players move alternately.
+			The game is typically played by a human (who always goes first) and an AI player.
+			A player wins the game by accomplishing one of three goals: move a pawn to the opposite edge, capture all enemy pieces, or leave the enemy with no moves.
+			Because of the small scale of the game and its symmetry, all the possible game states can be represented in 24 cards.
+			Each of these cards contains a move performed by the human player and arrows of different colors representing the possible moves the AI player can take \autocite{ortizMachineLearningHexapawn2017}.
+			The AI player contains a matchbox for each card representing a game state.
+			These matchboxes contain beads that correspond to the possible moves the AI player may make.
+			During play, the beads are chosen at random and the AI player moves according to the bead taken.
+			If the move made by the AI player leads to the loss of the AI, the bead corresponding to the move is taken away.
+			Otherwise, the bead is returned to the matchbox.
+			After 50 games, the AI player is practically unbeatable as game states with high probability of loss is reduced \autocite{gardnerMathematicalGames1958}.
 
-			The need to take notes and keep track of sources is stressed by \textcite{mccombesLiteratureReviewComplete2019} by mentioning plagiarism.
-			Plagiarism is defined by \textcite{merriam-websterDefinitionPlagiarizing} as \enquote{[the act of] steal[ing] and pass[ing] off (the ideas or words of another) as one's own : us[ing] (another's production) without crediting the source}.
-			Such an act is frowned upon in the academic field, and must be avoided as much as possible.
+		\section*{Genetic Algorithm}
+			Living organisms exhibit a level of problems solving that is almost impossible to be recreated by a computer scientist.
+			Even more, the complexity that living organisms show is one that is incredibly enviable to a computer scientist wanting to achieve some problem solving program; problems that computer scientists have spent endless amounts of intellectual effort on have been solved by living organism without any thought, relying on the process of evolution.
 
-			One may use bibliography management software to keep notes and source information that might be valuable later on in paper writing.
-			Notes that are attached to a bibliographic entry in a bibliography management software can save time later on when one must remember the details of the source listed.
-			Modern bibliography management software such as \textbf{Zotero} (\url{https://www.zotero.org/}) and \textbf{Mendeley} (\url{https://www.mendeley.com/}) usually have the capability to maintain and track sources and said notes with the addition of producing citations and bibliographies as well as files for paper-writing software such as \LaTeX.
+			Due to this, many researchers have began emulating the process of evolution on their algorithms, subjecting their own programs to a process of reproduction and natural selection.
+			This method is widely used in the realm of machine learning, since it eliminates a great hurdle in software engineering: programmers need not to specify the individual aspects of each program and the means that actions are carried out.
 
-		\section*{Identifying Themes, Debates, and Gaps}
-			\textquote[\cite{mccombesLiteratureReviewComplete2019}]{%
-				To begin organizing your literature review’s argument and structure, you need to understand the connections and relationships between the sources you’ve read. Based on your reading and notes, you can look for:
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.6\linewidth]{genetic}
+				\caption{Flowchart of GA training}
+				\label{fig:genetic}
+			\end{figure}
 
-				\begin{itemize}
-					\item Trends and patterns (in theory, method or results): do certain approaches become more or less popular over time?
-					\item Themes: what questions or concepts recur across the literature?
-					\item Debates, conflicts and contradictions: where do sources disagree?
-					\item Pivotal publications: are there any influential theories or studies that changed the direction of the field?
-					\item Gaps: what is missing from the literature? Are there weaknesses that need to be addressed?
-				\end{itemize}
+			There are two aspects of the evolution process that computer scientists want to emulate: natural selection and reproduction. "Natural selection" is the process of choosing which solutions survive to make a new generation of algorithms, the survivors govern the characteristics of next generation. Reproduction is the recombination of genes from parent to offspring, making the "child" algorithm of an organism have similar characteristics to their two parent algorithms.
 
-				This step will help you work out the structure of your literature review and (if applicable) show how your own research will contribute to existing knowledge.%
-			}
+			Programming natural selection is done by giving an algorithm a test of fitness, going through numerous iterations, then giving a fitness score based on that performance \autocite{hochmuthGeneticEvolutionPerfect2003}.
+			Fitness scores are usually calculated based on the ratio of games won, as shown in Equation~\ref{eqn:fitness}.
+			The higher the fitness score, the higher the changes of winning with the solution or the move done in the game.
+			Algorithms with low fitness scores are discarded and those with high fitness scores move on to reproduction.
+			\begin{equation}
+				f(x_i) = \frac{n_\mathrm{lost}}{n_\mathrm{games}} \label{eqn:fitness}
+			\end{equation}
+			The emulation of reproduction is far more complicated.
+			Originally, it was based on random mutation of the algorithms, however this oftentimes produces algorithms that would not run, or are drastically different from the intended purpose of the program.
+			Later development focuses on adding together characteristics from the two parents.
+			This was also limited since this could only be done to characteristics that could be added meaningfully \autocite{hollandGeneticAlgorithms}.
 
-		\section*{Outlining the Structure of the Literature Review}
-			There are four (4) major principles of organization one may use in writing an effective Literature Review, and these are: Chronological Order or Order of Time, Spatial Order, Climactic Order or Order of Importance, and Topical Order \autocite{friedlanderPrinciplesOrganization2004}.
-			\subsection{Chronological Order}
-				\textquote[\cite{friedlanderPrinciplesOrganization2004}]{%
-					Chronological order can suit different rhetorical modes or patterns of exposition.
-					It naturally fits in narration, because when we tell a story, we usually follow the order in which events occur.
-					Chronological order applies to process in the same way, because when we describe or explain how something happens or works, we usually follow the order in which the events occur.
-					But chronological order may also apply to example, description, or parts of any other pattern of exposition.%
-				}
-			\subsection{Spatial Order}
-				\textquote[\cite{friedlanderPrinciplesOrganization2004}]{%
-					In this pattern, items are arranged according to their physical position or relationships.
-					\dots
-					In explaining some political or social problem, I might discuss first the concerns of the East Coast, then those of the Midwest, then those of the West Coast.
-					Describing a person, I might start at the feet and move up to the head, or just the other way around.
-					This pattern might use such transitions as just to the right, a little further on, to the south of Memphis, a few feet behind, in New Mexico, turning left on the pathway, and so on.%
-				}
-			\subsection{Climactic Order}
-				\enquote{%
-					In this pattern, items are arranged from least important to most important.
-					Typical transitions would include \textit{more important}, \textit{most difficult}, \textit{still harder}, \textit{by far the most expensive}, \textit{even more damaging}, \textit{worse yet}, and so on.
-					This is a flexible principle of organization, and may guide the organization of all or part of example, comparison \& contrast, cause \& effect, and description.
+			Currently, reproduction is done by means of a classifier system.
+			A classifier system is a system where conditions and actions are represented by strings of ones and zeroes corresponding to the presence or absence of that characteristic.
+			For example, as shown in Table \ref{tab:ex_classifier}, since humans have eyes and opposable thumbs and require oxygen, but do not have wings or gills, humans can be recorded as [10011], while the only recorded characteristic of the bacterium that is present is that it requires oxygen, so it is recorded as [00001].
+			Reproduction can now be done on these "genes" by recombining different genes and making new offspring.
+			In the computer science world, these aspects are usually very basic and primitive, but with strings with lengths reaching tens of thousands of bits long.
 
-					A variation of climactic order is called psychological order.
-					This pattern or organization grows from our learning that readers or listeners usually give most attention to what comes at the beginning and the end, and least attention to what is in the middle.
-					In this pattern, then, you decide what is most important and put it at the beginning or the end; next you choose what is second most important and put it at the end or the beginning (whichever remains); the less important or powerful items are then arranged in the middle. If the order of importance followed 1, 2, 3, 4, 5, with 5 being most important, psychological order might follow the order 4, 3, 1, 2, 5.
-
-					Still other principles of organization based on emphasis include:
-					\begin{itemize}
-						\item general-to-specific order,
-						\item specific-to general order,
-						\item most-familiar-to-least-familiar,
-						\item simplest-to-most-complex,
-						\item order of frequency,
-						\item order of familiarity, and so on.
-					\end{itemize}%
-				} This principle of organization is one of the most common. \autocite{friedlanderPrinciplesOrganization2004}
-			\subsection{Order of Importance}
-				\textquote[\cite{friedlanderPrinciplesOrganization2004}]{%
-					[The Order of Importance] refers to organization that emerges from the topic itself.
-					For example, a description of a computer might naturally involve the separate components of the central processing unit, the monitor, and the keyboard, while a discussion of a computer purchase might discuss needs, products, vendors, and service.
-					A discussion of a business might explore product, customer, and location, and so on.
-					Topical order, then, simply means an order that arises from the nature of the topic itself.
-					Transitions in this pattern will be a little vague--things like \textit{another factor}, \textit{the second component}, \textit{in addition}, and so on.%
-				}
-
-		\section*{Writing the Literature Review}
-			In writing a literature review, one must follow the general structure: introduction, main body, and then conclusion.
-			In the introduction, the central problem of the research must be reiterated and a summary must be provided of the current academic context.
-			Here the timeliness of the topic or the presence of a knowledge gap is highlighted.
-			In the body, subheadings divide major parts that are highlighted in the outline.
-			One must keep in mind the following ideas \autocite{mccombesLiteratureReviewComplete2019}:
-			\begin{itemize}
-				\item an overview of the main points of each source must be noted and combined into one coherent whole
-				\item analyses and interpretations must be provided regarding the findings of each source with respect to the research
-				\item the strengths and weaknesses of each source must be stated
-				\item the topic sentence of each paragraph must be clear and the flow between paragraphs must be maintained with transitions
-			\end{itemize}
-			In the conclusion, the key findings of each related literature should be summarized with emphasis on their significance to the research \autocite{mccombesLiteratureReviewComplete2019}.
+			\begin{table}[htbp]
+				\centering
+				\begin{tabular}{lccc}
+					\toprule
+					Aspect           & Human & Fish & Bacterium \\
+					\midrule
+					opposable thumbs & 1     & 0    & 0         \\
+					wings            & 0     & 0    & 0         \\
+					gills            & 0     & 1    & 0         \\
+					eyes             & 1     & 1    & 0         \\
+					requires oxygen  & 1     & 1    & 1         \\
+					\bottomrule
+				\end{tabular}
+				\caption{Example of Organisms Sorted Through a Classifier System}
+				\label{tab:ex_classifier}
+			\end{table}
 
 	\chapter{MATERIALS AND METHODS}
 		\section{Research Design}
-			% TODO: Research Design
-			\textcite{labareeTypesResearchDesigns2020} states: \textquote[][.]{The function of a research design is to ensure that the evidence obtained enables you to effectively address the research problem logically and as unambiguously as possible}.
-			You may use the article by \textcite{labareeTypesResearchDesigns2020} to figure out which research design will suit your study the best.
-			In this section of the paper, the research design is described, as well as the independent and dependent variables involved.
-			The description of how identified extraneous variables are held constant is also elaborated in the Research Design section.
-			If the study is developmental in nature, the stages of development may be stated in this section.
+			This Developmental Research is composed of two components: Software Development and Data Collection.
+			In Software Development the code for the move generators and genetic algorithms are initialized, and the efficiency of its implementation is optimized.
+			In Data Collection the organisms were trained for 500 generations, and the fitness data collected was analyzed using $R$.
+			The independent variable is the elite preservation method.
+			The dependent variable is the number of generations the specific GA takes to find a no-loss solution.
+			Extraneous variables such as the software specifications can be held constant by the use of the same software such as the operating system and the same Python version (3.8.3 64-bit).
+			The study was not affected by hardware specifications as it concerns the number of generations instead of the time taken on the system.
 
 		\section{Locale of the Study}
-			% TODO: Locale of the Study
-			The places where the study is executed should be stated in the Locale of the Study.
-			The population where samples are taken, as well as the sample size, should be mentioned here.
-			This section must also contain the reasoning for choosing the locale, with respect to the scope and limitations of the study.
+			The software was developed and data was collected mainly at the Philippine Science High School -- Cordillera Administrative Region Campus.
+			The training and data collection occurred at the aforementioned location on various personal computers.
 
 		\section{Materials and Research Instruments}
-			% TODO: Materials and Research Instruments
-			The materials required in the study as well as any instrumentation to be used should be mentioned in the Materials and Research Instruments.
-			The reasoning may involve any past researches or research-based handbooks that are relevant to the study and are published works (as published works tend to be peer-reviewed).
-			An example of a research-based handbook is \textcite{letcherWindEnergyEngineering2017}.
+			The software was developed with Python 3.8.3 on KDE Neon 5.18 using Visual Studio Code 1.45.1 and hosted on GitHub.
+			A link to the repository hosting the software is located in \ref{apx:documentation}.
+			The developmental computer is equipped with 4 GB of Random Access Memory (RAM).
+			Various personal computers were used to perform the training.
 
 		\section{Procedures}
-			% TODO: Procedures
-			An elaborate and chronological description of the procedures to be taken is provided in this section.
-			The proper reasoning for each step taken should be stated, as well as what materials and research instruments are used in each step.
+			\subsection{Software Development}
+				The study aims to compare the performance of the genetic algorithms with different elite preservation methods.
+				The three are: an unmodified Python implementation of the work of \textcite{bhattSearchNolossStrategies2008}, and two with modified elite preservation methods based on MGs.
+				A preliminary for the accomplishment of such task is a game engine for the interaction between trained GA organisms.
+				This was coded in Python, as application programming interfaces (APIs) for machine learning have already been implemented in Python.
+
+				After the development of a platform for play of \ttt\ between trained organisms, the development of the required MGs followed.
+				The Random Move Generator (RMG) returns one of all possible moves in \ttt\ with equal probability.
+				Another MG is Unbeatable Move Generator (UMG).
+
+				UMG is based off of the work of \textcite{barratRobbiebarratUnbeatableTictactoe2019}.
+				It is stated to be unbeatable, however, due to the fact that there are random moves involved in the code, the Move Generator has a small chance of being beat.
+				This makes an ideal opponent for trained organisms, given that the GA will find an exploit eventually.
+				In line with this, the GA might be able to use said exploit to have better performance.
+
+				\paragraph{Genetic Algorithm}
+					The organisms to be trained were implemented in Python as well.
+					The GA was composed of unique genomes with genes for each possible game state with alleles that correspond to the moves to be taken.
+					Following the flow represented in Figure~\ref{fig:genetic}, the operators are adapted from \textcite{bhattSearchNolossStrategies2008}.
+					The only aspect of the GA that differs from the implementation of that in \textcite{bhattSearchNolossStrategies2008} is the organism representation.
+					\subparagraph{Organism Representation}
+						Organisms are represented with genomes, as shown in Figure~\ref{fig:genome}.
+						Each gene in the genome represents a game state that considers rotation and symmetry using an implementation of the game-base used by \textcite{bhattSearchNolossStrategies2008}.
+						These genes have a corresponding allele that represents the move the organism will take.
+						\begin{figure}[htbp]
+							\centering
+							\includegraphics[width=0.75\textwidth]{representation}
+							\caption{Genome of an organism}
+							\label{fig:genome}
+						\end{figure}
+					\subparagraph{Initial Population}
+						For each game state represented by genes in the genome, the organism is given a random possible move for that game state.
+						Any valid move in a given game state is considered in choosing the allele randomly.
+					\subparagraph{Selection Operator}
+						Using a modified implementation of the Stochastic Universal Selection (SUS) Operator by \textcite{panchapakesanStochasticUniversalSampling2014}, the following niched fitness equation was used \autocite{bhattSearchNolossStrategies2008}:
+						\begin{equation*}
+							f_\mathrm{niched}(x_i) = \frac{1}{m} * [1 - f(x_i)]
+						\end{equation*}
+						where $m$ is the number of organisms with the same fitness.
+						In this specific case, half of the population is selected via SUS.
+					\subparagraph{Crossover Operator}
+						Similar to that of \textcite{bhattSearchNolossStrategies2008}, 50 cross-sites are randomly chosen per parent pair which is used to take alternate series of alleles from each parent.
+						This produces two new offspring with alleles from each parent.
+						The mating pool is linear, with parent pairs formed from a mating pool individual and the individual adjacent to it.
+						If the individual is last in the linear mating pool, it is paired with the first individual in the mating pool.
+					\subparagraph{Mutation Operator}
+						Using random reset mutation, $n_m$ genes are mutated based on the best fitness in the population.
+						This basis is formalized by \textcite{bhattSearchNolossStrategies2008} in the following equation:
+						\begin{equation*}
+							n_m = 250 * f_\mathrm{minimum} + 10
+						\end{equation*}
+					\subparagraph{Controlled Elite Preservation}
+						In the control genetic algorithm, the organisms from the population before crossover, the population before mutation, and the population after mutation are sorted by fitness in increasing order.
+						The solutions with sorted index $j - 1$ are chosen:
+						\begin{equation*}
+							j(i) = i + 2N * \frac{(i - 1)(i - 2)}{(N - 1)(N - 2)},~~i = 1, 2, \dots, N
+						\end{equation*}
+					\subparagraph{Modified Controlled Elite Preservation}
+						The following modifications were made to the elite preservation method to produce two other GAs:
+						In UMG-Controlled Elite Preservation, the organisms are sorted by the number of losses of each organism when played against the UMG for 300 games.
+						In RMG-Controlled Elite Preservation, the organisms are sorted by the number of losses of each organism when played against the RMG for 300 games.
+
+			\subsection{Data Collection}
+				In the beginning of the GA the organisms were behaving randomly.
+				The fitness function for the organisms was based on the possible results based on an unpredictable opponent, thus every possible win, loss and draw is computed and plugged into Equation~\ref{eqn:fitness} to retrieve the fitness of an organism.
+				Through natural selection the \enquote{best} organism prevails.
+				When the \enquote{best} organism has zero fitness, the GA stops and snapshots the population for the last time.
+				If no zero-fitness organism is found before 500 generations have passed, the GA stops itself.
+				Using this method, 30 simulations per elite preservation method was run, with 100 organisms per population.
+				The number of generations before a simulation encounters a zero-fitness or no-loss solution is recorded for each simulation.
 
 		\section{Treatment of Data}
-			% TODO: Treatment of Data
-			\subsection{Statement of Hypotheses} \vspace{-\baselineskip}
+			\subsection{Statement of Hypotheses} \vspace{-2em}
 				\begin{align*}
-					H_0: & ~ \mu = 50 \\
-					H_a: & ~ \mu > 50
+					H_0 & : \mu_\mathrm{UMG} = \mu_\mathrm{fitness} = \mu_\mathrm{RMG} \\
+					H_a & : \text{The means are not all equal}
 				\end{align*}
 			\subsection{Analysis of Data}
-				The statistical tools as well as the significance level to be used is mentioned in this portion of the paper.
-				How the statistical tools will be used should also be detailed in this section.
-
+				The data was analyzed through the $R$ with the use of Analysis of Variance (ANOVA) which gives the $p$-value to test the hypotheses at a given confidence interval.
+				The study utilizes $\alpha = 0.10$.
+				Should the alternative hypothesis be true, Tukey Honest Significant Differences (Tukey HSD) is applied to locate the different mean.
 
 	\chapter{RESULTS AND DISCUSSION}
 		% TODO: Results and Discussion
@@ -439,7 +499,6 @@
 			\end{align}
 
 			One may refer to figures within this section or in the appendix, similar to the following: % However, the following demonstration might be overkill.
-			\blockquote{\textcite{al-shemmeriWindTurbines2010} states that the solution to Equation~\ref{eqn:meeq} is Equation~\ref{eqn:samp} and is shown in Figure~\ref{fig:samplebargraph} and Table~\ref{tab:sample_characteristics}  (Listing~\ref{lst:game.py}).}
 			One may also refer to appendices similar to the following:
 			\blockquote{Relevant documentation is included in \ref{apx:documentation}.}
 
@@ -485,24 +544,22 @@
 	\appendix
 
 	\chapter{Project Plan}
-		% TODO: Task Lists and Duration
 		\begin{table}[htbp]
 			\centering
 			\caption{Task Lists and Duration}
 			\label{tab:task_lists_duration}
 			\begin{tabularx}{\linewidth}{cXcc}
 				\toprule
-				Task & Task Description                     & Preceding Tasks & Duration (in days) \\
+				Task & Task Description                                                    & Preceding Tasks & Duration (in days) \\
 				\midrule
-				A    & Implementation of Algorithms         & ---             & 30                 \\
-				B    & Testing, Refinement and Optimization & A               & 31                 \\
-				C    & Data Collection                      & B               & 60                 \\
-				D    & Data Analysis                        & C               & 60                 \\
+				A    & Development of \ttt\ Game Platform and Implementation of Algorithms & ---             & 30                 \\
+				B    & Testing, Refinement and Optimization of Implemented Programs        & A               & 31                 \\
+				C    & Data Collection                                                     & B               & 60                 \\
+				D    & Data Analysis                                                       & C               & 60                 \\
 				\bottomrule
 			\end{tabularx}
 		\end{table}
 
-		% TODO: Network Chart
 		\begin{figure}[htbp]
 			\centering
 			\newcommand{\netchart}[8]{
@@ -539,14 +596,12 @@
 						font=\small
 					}
 			}
-			% !!! Disclaimer: shift distances are exaggerated to demonstrate functionality for more complex networks e.g. multiple threads. If your flow is linear, simply omit the yshift components
-			% TODO: Edit this TikZ Picture to suit your procedures
 			\begin{tikzpicture}
 				\netchart{0}{30}{30} {Task A} {0}{30}{30} {tA}
 				\begin{scope}[xshift=4cm]
-					\begin{scope}[yshift=2cm]
+					\begin{scope}[yshift=0cm]
 						\netchart{30}{31}{61} {Task B} {30}{31}{61} {tB}
-						\begin{scope}[xshift=4cm, yshift=-4cm]
+						\begin{scope}[xshift=4cm]
 							\netchart{61}{60}{121} {Task C} {61}{60}{121} {tC}
 						\end{scope}
 					\end{scope}
@@ -554,12 +609,10 @@
 						\netchart{121}{60}{181} {Task D} {121}{60}{181} {tD}
 					\end{scope}
 				\end{scope}
-
 				\nchconnect{tA}{tB}
 				\nchconnect{tB}{tC}
 				\nchconnect{tC}{tD}
 			\end{tikzpicture}
-
 			\caption{Network chart}
 			\label{fig:network_chart}
 		\end{figure}
@@ -573,40 +626,39 @@
 			\newcommand{\threerowdate}[3]{
 				\begin{tabular}{c}#1\\#2\\#3\end{tabular}
 			}
-			% TODO: Task Schedule Management and Personnel Assignment Plan
+			\newcommand{\tworowcell}[2]{\begin{tabular}{c}#1\\#2\end{tabular}}
+
 			\begin{table}[ht]
 				\centering
 				\caption{Task Schedule Management and Personnel Assignment Plan}
 				\label{tab:task_schedule_personnel_assignment}
 				\begin{tabular}{cccccccc}
 					\toprule
-					Task & Task Description                     & Personnel     & Duration (in days) & EST                          & LST                          & ECT                          & LCT                          \\
+					Task & Task Description                                                                   & Personnel     & Duration (in days) & EST                          & LST                          & ECT                          & LCT                          \\
 					\midrule
-					A    & Implementation of Algorithms         & \allpersonnel & 30                 & \threerowdate{NOV}{01}{2019} & \threerowdate{NOV}{30}{2019} & \threerowdate{NOV}{01}{2019} & \threerowdate{NOV}{30}{2019} \\
-					B    & Testing, Refinement and Optimization & \allpersonnel & 31                 & \threerowdate{DEC}{01}{2019} & \threerowdate{DEC}{31}{2019} & \threerowdate{DEC}{01}{2019} & \threerowdate{DEC}{31}{2019} \\
-					C    & Data Collection                      & \allpersonnel & 60                 & \threerowdate{JAN}{01}{2019} & \threerowdate{FEB}{29}{2019} & \threerowdate{JAN}{01}{2019} & \threerowdate{FEB}{29}{2019} \\
-					D    & Data Analysis                        & \allpersonnel & 61                 & \threerowdate{MAR}{01}{2019} & \threerowdate{APR}{31}{2019} & \threerowdate{MAR}{01}{2019} & \threerowdate{APR}{31}{2019} \\
+					A    & \tworowcell{Development of \ttt\ Game Platform and} {Implementation of Algorithms} & \allpersonnel & 30                 & \threerowdate{NOV}{01}{2019} & \threerowdate{NOV}{30}{2019} & \threerowdate{NOV}{01}{2019} & \threerowdate{NOV}{30}{2019} \\
+					B    & \tworowcell{Testing, Refinement and Optimization} {of Implemented Programs}        & \allpersonnel & 31                 & \threerowdate{DEC}{01}{2019} & \threerowdate{DEC}{31}{2019} & \threerowdate{DEC}{01}{2019} & \threerowdate{DEC}{31}{2019} \\
+					C    & Data Collection                                                                    & \allpersonnel & 60                 & \threerowdate{JAN}{01}{2019} & \threerowdate{FEB}{29}{2019} & \threerowdate{JAN}{01}{2019} & \threerowdate{FEB}{29}{2019} \\
+					D    & Data Analysis                                                                      & \allpersonnel & 61                 & \threerowdate{MAR}{01}{2019} & \threerowdate{APR}{31}{2019} & \threerowdate{MAR}{01}{2019} & \threerowdate{APR}{31}{2019} \\
 					\bottomrule
 				\end{tabular}
 			\end{table} \newpage
 
-			% TODO: Material and Equipment Sourcing Plan
 			\begin{table}[htbp]
 				\centering
 				\caption{Material and Equipment Sourcing Plan}
 				\label{tab:material_equipment_sourcing}
 				\begin{tabular}{cccccc}
 					\toprule
-					Protocol                             & Date/s Needed    & Unit & Materials Needed         & Potential Source & Remarks \\
+					Protocol                                                                          & Date/s Needed    & Unit & Materials Needed         & Potential Source & Remarks \\
 					\midrule
-					Implementation of Algorithm          & NOV-01 to 30     & 1    & Laptop with Python       & From Home        & On Hand \\
-					Testing, Refinement and Optimization & DEC-01 to 31     & 1    & Laptop with Python       & From Home        & On Hand \\
-					Data Collection and Analysis         & JAN-01 to APR-31 & 1    & Laptop with Python and R & From Home        & On Hand \\
+					\tworowcell{Development of \ttt\ Game Platform} {and Implementation of Algorithm} & NOV-01 to 30     & 1    & Laptop with Python       & From Home        & On Hand \\
+					\tworowcell{Testing, Refinement and Optimization} {of Implemented Programs}       & DEC-01 to 31     & 1    & Laptop with Python       & From Home        & On Hand \\
+					Data Collection and Analysis                                                      & JAN-01 to APR-31 & 1    & Laptop with Python and R & From Home        & On Hand \\
 					\bottomrule
 				\end{tabular}
 			\end{table}
 
-			% TODO: Risk Management Plan
 			\begin{table}[htbp]
 				\centering
 				\caption{Risk Management Plan}
@@ -638,49 +690,26 @@
 				\bottomrule
 			\end{tabular}
 		\end{table}
-		\lstset{language=Python, breaklines=true, numbers=left, stringstyle=\ttfamily\small, basicstyle=\singlespacing}
-
-		\lstinputlisting[caption={game.py}, label={lst:game.py}]{../str-templates/sample-resources/code/game.py}
 
 	\chapter{Statistical Tables}
 		% TODO: Statistical Tables
 		\begin{table}[htbp]
 			\centering
-			\caption{Example of Organisms Sorted Through a Classifier System}
-			\label{tab:ex_classifier}
-			\begin{tabular}{lccc}
+			\caption{ANOVA Table}
+			\label{tab:ANOVA}
+			\begin{tabular}{lllll}
 				\toprule
-				Aspect           & Human & Fish & Bacterium \\
+				Source            & SS  & DF  & MS        & F       \\
 				\midrule
-				opposable thumbs & 1     & 0    & 0         \\
-				wings            & 0     & 0    & 0         \\
-				gills            & 0     & 1    & 0         \\
-				eyes             & 1     & 1    & 0         \\
-				requires oxygen  & 1     & 1    & 1         \\
+				Treatments        & SST & k-1 & SST/(k-1) & MST/MSE \\
+				Error             & SSE & N-k & SSE/(N-k) &         \\
+				Total (corrected) & SS  & N-1 &           &         \\
 				\bottomrule
 			\end{tabular}
 		\end{table}
 
 	\chapter{Documentation} \label{apx:documentation}
 		% TODO: Documentation
-		\begin{figure}[htbp]
-			\centering
-			\subfloat[We]{
-				\includegraphics[width=0.45\linewidth]{../str-templates/sample-resources/graphics/bernard-hermant-IhcSHrZXFs4-unsplash.jpg}
-			} \qquad
-			\subfloat[Are]{
-				\includegraphics[width=0.45\linewidth]{../str-templates/sample-resources/graphics/bernard-hermant-IhcSHrZXFs4-unsplash.jpg}
-			}
-
-			\quad
-
-			\subfloat[Watching]{
-				\includegraphics[width=0.45\linewidth]{../str-templates/sample-resources/graphics/bernard-hermant-IhcSHrZXFs4-unsplash.jpg}
-			} \qquad
-			\subfloat[You]{
-				\includegraphics[width=0.45\linewidth]{../str-templates/sample-resources/graphics/bernard-hermant-IhcSHrZXFs4-unsplash.jpg}
-			}
-			\caption{We are watching}
-			\label{fig:waw}
-		\end{figure}
+		\medskip\bigskip
+		GitHub Repository: \url{https://github.com/MasterToast10/paleo-str-g12}
 \end{document}
