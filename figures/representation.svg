@@ -17,7 +17,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.5 (0.92.5+69)"
-   sodipodi:docname="drawing.svg">
+   sodipodi:docname="representation.svg">
   <defs
      id="defs2">
     <linearGradient
@@ -92,9 +92,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="421.30315"
-     inkscape:cy="188.90502"
+     inkscape:zoom="0.7"
+     inkscape:cx="366.16627"
+     inkscape:cy="388.855"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -117,7 +117,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -126,6 +126,42 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-30.218692,-91.401281)">
+    <rect
+       style="opacity:1;fill:#007700;fill-opacity:1;stroke:none;stroke-width:0.60850328;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect876"
+       width="226.38707"
+       height="37.731178"
+       x="35.306465"
+       y="102.57526"
+       ry="4.5537515" />
+    <g
+       id="g998">
+      <rect
+         ry="4.0583153"
+         y="104.62778"
+         x="81.247749"
+         height="33.626125"
+         width="33.626125"
+         id="rect815-4"
+         style="opacity:1;fill:url(#linearGradient874);fill-opacity:1;stroke:none;stroke-width:0.54229975;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text898"
+         y="122.28489"
+         x="91.876869"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.63888741px;line-height:1.25;font-family:Gentium;-inkscape-font-specification:'Gentium, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="122.28489"
+           x="91.876869"
+           id="tspan896"
+           sodipodi:role="line">...</tspan></text>
+    </g>
+    <path
+       inkscape:connector-curvature="0"
+       id="path1644"
+       d="M 48.321162,134.18328 32.065501,154.10704 H 94.933205 L 80.464481,134.18328"
+       style="fill:none;stroke:#000000;stroke-width:0.32357466px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       sodipodi:nodetypes="cccc" />
     <g
        id="g1209"
        transform="matrix(1.1204701,0,0,1.1204701,57.137727,-17.115657)">
@@ -274,6 +310,14 @@
     <g
        transform="matrix(1.1204701,0,0,1.1204701,57.137727,-7.5906572)"
        id="g1640">
+      <rect
+         style="opacity:1;fill:url(#linearGradient866);fill-opacity:1;stroke:none;stroke-width:0.44624129;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect1584"
+         width="58.696667"
+         height="58.696667"
+         x="-23.670115"
+         y="141.5285"
+         ry="4.293601" />
       <g
          id="g1611">
         <g
@@ -411,22 +455,7 @@
              y="183.56853"
              style="font-size:5.26590014px;stroke-width:0.1316475">8</tspan></text>
       </g>
-      <rect
-         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.44624129;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         id="rect1584"
-         width="58.696667"
-         height="58.696667"
-         x="-23.670115"
-         y="141.5285" />
     </g>
-    <rect
-       style="opacity:1;fill:#007700;fill-opacity:1;stroke:none;stroke-width:0.60850328;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect876"
-       width="226.38707"
-       height="37.731178"
-       x="35.306465"
-       y="102.57526"
-       ry="4.5537515" />
     <rect
        style="opacity:1;fill:url(#linearGradient868);fill-opacity:1;stroke:none;stroke-width:0.54229975;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect815"
@@ -435,28 +464,6 @@
        x="47.621624"
        y="104.62778"
        ry="4.0583153" />
-    <g
-       id="g998">
-      <rect
-         ry="4.0583153"
-         y="104.62778"
-         x="81.247749"
-         height="33.626125"
-         width="33.626125"
-         id="rect815-4"
-         style="opacity:1;fill:url(#linearGradient874);fill-opacity:1;stroke:none;stroke-width:0.54229975;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <text
-         id="text898"
-         y="122.28489"
-         x="91.876869"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.63888741px;line-height:1.25;font-family:Gentium;-inkscape-font-specification:'Gentium, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-         xml:space="preserve"><tspan
-           style="stroke-width:0.26458332"
-           y="122.28489"
-           x="91.876869"
-           id="tspan896"
-           sodipodi:role="line">...</tspan></text>
-    </g>
     <g
        id="g1003">
       <rect
@@ -597,11 +604,5 @@
          x="207.93568"
          y="100.28963"
          style="font-size:14.11111069px;stroke-width:0.26458332">Genome</tspan></text>
-    <path
-       inkscape:connector-curvature="0"
-       id="path1644"
-       d="M 47.621624,138.25391 30.616073,150.9878 H 96.383931 L 81.247749,138.25391"
-       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       sodipodi:nodetypes="cccc" />
   </g>
 </svg>
