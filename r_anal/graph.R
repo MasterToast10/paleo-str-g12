@@ -1,7 +1,7 @@
 library(tidyverse)
 library(ggplot2)
 
-graphify <- function(ftrack_name){
+graphify <- function(ftrack_name) {
     ftrack <- read.csv(sprintf("sim/%s_ftrack.csv", ftrack_name))
     ftrack <- within(ftrack, {
         sim_id <- factor(sim_id)
@@ -15,7 +15,7 @@ graphify <- function(ftrack_name){
         breaks = seq(min(ftrack$generation),
             max(ftrack$generation), by = 1)) +
     labs(x = "Generations", y = "Fitness", col = "Simulation")
-    ggsave(sprintf("figures/%s_ftrack.pdf", ftrack_name))
+    ggplot2::ggsave(sprintf("figures/%s_ftrack.pdf", ftrack_name))
 }
 
 map(c("ctrl", "rmg", "umg"), graphify)
