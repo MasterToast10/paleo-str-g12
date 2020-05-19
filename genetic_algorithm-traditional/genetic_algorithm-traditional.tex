@@ -8,6 +8,7 @@
 \usepackage{amsmath}
 
 % For better tables
+\usepackage{longtable}
 \usepackage{booktabs}
 \usepackage{threeparttable}
 
@@ -595,39 +596,67 @@
 		\end{landscape}
 
 	\chapter{Raw Data}
-		% TODO: Raw Data
 		\begin{table}[htbp]
 			\centering
-			\caption{Random Table}
-			\label{tab:random}
-			\begin{tabular}{cc}
+			\caption{Generations per Treatment}
+			\label{tab:gen_treatment}
+			\begin{tabular}{ccc}
 				\toprule
-				Random & Bits \\
+				\multicolumn{3}{l}{Number of Generations} \\
+				Control & RMG & UMG                       \\
 				\midrule
-				of     & data \\
+				10      & 6   & 3                         \\
+				3       & 9   & 9                         \\
+				6       & 6   & 5                         \\
+				9       & 11  & 9                         \\
+				7       & 6   & 1                         \\
+				7       & 9   & 7                         \\
+				7       & 8   & 12                        \\
+				10      & 3   & 5                         \\
+				6       & 10  & 7                         \\
+				7       & 7   & 10                        \\
+				9       & 6   & 8                         \\
+				11      & 8   & 14                        \\
+				11      & 7   & 5                         \\
+				11      & 7   & 11                        \\
+				7       & 9   & 7                         \\
+				4       & 7   & 7                         \\
+				7       & 11  & 3                         \\
+				3       & 8   & 8                         \\
+				7       & 7   & 8                         \\
+				9       & 5   & 5                         \\
+				4       & 7   & 6                         \\
+				8       & 8   & 6                         \\
+				11      & 7   & 8                         \\
+				7       & 7   & 5                         \\
+				9       & 9   & 5                         \\
+				6       & 4   & 6                         \\
+				5       & 6   & 8                         \\
+				8       & 6   & 10                        \\
+				6       & 7   & 7                         \\
+				12      & 7   & 9                         \\
 				\bottomrule
 			\end{tabular}
 		\end{table}
 
+		Best fitness per generation data is in the GitHub Repository mentioned in \ref{apx:documentation}.
+
 	\chapter{Statistical Tables}
-		% TODO: Statistical Tables
 		\begin{table}[htbp]
 			\centering
 			\caption{ANOVA Table}
 			\label{tab:ANOVA}
-			\begin{tabular}{lllll}
+			\begin{tabular}{llllll}
 				\toprule
-				Source            & SS  & DF  & MS        & F       \\
+				Source     & DF & Sum of Squares & Mean Square & F     & $p$-value \\
 				\midrule
-				Treatments        & SST & k-1 & SST/(k-1) & MST/MSE \\
-				Error             & SSE & N-k & SSE/(N-k) &         \\
-				Total (corrected) & SS  & N-1 &           &         \\
+				Treatments & 2  & 3.0            & 1.478       & 0.264 & 0.768     \\
+				Residuals  & 87 & 486.7          & 5.594       &       &           \\
 				\bottomrule
 			\end{tabular}
 		\end{table}
 
 	\chapter{Documentation} \label{apx:documentation}
-		% TODO: Documentation
 		\medskip\bigskip
 		GitHub Repository: \url{https://github.com/MasterToast10/paleo-str-g12}
 \end{document}
