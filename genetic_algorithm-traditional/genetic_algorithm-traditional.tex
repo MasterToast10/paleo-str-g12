@@ -456,25 +456,27 @@
 			\label{fig:fitgraph_umg}
 		\end{figure}
 
+		The ANOVA test results assert that the modifications have no effect on the number of generations a GA requires to find a no-loss solution.
+		This means that the application of an unbeatable opponent did not promote the genetic evolution of the GA towards a no-loss solution.
+		This can imply that either the modification was made in a less-effective component, or the application did not change any behaviour of the GA at all.
+		The latter implication can be disproven by the discrepancies produced by the UMG-controlled GA demonstrated in Figure~\ref{fig:fitgraph_umg}.
+		This behaviour shows that in some cases, the alignments of the UMG goes against the alignments of the fitness function.
+		Such behaviour demonstrates that the UMG modification does in fact, affect the evolution of the GA in no small way.
+
+		In the case that the UMG modification was placed in a less-effective component of the GA, it could be implied that there is no effective component in the GA that can accommodate the modification, or that there is one that is not specifically in the Controlled Elite Preservation operator.
+		To prove whether there is an effective component in the GA that can utilize the \enquote{unbeatability} of the UMG or not requires extensive research far beyond the scope of this study.
+
+		Either way, this study shows that modifying the Controlled Elite Preservation operator of the GA does not significantly improve the performance of the GA.
+		An observation that might be of use, however, is the fact that the UMG-controlled GA shows promise of increase in variability of the GA, which can be used in finding more diverse solutions in the search space.
+
 	\chapter{CONCLUSION AND RECOMMENDATIONS}
-		% TODO: Conclusion and Recommendations
-		\textquote[\cite{monashuniversityConclusionsRecommendations2020}]{%
-			The Conclusions and Recommendations may be combined or, in long reports, presented in separate sections.
-			If there are no recommendations to be made as a result of the project, just call this section Conclusions.
-
-			The Conclusions section sums up the key points of your discussion, the essential features of your design, or the significant outcomes of your investigation.
-			As its function is to round off the story of your project, it should:
-
-			\begin{itemize}
-				\item be written to relate directly to the aims of the project as stated in the Introduction
-				\item indicate the extent to which the aims have been achieved
-				\item summarise the key findings, outcomes or information in your report
-				\item acknowledge limitations and make recommendations for future work (where applicable)
-				\item highlight the significance or usefulness of your work.
-			\end{itemize}
-
-			The conclusions should relate to the aims of the work[.]%
-		}
+		In essence, the stated objectives: to train organisms with MGs and to compare their performance, has been achieved through the modifications to the Controlled Elite Preservation operator.
+		This study targeted the Controlled Elite Preservation operator specifically, thus further research is required to acquire more comprehensive data regarding the effects of having a \enquote{smart} opponent control the evolution of a GA.
+		
+		The study resulted in proof that modifying the Controlled Elite Preservation operator does not improve the performance of the GA.
+		This opens up more questions, on whether or not the application of MG will ever affect the behaviour of a GA.
+		It is also recommended to involve testing the performance of the GA as a second player.
+		Furthermore, this research serves as a foundation for more extensive investigations into the effects of \enquote{smart} AI on the learning of other AI.
 
 	\literaturecited
 
