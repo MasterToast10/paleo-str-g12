@@ -15,7 +15,8 @@ graphify <- function(ftrack_name) {
         breaks = seq(min(ftrack$generation),
             max(ftrack$generation), by = 1)) +
     labs(x = "Generations", y = "Fitness", col = "Simulation")
-    ggplot2::ggsave(sprintf("figures/%s_ftrack.pdf", ftrack_name))
+    ggplot2::ggsave(sprintf("figures/%s_ftrack.pdf", ftrack_name), 
+        height = 7, width = 1.5 * 7)
 }
 
 map(c("ctrl", "rmg", "umg"), graphify)

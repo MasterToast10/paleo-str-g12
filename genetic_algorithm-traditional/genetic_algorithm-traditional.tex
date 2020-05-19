@@ -411,113 +411,31 @@
 				Should the alternative hypothesis be true, Tukey Honest Significant Differences (Tukey HSD) is applied to locate the different mean.
 
 	\chapter{RESULTS AND DISCUSSION}
-		% TODO: Results and Discussion
-		\textquote[\cite{skillsyouneed.comDissertationWritingResults2020}]{The Results section should set out your key experimental results, including any statistical analysis and whether or not the results of these are significant}.
-
-		Cite literature that support your analyses of the results.
-		It is imperative to include relevant results, regardless of support of hypotheses.
-		Brief descriptions of the results should be provided when clarification is needed.
-
-		\section*{Softening Points}
-			\begin{figure}[ht]
-				\centering
-				\definecolor{grrayt}{HTML}{848484}
-				\begin{tikzpicture}
-					\begin{axis}[
-							width  = \linewidth,
-							height = 8cm,
-							major x tick style = transparent,
-							ybar=2*\pgflinewidth,
-							bar width=\linewidth/12,
-							ymajorgrids = true,
-							ylabel = {Softening point (\si{\celsius})},
-							symbolic x coords={0\% PP, 2\% PP, 4\% PP, 6\% PP},
-							xtick = data,
-							scaled y ticks = false,
-							try min ticks = 10,
-							enlarge x limits=0.25,
-							ymin=0, ymax = 100
-						]
-						\addplot[style={grrayt,fill=grrayt,mark=none}, error bars/.cd,
-							y dir=both, y explicit, error bar style={color=black}]
-						coordinates {(0\% PP, 48.5)+-(4.0, 4.0) (2\% PP, 56.0)+-(2.0, 2.0) (4\% PP, 61.5)+-(2.5, 2.5) (6\% PP, 68.0)+-(2.0, 2.0)}
-						node[pos=0/4,anchor=south, color=black, yshift=10] {48.5}
-						node[pos=1/4,anchor=south, color=black, yshift=10] {56.0}
-						node[pos=3/4,anchor=south, color=black, yshift=10] {61.5}
-						node[pos=4/4,anchor=south, color=black, yshift=10] {68.0};
-					\end{axis}
-				\end{tikzpicture}
-				\caption[Sample bar graph]{Sample bar graph of softening points}
-				\label{fig:samplebargraph}
-			\end{figure}
-
-			\clearpage
-
-			\begin{table}[htbp]
-				\centering
-				\begin{threeparttable}
-					\caption[Characteristics of the Sample]{Characteristics of the Sample\tnote{\textdagger}}
-					\label{tab:sample_characteristics}
-					\begin{tabular}{llll}
-						\toprule
-						Variable                                     & Control         & Heat \& moisture exchanger & Probability \\
-						                                             & (n = 45)        & (n = 49)                   &             \\
-						\midrule
-						Age (years)\tnote{1}                         & \num{32.7(35)}  & \num{36.3(27)}             & 0.08        \\
-						Height (\si{\meter})\tnote{1}                & \num{1.72(60)}  & \num{1.67(80)}             & NS          \\
-						Weight (\si{\kilo\gram})\tnote{1}            & \num{76.6(128)} & \num{72.3(162)}            & NS          \\
-						Gender (number of males)\tnote{2}            & 21              & 26                         & NS          \\
-						ASA Physical Status\tnote{3}                 & \num{2(1)}      & \num{2(1)}                 & NS          \\
-						OR room temperature (\si{\celsius})\tnote{1} & \num{21.1(36)}  & \num{20.6(29)}             & NS          \\
-						\bottomrule
-					\end{tabular}
-					\begin{tablenotes}
-						\small
-						\item[1]
-						Data is expressed as mean \textpm{} one standard deviation.
-						Probability determined using a two-tailed, unpaired Student's t-test.
-						\item[2]
-						Data is expressed as number within the sample who possess the characteristic.
-						Probability determined using Chi square (or Fisher's Exact test for $2 \times 2$ tables).
-						\item[3]
-						Data is expressed as median \textpm{} one interquartile range.
-						Probability determined using a Mann-Whitney U test.
-						\item[\textdagger] Source: \fullcite{doschHowWriteResults2009}
-					\end{tablenotes}
-				\end{threeparttable}
-			\end{table}
-			Take advantage of \texttt{siunitx} package like so: \SI{5.67(12)e6}{\ampere}.
-			Take advantage of citations with BibLaTeX like so: The question is posed as to whether or not writing systems influence the associations between phonological awareness, morphological awareness, and reading \autocite[180--183]{ruanDoesWritingSystem2018}.
-			More examples are in the \href{http://tug.ctan.org/info/biblatex-cheatsheet/biblatex-cheatsheet.pdf}{\texttt{biblatex-cheatsheet} on CTAN}.
-
-			\vspace{-\baselineskip}
-			\begin{align}
-				\label{eqn:meeq}
-				E^2  & = (mc^2)^2 + (pc)^2                   \\
-				\label{eqn:samp}
-				x(t) & = \int_{-B}^{B} X(f)e^{j 2\pi f t}~df
-			\end{align}
-
-			One may refer to figures within this section or in the appendix, similar to the following: % However, the following demonstration might be overkill.
-			One may also refer to appendices similar to the following:
-			\blockquote{Relevant documentation is included in \ref{apx:documentation}.}
-
-		\section*{Analysis/Discussion}
-			\textquote[\cite{skillsyouneed.comDissertationWritingResults2020}]{
-				This section has four purposes, it should:
-				\begin{itemize}
-					\item Interpret and explain your results
-					\item Answer your research question
-					\item Justify your approach
-					\item Critically evaluate your study
-				\end{itemize}
-
-				The discussion section therefore needs to review your findings in the context of the literature and the existing knowledge about the subject.
-
-				You also need to demonstrate that you understand the limitations of your research and the implications of your findings for policy and practice. This section should be written in the present tense.
-
-				The Discussion section needs to follow from your results and relate back to your literature review. Make sure that everything you discuss is covered in the results section.
-			}
+		% p-value of the ANOVA test is 0.768
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=\textwidth]{../figures/boxplot}
+			\caption{Boxplot of treatments}
+			\label{fig:boxplot}
+		\end{figure}
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=\textwidth]{../figures/ctrl_ftrack}
+			\caption{Fitness graph of control}
+			\label{fig:fitgraph_ctrl}
+		\end{figure}
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=\textwidth]{../figures/rmg_ftrack}
+			\caption{Fitness graph of RMG-treated}
+			\label{fig:fitgraph_rmg}
+		\end{figure}
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=\textwidth]{../figures/umg_ftrack}
+			\caption{Fitness graph of UMG-treated}
+			\label{fig:fitgraph_umg}
+		\end{figure}
 
 	\chapter{CONCLUSION AND RECOMMENDATIONS}
 		% TODO: Conclusion and Recommendations
