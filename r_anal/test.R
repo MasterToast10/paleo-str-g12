@@ -11,6 +11,6 @@ group_by(gen_counts, group) %>%
         mean = mean(generations, na.rm = TRUE),
         sd = sd(generations, na.rm = TRUE)
     )
-res.aov <- aov(generations ~ group, gen_counts)
-summary(res.aov)
-TukeyHSD(res.aov)
+res_aov <- aov(generations ~ group, gen_counts)
+summary(res_aov)
+TukeyHSD(res_aov)
