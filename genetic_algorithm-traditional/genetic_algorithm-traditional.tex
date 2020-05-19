@@ -412,19 +412,37 @@
 				Should the alternative hypothesis be true, Tukey Honest Significant Differences (Tukey HSD) is applied to locate the different mean.
 
 	\chapter{RESULTS AND DISCUSSION}
-		% p-value of the ANOVA test is 0.768
 		\begin{figure}[htbp]
 			\centering
 			\includegraphics[width=\textwidth]{../figures/boxplot}
 			\caption{Notched box plot of treatments}
 			\label{fig:boxplot}
 		\end{figure}
+
+		A notched box plot of treatment results is shown in Figure~\ref{fig:boxplot}.
+		This box plot denotes the interquartile range (IQR) where 50\% of the data is located.
+		It is shown that each treatment has a median of seven (7) generations before termination, and the population median is shown by the notches to be within six to eight generations.
+		The UMG-controlled GA shows a larger spread while the RMG-controlled GA shows more consistent data points.
+
 		\begin{figure}[htbp]
 			\centering
 			\includegraphics[width=\textwidth]{../figures/ctrl_ftrack}
 			\caption{Population-best fitness graph of control}
 			\label{fig:fitgraph_ctrl}
 		\end{figure}
+
+		The large spread in the data points of the UMG-controlled GA is also evident in Figure~\ref{fig:fitgraph_umg}.
+		It is easily shown by the wide standard error bar depicted along the smoothed regression model compared to the standard error bars depicted in Figure~\ref{fig:fitgraph_ctrl} and Figure~\ref{fig:fitgraph_rmg}.
+		Figure~\ref{fig:fitgraph_umg} also depicts unique cases where population-best fitness suddenly increases by a large margin.
+
+		This evident spread might invalidate the ANOVA test, thus Bartlett's Test for Homogeneity of Variances was applied to the data via $R$ \autocite{nist/sematechBartlettTest2013}.
+		This test resulted in $\chi^2 = 5.1019,~df = 2$ with a $p$-value of 0.07801.
+		Said $p$-value is greater than $\alpha = 0.05$, thus the assumption of homogeneity of variances that is necessary in ANOVA is maintained.
+
+		ANOVA was then used to test the null hypothesis that the means of the treatments are equal.
+		This returned an F-value of 0.264 and a $p$-value of 0.768.
+		The $p$-value is greater than $\alpha = 0.05$, therefore the null hypothesis that the means of the treatments are equal is not rejected.
+
 		\begin{figure}[htbp]
 			\centering
 			\includegraphics[width=\textwidth]{../figures/rmg_ftrack}
