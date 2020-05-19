@@ -8,6 +8,7 @@
 \usepackage{amsmath}
 
 % For better tables
+\usepackage{longtable}
 \usepackage{booktabs}
 \usepackage{threeparttable}
 
@@ -49,7 +50,6 @@
 
 % Required for the citations
 \usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
-\addbibresource{../str-templates/sample-resources/bibliographies/str.bib} % TODO: Remove
 \addbibresource{../paleo-str-g12.bib}
 
  
@@ -103,11 +103,14 @@
 		Without these people, this research would never be successful.
 
 	\unnumchapter{ABSTRACT}
-		% TODO: Abstract
-		% Do note that abstracts should not contain references.
 		\makeabstract{
-			According to \textcite{georgemasonuniversityWritingAbstract2020}, \blockquote{An abstract is a 150- to 250-word paragraph that provides readers with a quick overview of your essay or report and its organization. It should express your thesis (or central idea) and your key points; it should also suggest any implications or applications of the research you discuss in the paper.}
-			\textcite{georgemasonuniversityWritingAbstract2020} also states that the common abstract is divided into such: 25\% of space on the purpose and importance of the research (Introduction), 25\% of space on what was done (Methods), 35\% of space on what was found (Results), and 15\% of space on the implications of the research.
+			Machine learning methods are algorithms where machines are not explicitly programmed to do what is tasked but rather, learns how to perform the task.
+			An \mnk\ is a game where there is an $m \times n$ grid and two players alternate turns trying to earn $k$ pieces adjacent to each other horizontally, vertically or diagonally.
+			The \mnk\ to be used in the research to test the MLMs is \ttt, configured as 3,3,3.
+			The study utilizes an existing genetic algorithm to be used as a control setup.
+			This genetic algorithm is modified to be controlled by move generators using the Controlled Elite Preservation operator and the resulting genetic algorithms are compared with regard to performance.
+			Using an ANOVA Test at $\alpha = 0.05$, no significant difference in performance was found between the unmodified and modified genetic algorithms.
+			This study provides a backbone for research involved in the transmission of knowledge between \enquote{smart} artificial intelligence and \enquote{naive} intelligence, raising the question on whether the evolution of a genetic algorithm can be better affected by a move generator in other components.
 		}
 
 	\unnumchapter*{Table of Contents}
@@ -270,7 +273,7 @@
 				\label{fig:genetic}
 			\end{figure}
 
-			There are two aspects of the evolution process that computer scientists want to emulate: natural selection and reproduction. "Natural selection" is the process of choosing which solutions survive to make a new generation of algorithms, the survivors govern the characteristics of next generation. Reproduction is the recombination of genes from parent to offspring, making the "child" algorithm of an organism have similar characteristics to their two parent algorithms.
+			There are two aspects of the evolution process that computer scientists want to emulate: natural selection and reproduction. \enquote{Natural selection} is the process of choosing which solutions survive to make a new generation of algorithms, the survivors govern the characteristics of next generation. Reproduction is the recombination of genes from parent to offspring, making the \enquote{child} algorithm of an organism have similar characteristics to their two parent algorithms.
 
 			Programming natural selection is done by giving an algorithm a test of fitness, going through numerous iterations, then giving a fitness score based on that performance \autocite{hochmuthGeneticEvolutionPerfect2003}.
 			Fitness scores are usually calculated based on the ratio of games won, as shown in Equation~\ref{eqn:fitness}.
@@ -411,133 +414,71 @@
 				Should the alternative hypothesis be true, Tukey Honest Significant Differences (Tukey HSD) is applied to locate the different mean.
 
 	\chapter{RESULTS AND DISCUSSION}
-		% TODO: Results and Discussion
-		\textquote[\cite{skillsyouneed.comDissertationWritingResults2020}]{The Results section should set out your key experimental results, including any statistical analysis and whether or not the results of these are significant}.
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=\textwidth]{../figures/boxplot}
+			\caption{Notched box plot of treatments}
+			\label{fig:boxplot}
+		\end{figure}
 
-		Cite literature that support your analyses of the results.
-		It is imperative to include relevant results, regardless of support of hypotheses.
-		Brief descriptions of the results should be provided when clarification is needed.
+		A notched box plot of treatment results is shown in Figure~\ref{fig:boxplot}.
+		This box plot denotes the interquartile range (IQR) where 50\% of the data is located.
+		It is shown that each treatment has a median of seven (7) generations before termination, and the population median is shown by the notches to be within six to eight generations.
+		The UMG-controlled GA shows a larger spread while the RMG-controlled GA shows more consistent data points.
 
-		\section*{Softening Points}
-			\begin{figure}[ht]
-				\centering
-				\definecolor{grrayt}{HTML}{848484}
-				\begin{tikzpicture}
-					\begin{axis}[
-							width  = \linewidth,
-							height = 8cm,
-							major x tick style = transparent,
-							ybar=2*\pgflinewidth,
-							bar width=\linewidth/12,
-							ymajorgrids = true,
-							ylabel = {Softening point (\si{\celsius})},
-							symbolic x coords={0\% PP, 2\% PP, 4\% PP, 6\% PP},
-							xtick = data,
-							scaled y ticks = false,
-							try min ticks = 10,
-							enlarge x limits=0.25,
-							ymin=0, ymax = 100
-						]
-						\addplot[style={grrayt,fill=grrayt,mark=none}, error bars/.cd,
-							y dir=both, y explicit, error bar style={color=black}]
-						coordinates {(0\% PP, 48.5)+-(4.0, 4.0) (2\% PP, 56.0)+-(2.0, 2.0) (4\% PP, 61.5)+-(2.5, 2.5) (6\% PP, 68.0)+-(2.0, 2.0)}
-						node[pos=0/4,anchor=south, color=black, yshift=10] {48.5}
-						node[pos=1/4,anchor=south, color=black, yshift=10] {56.0}
-						node[pos=3/4,anchor=south, color=black, yshift=10] {61.5}
-						node[pos=4/4,anchor=south, color=black, yshift=10] {68.0};
-					\end{axis}
-				\end{tikzpicture}
-				\caption[Sample bar graph]{Sample bar graph of softening points}
-				\label{fig:samplebargraph}
-			\end{figure}
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=\textwidth]{../figures/ctrl_ftrack}
+			\caption{Population-best fitness graph of control}
+			\label{fig:fitgraph_ctrl}
+		\end{figure}
 
-			\clearpage
+		The large spread in the data points of the UMG-controlled GA is also evident in Figure~\ref{fig:fitgraph_umg}.
+		It is easily shown by the wide standard error bar depicted along the smoothed regression model compared to the standard error bars depicted in Figure~\ref{fig:fitgraph_ctrl} and Figure~\ref{fig:fitgraph_rmg}.
+		Figure~\ref{fig:fitgraph_umg} also depicts unique cases where population-best fitness suddenly increases by a large margin.
 
-			\begin{table}[htbp]
-				\centering
-				\begin{threeparttable}
-					\caption[Characteristics of the Sample]{Characteristics of the Sample\tnote{\textdagger}}
-					\label{tab:sample_characteristics}
-					\begin{tabular}{llll}
-						\toprule
-						Variable                                     & Control         & Heat \& moisture exchanger & Probability \\
-						                                             & (n = 45)        & (n = 49)                   &             \\
-						\midrule
-						Age (years)\tnote{1}                         & \num{32.7(35)}  & \num{36.3(27)}             & 0.08        \\
-						Height (\si{\meter})\tnote{1}                & \num{1.72(60)}  & \num{1.67(80)}             & NS          \\
-						Weight (\si{\kilo\gram})\tnote{1}            & \num{76.6(128)} & \num{72.3(162)}            & NS          \\
-						Gender (number of males)\tnote{2}            & 21              & 26                         & NS          \\
-						ASA Physical Status\tnote{3}                 & \num{2(1)}      & \num{2(1)}                 & NS          \\
-						OR room temperature (\si{\celsius})\tnote{1} & \num{21.1(36)}  & \num{20.6(29)}             & NS          \\
-						\bottomrule
-					\end{tabular}
-					\begin{tablenotes}
-						\small
-						\item[1]
-						Data is expressed as mean \textpm{} one standard deviation.
-						Probability determined using a two-tailed, unpaired Student's t-test.
-						\item[2]
-						Data is expressed as number within the sample who possess the characteristic.
-						Probability determined using Chi square (or Fisher's Exact test for $2 \times 2$ tables).
-						\item[3]
-						Data is expressed as median \textpm{} one interquartile range.
-						Probability determined using a Mann-Whitney U test.
-						\item[\textdagger] Source: \fullcite{doschHowWriteResults2009}
-					\end{tablenotes}
-				\end{threeparttable}
-			\end{table}
-			Take advantage of \texttt{siunitx} package like so: \SI{5.67(12)e6}{\ampere}.
-			Take advantage of citations with BibLaTeX like so: The question is posed as to whether or not writing systems influence the associations between phonological awareness, morphological awareness, and reading \autocite[180--183]{ruanDoesWritingSystem2018}.
-			More examples are in the \href{http://tug.ctan.org/info/biblatex-cheatsheet/biblatex-cheatsheet.pdf}{\texttt{biblatex-cheatsheet} on CTAN}.
+		This evident spread might invalidate the ANOVA test, thus Bartlett's Test for Homogeneity of Variances was applied to the data via $R$ \autocite{nist/sematechBartlettTest2013}.
+		This test resulted in $\chi^2 = 5.1019,~df = 2$ with a $p$-value of 0.07801.
+		Said $p$-value is greater than $\alpha = 0.05$, thus the assumption of homogeneity of variances that is necessary in ANOVA is maintained.
 
-			\vspace{-\baselineskip}
-			\begin{align}
-				\label{eqn:meeq}
-				E^2  & = (mc^2)^2 + (pc)^2                   \\
-				\label{eqn:samp}
-				x(t) & = \int_{-B}^{B} X(f)e^{j 2\pi f t}~df
-			\end{align}
+		ANOVA was then used to test the null hypothesis that the means of the treatments are equal.
+		This returned an F-value of 0.264 and a $p$-value of 0.768.
+		The $p$-value is greater than $\alpha = 0.05$, therefore the null hypothesis that the means of the treatments are equal is not rejected.
 
-			One may refer to figures within this section or in the appendix, similar to the following: % However, the following demonstration might be overkill.
-			One may also refer to appendices similar to the following:
-			\blockquote{Relevant documentation is included in \ref{apx:documentation}.}
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=\textwidth]{../figures/rmg_ftrack}
+			\caption{Population-best fitness graph of RMG-treated}
+			\label{fig:fitgraph_rmg}
+		\end{figure}
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=\textwidth]{../figures/umg_ftrack}
+			\caption{Population-best fitness graph of UMG-treated}
+			\label{fig:fitgraph_umg}
+		\end{figure}
 
-		\section*{Analysis/Discussion}
-			\textquote[\cite{skillsyouneed.comDissertationWritingResults2020}]{
-				This section has four purposes, it should:
-				\begin{itemize}
-					\item Interpret and explain your results
-					\item Answer your research question
-					\item Justify your approach
-					\item Critically evaluate your study
-				\end{itemize}
+		The ANOVA test results assert that the modifications have no effect on the number of generations a GA requires to find a no-loss solution.
+		This means that the application of an unbeatable opponent did not promote the genetic evolution of the GA towards a no-loss solution.
+		This can imply that either the modification was made in a less-effective component, or the application did not change any behaviour of the GA at all.
+		The latter implication can be disproven by the discrepancies produced by the UMG-controlled GA demonstrated in Figure~\ref{fig:fitgraph_umg}.
+		This behaviour shows that in some cases, the alignments of the UMG goes against the alignments of the fitness function.
+		Such behaviour demonstrates that the UMG modification does in fact, affect the evolution of the GA in no small way.
 
-				The discussion section therefore needs to review your findings in the context of the literature and the existing knowledge about the subject.
+		In the case that the UMG modification was placed in a less-effective component of the GA, it could be implied that there is no effective component in the GA that can accommodate the modification, or that there is one that is not specifically in the Controlled Elite Preservation operator.
+		To prove whether there is an effective component in the GA that can utilize the \enquote{unbeatability} of the UMG or not requires extensive research far beyond the scope of this study.
 
-				You also need to demonstrate that you understand the limitations of your research and the implications of your findings for policy and practice. This section should be written in the present tense.
-
-				The Discussion section needs to follow from your results and relate back to your literature review. Make sure that everything you discuss is covered in the results section.
-			}
+		Either way, this study shows that modifying the Controlled Elite Preservation operator of the GA does not significantly improve the performance of the GA.
+		An observation that might be of use, however, is the fact that the UMG-controlled GA shows promise of increase in variability of the GA, which can be used in finding more diverse solutions in the search space.
 
 	\chapter{CONCLUSION AND RECOMMENDATIONS}
-		% TODO: Conclusion and Recommendations
-		\textquote[\cite{monashuniversityConclusionsRecommendations2020}]{%
-			The Conclusions and Recommendations may be combined or, in long reports, presented in separate sections.
-			If there are no recommendations to be made as a result of the project, just call this section Conclusions.
-
-			The Conclusions section sums up the key points of your discussion, the essential features of your design, or the significant outcomes of your investigation.
-			As its function is to round off the story of your project, it should:
-
-			\begin{itemize}
-				\item be written to relate directly to the aims of the project as stated in the Introduction
-				\item indicate the extent to which the aims have been achieved
-				\item summarise the key findings, outcomes or information in your report
-				\item acknowledge limitations and make recommendations for future work (where applicable)
-				\item highlight the significance or usefulness of your work.
-			\end{itemize}
-
-			The conclusions should relate to the aims of the work[.]%
-		}
+		In essence, the stated objectives: to train organisms with MGs and to compare their performance, has been achieved through the modifications to the Controlled Elite Preservation operator.
+		This study targeted the Controlled Elite Preservation operator specifically, thus further research is required to acquire more comprehensive data regarding the effects of having a \enquote{smart} opponent control the evolution of a GA.
+		
+		The study resulted in proof that modifying the Controlled Elite Preservation operator does not improve the performance of the GA.
+		This opens up more questions, on whether or not the application of MG will ever affect the behaviour of a GA.
+		It is also recommended to involve testing the performance of the GA as a second player.
+		Furthermore, this research serves as a foundation for more extensive investigations into the effects of \enquote{smart} AI on the learning of other AI.
 
 	\literaturecited
 
@@ -677,39 +618,67 @@
 		\end{landscape}
 
 	\chapter{Raw Data}
-		% TODO: Raw Data
 		\begin{table}[htbp]
 			\centering
-			\caption{Random Table}
-			\label{tab:random}
-			\begin{tabular}{cc}
+			\caption{Generations per Treatment}
+			\label{tab:gen_treatment}
+			\begin{tabular}{ccc}
 				\toprule
-				Random & Bits \\
+				\multicolumn{3}{l}{Number of Generations} \\
+				Control & RMG & UMG                       \\
 				\midrule
-				of     & data \\
+				10      & 6   & 3                         \\
+				3       & 9   & 9                         \\
+				6       & 6   & 5                         \\
+				9       & 11  & 9                         \\
+				7       & 6   & 1                         \\
+				7       & 9   & 7                         \\
+				7       & 8   & 12                        \\
+				10      & 3   & 5                         \\
+				6       & 10  & 7                         \\
+				7       & 7   & 10                        \\
+				9       & 6   & 8                         \\
+				11      & 8   & 14                        \\
+				11      & 7   & 5                         \\
+				11      & 7   & 11                        \\
+				7       & 9   & 7                         \\
+				4       & 7   & 7                         \\
+				7       & 11  & 3                         \\
+				3       & 8   & 8                         \\
+				7       & 7   & 8                         \\
+				9       & 5   & 5                         \\
+				4       & 7   & 6                         \\
+				8       & 8   & 6                         \\
+				11      & 7   & 8                         \\
+				7       & 7   & 5                         \\
+				9       & 9   & 5                         \\
+				6       & 4   & 6                         \\
+				5       & 6   & 8                         \\
+				8       & 6   & 10                        \\
+				6       & 7   & 7                         \\
+				12      & 7   & 9                         \\
 				\bottomrule
 			\end{tabular}
 		\end{table}
 
+		The best fitness per generation data is in the GitHub Repository mentioned in \ref{apx:documentation}.
+
 	\chapter{Statistical Tables}
-		% TODO: Statistical Tables
 		\begin{table}[htbp]
 			\centering
 			\caption{ANOVA Table}
 			\label{tab:ANOVA}
-			\begin{tabular}{lllll}
+			\begin{tabular}{llllll}
 				\toprule
-				Source            & SS  & DF  & MS        & F       \\
+				Source     & DF & Sum of Squares & Mean Square & F     & $p$-value \\
 				\midrule
-				Treatments        & SST & k-1 & SST/(k-1) & MST/MSE \\
-				Error             & SSE & N-k & SSE/(N-k) &         \\
-				Total (corrected) & SS  & N-1 &           &         \\
+				Treatments & 2  & 3.0            & 1.478       & 0.264 & 0.768     \\
+				Residuals  & 87 & 486.7          & 5.594       &       &           \\
 				\bottomrule
 			\end{tabular}
 		\end{table}
 
 	\chapter{Documentation} \label{apx:documentation}
-		% TODO: Documentation
 		\medskip\bigskip
 		GitHub Repository: \url{https://github.com/MasterToast10/paleo-str-g12}
 \end{document}
