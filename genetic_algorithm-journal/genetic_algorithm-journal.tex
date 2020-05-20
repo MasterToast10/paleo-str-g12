@@ -8,6 +8,11 @@
 \usepackage{booktabs}
 \usepackage[flushleft]{threeparttable}
 
+\newcommand{\mnk}{\textit{m, n, k} game}
+\newcommand{\mnkpl}{\textit{m, n, k} games}
+\newcommand{\ttt}{Tic-Tac-Toe}
+\newcommand{\TTT}{TIC-TAC-TOE}
+
 % For images
 \usepackage{graphicx}
 
@@ -51,23 +56,62 @@
 \email{vashpatrickancheta@gmail.com} % TODO: Correponding author email
 
 \abstract{
-	Abstract should BE written in \ctuline{one paragraph not to exceed 300 words}.
-	It should summarize the background and scope of the work, the principal results, and note the implications of these results or main conclusions.
-	It should concisely capture the basic content of the paper and be understandable without the text.
-	References and acronyms should be avoided.
+	Machine learning methods are algorithms where machines are not explicitly programmed to do what is tasked but rather, learns how to perform the task.
+			An \mnk\ is a game where there is an $m \times n$ grid and two players alternate turns trying to earn $k$ pieces adjacent to each other horizontally, vertically or diagonally.
+			The \mnk\ to be used in the research to test the MLMs is \ttt, configured as 3,3,3.
+			The study utilizes an existing genetic algorithm to be used as a control setup.
+			This genetic algorithm is modified to be controlled by move generators using the Controlled Elite Preservation operator and the resulting genetic algorithms are compared with regard to performance.
+			Using an ANOVA Test at $\alpha = 0.05$, no significant difference in performance was found between the unmodified and modified genetic algorithms.
+			This study provides a backbone for research involved in the transmission of knowledge between \enquote{smart} artificial intelligence and \enquote{naive} intelligence, raising the question on whether the evolution of a genetic algorithm can be better affected by a move generator in other components.
 } % TODO: Abstract
-\keywords{up to six; key; words; reflecting; content; paper} % TODO: Should be arranged alphabetically and separated by semicolon (This example is not)
+\keywords{genetic algorithm; machine learning; tic-tac-toe; training methods} % TODO: Should be arranged alphabetically and separated by semicolon (This example is not)
 
 \begin{document}
 	\maketitle
 
 	\section{Introduction}
-		% TODO: Introduction
-		Journal paper should be written a maximum of 7 pages excluding references section.
-		On the bottom of the page, list up to six keywords that reflect the content of the paper arranged alphabetically (Santos, 2016). % This is personal communication
+		Machine learning (ML) is vast---it is used in different situations such as spam detectors, web search engines, photo tagging applications and game development \autocite{sharmaMachineLearningApplications2016}.
+			There have been researches that are aimed at improving the implementation of ML in various games.
+			A category of games under investigation through ML is the set of \mnk\ games, comprised of games where there is an $m \times n$ grid and two players alternate turns trying to earn $k$ pieces adjacent to each other horizontally, vertically or diagonally \autocite{hayesDevelopingMemoryEfficient2016}.
+			Among the most common examples of \mnkpl\ are G\=o, Othello, and Chess.
+			\ttt, the game under investigation in this study, is an example of an \mnk.
+			A \ttt\ board is composed of three rows and three columns, and requires three adjacent pieces of the same player to render a win, thus it is considered to have a $3, 3, 3$ configuration.
 
-		An Introduction should describe the paper’s background and provide the rationale for the present study.
-		Cite only those references that will provide the most relevant background rather than an exhaustive review of the topic (Santos \& Reyes, 2017). % This is personal communication too
+			Improvements in ML have lead to the development of artificial intelligence (AI) players that can beat even the most competitive human players around the world.
+			Machine learning methods (MLMs) are algorithms where machines are not explicitly programmed to do what is tasked.
+			Rather, similar to its namesake, MLM-trained machines are capable of performing tasks given its own internal code without any human interference.
+			In short, the machine \textit{learns} \autocite{geeksforgeeksMachineLearning}.
+			An example of an MLM is the genetic algorithm (GA).
+
+			This study aims to develop multiple GAs with different elite preservation methods and compare their performance in \ttt\ based on the possible situations.
+
+		 To compare the effectiveness of trained genetic algorithm (GA) organisms among each other as applied to \ttt
+				\end{itemize}
+			\subsection{Specific Objectives}
+				\begin{enumerate}
+					\item To implement known heuristics into Python code
+					\item To train organisms of an implemented GA using different move generators (MGs)
+					\item To compare the development of the performance of trained GA organisms among each other within 500 generations
+				\end{enumerate}
+
+		
+			
+			This study contributes to the body of knowledge in ML.
+			Through this study, more can be known about how information gained from one method of AI can be passed on to another mechanism of AI through training.
+			This sheds light on how information from one AI player can be transmitted to an MLM such as GA.
+			This, by extension, can improve the comprehension of how machines can learn strategies in games from one with greater skill.
+
+		
+			
+			This study focuses only on \ttt\ and not other games such as Chess or G\=o because it is the simplest game to conduct the research on heuristics, namely the training of the GA under different move generators (MGs).
+			The complexity of the board game is not relevant to the study because the focus of the research is to compare the effectiveness of trained GA organisms given an \mnk.
+			Applying these heuristics on other \mnkpl\ however are beyond the time frame of the research.
+			Only three GAs were developed in this study.
+			The first is a Python implementation of the GA in the work of \textcite{bhattSearchNolossStrategies2008}.
+			Using developed AI, the second and third are modified implementations of the same GA.
+			The performance of each GA is based on how many generations it takes for the GA to find a no-loss first player for \ttt.
+			This basis for comparison of performance, specifically using the skill of an organism as a first player, is due to the fact that Python is known for being slow.
+			In line with this, indices are 0-based in this paper, as they are in Python.
 
 	\section{Methodology}
 		% TODO: Methodology
