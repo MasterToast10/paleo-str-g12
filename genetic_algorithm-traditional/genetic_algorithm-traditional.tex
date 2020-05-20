@@ -41,7 +41,7 @@
 \usepackage{tabularx}
 
 % For code listings (type "texdoc listings" [without the quotes] for more information)
-% \usepackage{listings}
+\usepackage{listings}
 
 \newcommand{\mnk}{\textit{m, n, k} game}
 \newcommand{\mnkpl}{\textit{m, n, k} games}
@@ -115,7 +115,7 @@
 
 	\unnumchapter*{Table of Contents}
 		\contents
-		% \listoflistings
+		\listoflistings
 
 	\mainmatter
 
@@ -158,7 +158,7 @@
 
 		\section{Scope and Limitations of the Study}
 			% TODO: Scope and Limitations of the Study
-			This study focuses only on \ttt\ and not other games such as Chess or G\=o because it is the simplest game to conduct the research on heuristics, namely the training of the GA under different MGs.
+			This study focuses only on \ttt\ and not other games such as Chess or G\=o because it is the simplest game to conduct the research on heuristics, namely the training of the GA under different move generators (MGs).
 			The complexity of the board game is not relevant to the study because the focus of the research is to compare the effectiveness of trained GA organisms given an \mnk.
 			Applying these heuristics on other \mnkpl\ however are beyond the time frame of the research.
 			Only three GAs were developed in this study.
@@ -209,6 +209,16 @@
 		\section*{Effective Computer Algorithms on \ttt}
 			There have already been precedents in investigating the proper method of winning classic \ttt.
 			Examples such as prioritizing the center or placement of pieces in the opposite cell of the opponent's previous move are frequently cited as techniques to beat the opponent \autocite{aycockHowWinTicTacToe2002}.
+
+			These examples of strategies were translated programmatically by \autocite{barratRobbiebarratUnbeatableTictactoe2019}.
+			Using data gathered from manually played games, an \enquote{unbeatable} AI was coded.
+			The result was an AI that could not be beat by a \enquote{smart} player.
+			\textcite{barratRobbiebarratUnbeatableTictactoe2019} took feedback from interested players that were able to find exploits in his system, patching them up as the code matures.
+			The code involves random choices as well, leading to an AI that is not easily predicted.
+			The AI itself is effective as the first player and was unbeatable when tested.
+			When tested as a second player, however, the AI has a small chance of being beat due to its random nature.
+			This was discovered after playing it against a completely random--moving player.
+
 			Multiple discussions gave occurred on how many distinct games one can play in \ttt.
 			\textcite{schaeferHowManyGames2002} argues that the common answer of 9! or 362,880 possible games is misleading for it ignores the symmetrical properties of the game.
 			There are games that have exactly the same pieces placed on the board but are oriented differently in relation to the board.
@@ -314,7 +324,7 @@
 		\section{Research Design}
 			This Developmental Research is composed of two components: Software Development and Data Collection.
 			In Software Development the code for the move generators and genetic algorithms are initialized, and the efficiency of its implementation is optimized.
-			In Data Collection the organisms were trained for 500 generations, and the fitness data collected was analyzed using $R$.
+			In Data Collection the genetic algorithms were simulated and after that, the fitness data collected was analyzed using $R$.
 			The independent variable is the elite preservation method.
 			The dependent variable is the number of generations the specific GA takes to find a no-loss solution.
 			Extraneous variables such as the software specifications can be held constant by the use of the same software such as the operating system and the same Python version (3.8.3 64-bit).
@@ -331,6 +341,12 @@
 			Various personal computers were used to perform the training.
 
 		\section{Procedures}
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.5\textwidth]{../figures/procedural_flowchart}
+				\caption{Procedural Flowchart}
+				\label{fig:proc_flowchart}
+			\end{figure}
 			\subsection{Software Development}
 				The study aims to compare the performance of the genetic algorithms with different elite preservation methods.
 				The three are: an unmodified Python implementation of the work of \textcite{bhattSearchNolossStrategies2008}, and two with modified elite preservation methods based on MGs.
@@ -342,7 +358,7 @@
 				Another MG is Unbeatable Move Generator (UMG).
 
 				UMG is based off of the work of \textcite{barratRobbiebarratUnbeatableTictactoe2019}.
-				It is stated to be unbeatable, however, due to the fact that there are random moves involved in the code, the Move Generator has a small chance of being beat.
+				It is stated to be unbeatable, however, the Move Generator has a small chance of being beat as the second player.
 				This makes an ideal opponent for trained organisms, given that the GA will find an exploit eventually.
 				In line with this, the GA might be able to use said exploit to have better performance.
 
@@ -365,12 +381,15 @@
 						For each game state represented by genes in the genome, the organism is given a random possible move for that game state.
 						Any valid move in a given game state is considered in choosing the allele randomly.
 					\subparagraph{Selection Operator}
-						Using a modified implementation of the Stochastic Universal Selection (SUS) Operator by \textcite{panchapakesanStochasticUniversalSampling2014}, the following niched fitness equation was used \autocite{bhattSearchNolossStrategies2008}:
+						The following niched fitness equation \autocite{bhattSearchNolossStrategies2008} was used to modify the implementation of the Stochastic Universal Selection operator by \textcite{panchapakesanStochasticUniversalSampling2014}:
 						\begin{equation*}
 							f_\mathrm{niched}(x_i) = \frac{1}{m} * [1 - f(x_i)]
 						\end{equation*}
 						where $m$ is the number of organisms with the same fitness.
-						In this specific case, half of the population is selected via SUS.
+						Using $\frac{1}{m}$ as a factor produces a niching effect \autocite{bhattSearchNolossStrategies2008}. 
+						The $[1 - f(x_i)]$ quantity produces the opposite pattern compared to Equation~\ref{eqn:fitness}, where instead of zero as the perfect fitness and one as the worst fitness, zero is the worst fitness and one is the perfect fitness.
+						This was done due to the fact that SUS is inherently maximizing \autocite{bhattSearchNolossStrategies2008}.
+						In this study, half of the population is selected via SUS.
 					\subparagraph{Crossover Operator}
 						Similar to that of \textcite{bhattSearchNolossStrategies2008}, 50 cross-sites are randomly chosen per parent pair which is used to take alternate series of alleles from each parent.
 						This produces two new offspring with alleles from each parent.
@@ -400,7 +419,7 @@
 				When the \enquote{best} organism has zero fitness, the GA stops and snapshots the population for the last time.
 				If no zero-fitness organism is found before 500 generations have passed, the GA stops itself.
 				Using this method, 30 simulations per elite preservation method was run, with 100 organisms per population.
-				The number of generations before a simulation encounters a zero-fitness or no-loss solution is recorded for each simulation.
+				The number of generations before a simulation encounters a zero-fitness (based on Equation~\ref{eqn:fitness}) or no-loss solution is recorded for each simulation.
 
 		\section{Treatment of Data}
 			\subsection{Statement of Hypotheses} \vspace{-2em}
@@ -448,15 +467,21 @@
 		\begin{figure}[htbp]
 			\centering
 			\includegraphics[width=\textwidth]{../figures/rmg_ftrack}
-			\caption{Population-best fitness graph of RMG-treated}
+			\caption{Population-best fitness graph of RMG-controlled}
 			\label{fig:fitgraph_rmg}
 		\end{figure}
 		\begin{figure}[htbp]
 			\centering
 			\includegraphics[width=\textwidth]{../figures/umg_ftrack}
-			\caption{Population-best fitness graph of UMG-treated}
+			\caption{Population-best fitness graph of UMG-controlled}
 			\label{fig:fitgraph_umg}
 		\end{figure}
+
+		It can be noted in Figures~\ref{fig:fitgraph_ctrl}, \ref{fig:fitgraph_rmg}, and \ref{fig:fitgraph_umg} that the GAs stop on or before 15 generations.
+		This is because the GAs can find no-loss solutions before even surpassing the 500 generation mark.
+		The 10-generation worst case tabulated by \textcite{bhattSearchNolossStrategies2008} agrees with these findings.
+		The results for each GA are comparatively lower than the 500-generation upper bound used by \textcite{bhattSearchNolossStrategies2008}.
+		This can be explained by the fact that the first player is more likely to win in \ttt\ \autocite{cranenburghTicTacToe2007}, thus the game is inherently biased towards the first player.
 
 		The ANOVA test results assert that the modifications have no effect on the number of generations a GA requires to find a no-loss solution.
 		This means that the application of an unbeatable opponent did not promote the genetic evolution of the GA towards a no-loss solution.
@@ -681,4 +706,7 @@
 	\chapter{Documentation} \label{apx:documentation}
 		\medskip\bigskip
 		GitHub Repository: \url{https://github.com/MasterToast10/paleo-str-g12}
+
+		\lstset{language=Python, breaklines=true, numbers=left, stringstyle=\ttfamily\small, basicstyle=\singlespacing}
+		\lstinputlisting[caption={Base code of genetic algorithm}, label={lst:ga.py}]{../python_code/ga.py}
 \end{document}
