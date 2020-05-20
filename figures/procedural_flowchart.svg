@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="204.96916mm"
+   height="256.89221mm"
+   viewBox="0 0 204.96916 256.89221"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (0.92.5+69)"
+   sodipodi:docname="procedural_flowchart.svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient1761">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop1759" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient1755"
+       osb:paint="solid"
+       gradientTransform="translate(0,-16.404171)">
+      <stop
+         style="stop-color:#00c500;stop-opacity:1;"
+         offset="0"
+         id="stop1753" />
+    </linearGradient>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path862"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <linearGradient
+       id="linearGradient828"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#2592ce;stop-opacity:1;"
+         offset="0"
+         id="stop826" />
+    </linearGradient>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend-3"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path862-6"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend-5"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path862-3"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend-6"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path862-2"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1755"
+       id="linearGradient1757"
+       x1="10.753502"
+       y1="41.008636"
+       x2="215.72266"
+       y2="41.008636"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0,-16.404171)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="435.74236"
+     inkscape:cy="285.48985"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g1726"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1366"
+     inkscape:window-height="738"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-10.753502,53.247429)">
+    <rect
+       style="opacity:1;fill:url(#linearGradient1755);fill-opacity:1;stroke:none;stroke-width:0.25684267;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1728-1"
+       width="204.96916"
+       height="49.544273"
+       x="10.753502"
+       y="108.54107"
+       ry="2.8451045" />
+    <rect
+       style="opacity:1;fill:url(#linearGradient1757);fill-opacity:1;stroke:none;stroke-width:0.45532349;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1728"
+       width="204.96916"
+       height="155.70377"
+       x="10.753502"
+       y="-53.247429"
+       ry="3.8542671" />
+    <g
+       id="g841-7-2"
+       transform="translate(8.6038791,196.63989)" />
+    <g
+       id="g1726"
+       transform="translate(8.2380828,-35.279577)">
+      <g
+         transform="translate(8.2996849,33.096718)"
+         id="g841">
+        <rect
+           style="opacity:1;fill:#2592ce;fill-opacity:1;stroke:none;stroke-width:0.52547067;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect832"
+           width="193.52383"
+           height="27.97024"
+           x="-0.061602037"
+           y="15.2813"
+           ry="2.7812665" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.11111069px;line-height:1.25;font-family:Gentium;-inkscape-font-specification:'Gentium, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="13.897451"
+           y="32.88377"
+           id="text836"><tspan
+             sodipodi:role="line"
+             id="tspan834"
+             x="13.897451"
+             y="32.88377"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.11111069px;font-family:Gentium;-inkscape-font-specification:'Gentium, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332">Coding of GA, UMG and RMG</tspan></text>
+      </g>
+      <g
+         transform="translate(-3.7955532,-18.978642)"
+         id="g841-1">
+        <rect
+           style="opacity:1;fill:#2592ce;fill-opacity:1;stroke:none;stroke-width:0.52547067;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect832-0"
+           width="193.52382"
+           height="27.97024"
+           x="12.033644"
+           y="15.2813"
+           ry="2.7812665" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.11111069px;line-height:1.25;font-family:Gentium;-inkscape-font-specification:'Gentium, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="17.845037"
+           y="32.88377"
+           id="text836-5"><tspan
+             sodipodi:role="line"
+             id="tspan834-1"
+             x="17.845037"
+             y="32.88377"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.11111069px;font-family:Gentium;-inkscape-font-specification:'Gentium, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332">Coding of Tic-Tac-Toe Interface</tspan></text>
+      </g>
+      <g
+         transform="translate(8.2996849,86.791295)"
+         id="g841-8">
+        <rect
+           style="opacity:1;fill:#2592ce;fill-opacity:1;stroke:none;stroke-width:0.52547067;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect832-5"
+           width="193.52383"
+           height="27.97024"
+           x="-0.061602015"
+           y="13.662106"
+           ry="2.7812665" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.11111069px;line-height:1.25;font-family:Gentium;-inkscape-font-specification:'Gentium, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="7.486382"
+           y="32.229202"
+           id="text836-0"><tspan
+             sodipodi:role="line"
+             id="tspan834-6"
+             x="7.486382"
+             y="32.229202"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.64166641px;font-family:Gentium;-inkscape-font-specification:'Gentium, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332">Modification of GA via UMG and RMG</tspan></text>
+      </g>
+      <g
+         transform="translate(8.2996849,142.5391)"
+         id="g841-7">
+        <rect
+           style="opacity:1;fill:#2592ce;fill-opacity:1;stroke:none;stroke-width:0.52547067;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect832-9"
+           width="193.52383"
+           height="27.97024"
+           x="-0.061602037"
+           y="15.2813"
+           ry="2.7812665" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.11111069px;line-height:1.25;font-family:Gentium;-inkscape-font-specification:'Gentium, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="16.488161"
+           y="34.502964"
+           id="text836-03"><tspan
+             id="tspan933"
+             sodipodi:role="line"
+             x="16.488161"
+             y="34.502964"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.11111069px;font-family:Gentium;-inkscape-font-specification:'Gentium, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332">Simulation Runs of Each GA</tspan></text>
+      </g>
+      <g
+         transform="translate(19.829199,195.67282)"
+         id="g841-6">
+        <rect
+           style="opacity:1;fill:#2592ce;fill-opacity:1;stroke:none;stroke-width:0.52547067;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect832-58"
+           width="193.52383"
+           height="27.97024"
+           x="-11.591116"
+           y="15.2813"
+           ry="2.7812665" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.11111069px;line-height:1.25;font-family:Gentium;-inkscape-font-specification:'Gentium, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="46.582287"
+           y="32.88377"
+           id="text836-7"><tspan
+             sodipodi:role="line"
+             id="tspan834-9"
+             x="46.582287"
+             y="32.88377"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.11111069px;font-family:Gentium;-inkscape-font-specification:'Gentium, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332">Data Analysis</tspan><tspan
+             id="tspan985"
+             sodipodi:role="line"
+             x="46.582287"
+             y="50.522659"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.11111069px;font-family:Gentium;-inkscape-font-specification:'Gentium, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332" /></text>
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path45"
+         d="M 105,24.272895 V 47.607693"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path45-7"
+         d="M 105,76.348254 V 99.682953"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend-3)" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path45-5"
+         d="m 105,131.06942 v 23.3348"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend-5)" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path45-9"
+         d="m 105,186.84898 v 23.3348"
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend-6)" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.63888741px;line-height:1.25;font-family:Gentium;-inkscape-font-specification:'Gentium, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="16.55356"
+       y="-42.365479"
+       id="text1747"><tspan
+         sodipodi:role="line"
+         id="tspan1745"
+         x="16.55356"
+         y="-42.365479"
+         style="font-size:10.58333302px;stroke-width:0.26458332">Software Development</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.63888741px;line-height:1.25;font-family:Gentium;-inkscape-font-specification:'Gentium, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="16.340168"
+       y="120.10522"
+       id="text1751"><tspan
+         sodipodi:role="line"
+         id="tspan1749"
+         x="16.340168"
+         y="120.10522"
+         style="font-size:10.58333302px;stroke-width:0.26458332">Data Collection</tspan></text>
+  </g>
+</svg>
