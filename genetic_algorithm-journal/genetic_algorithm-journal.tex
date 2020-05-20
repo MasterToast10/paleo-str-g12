@@ -8,6 +8,11 @@
 \usepackage{booktabs}
 \usepackage[flushleft]{threeparttable}
 
+\newcommand{\mnk}{\textit{m, n, k} game}
+\newcommand{\mnkpl}{\textit{m, n, k} games}
+\newcommand{\ttt}{Tic-Tac-Toe}
+\newcommand{\TTT}{TIC-TAC-TOE}
+
 % For images
 \usepackage{graphicx}
 
@@ -51,138 +56,259 @@
 \email{vashpatrickancheta@gmail.com} % TODO: Correponding author email
 
 \abstract{
-	Abstract should BE written in \ctuline{one paragraph not to exceed 300 words}.
-	It should summarize the background and scope of the work, the principal results, and note the implications of these results or main conclusions.
-	It should concisely capture the basic content of the paper and be understandable without the text.
-	References and acronyms should be avoided.
+	Machine learning methods are algorithms where machines are not explicitly programmed to do what is tasked but rather, learns how to perform the task.
+			An \mnk\ is a game where there is an $m \times n$ grid and two players alternate turns trying to earn $k$ pieces adjacent to each other horizontally, vertically or diagonally.
+			The \mnk\ to be used in the research to test the MLMs is \ttt, configured as 3,3,3.
+			The study utilizes an existing genetic algorithm to be used as a control setup.
+			This genetic algorithm is modified to be controlled by move generators using the Controlled Elite Preservation operator and the resulting genetic algorithms are compared with regard to performance.
+			Using an ANOVA Test at $\alpha = 0.05$, no significant difference in performance was found between the unmodified and modified genetic algorithms.
+			This study provides a backbone for research involved in the transmission of knowledge between \enquote{smart} artificial intelligence and \enquote{naive} intelligence, raising the question on whether the evolution of a genetic algorithm can be better affected by a move generator in other components.
 } % TODO: Abstract
-\keywords{up to six; key; words; reflecting; content; paper} % TODO: Should be arranged alphabetically and separated by semicolon (This example is not)
+\keywords{genetic algorithm; machine learning; tic-tac-toe; training methods} % TODO: Should be arranged alphabetically and separated by semicolon (This example is not)
 
 \begin{document}
 	\maketitle
 
 	\section{Introduction}
-		% TODO: Introduction
-		Journal paper should be written a maximum of 7 pages excluding references section.
-		On the bottom of the page, list up to six keywords that reflect the content of the paper arranged alphabetically (Santos, 2016). % This is personal communication
+		Machine learning (ML) is vast---it is used in different situations such as spam detectors, web search engines, photo tagging applications and game development \autocite{sharmaMachineLearningApplications2016}.
+			There have been researches that are aimed at improving the implementation of ML in various games.
+			A category of games under investigation through ML is the set of \mnk\ games, comprised of games where there is an $m \times n$ grid and two players alternate turns trying to earn $k$ pieces adjacent to each other horizontally, vertically or diagonally \autocite{hayesDevelopingMemoryEfficient2016}.
+			Among the most common examples of \mnkpl\ are G\=o, Othello, and Chess.
+			\ttt, the game under investigation in this study, is an example of an \mnk.
+			A \ttt\ board is composed of three rows and three columns, and requires three adjacent pieces of the same player to render a win, thus it is considered to have a $3, 3, 3$ configuration.
 
-		An Introduction should describe the paper’s background and provide the rationale for the present study.
-		Cite only those references that will provide the most relevant background rather than an exhaustive review of the topic (Santos \& Reyes, 2017). % This is personal communication too
+			Improvements in ML have lead to the development of artificial intelligence (AI) players that can beat even the most competitive human players around the world.
+			Machine learning methods (MLMs) are algorithms where machines are not explicitly programmed to do what is tasked.
+			Rather, similar to its namesake, MLM-trained machines are capable of performing tasks given its own internal code without any human interference.
+			In short, the machine \textit{learns} \autocite{geeksforgeeksMachineLearning}.
+			An example of an MLM is the genetic algorithm (GA).
+
+			This study aims to develop multiple GAs with different elite preservation methods and compare their performance in \ttt\ based on the possible situations.
+
+		 To compare the effectiveness of trained genetic algorithm (GA) organisms among each other as applied to \ttt
+				\end{itemize}
+			\subsection{Specific Objectives}
+				\begin{enumerate}
+					\item To implement known heuristics into Python code
+					\item To train organisms of an implemented GA using different move generators (MGs)
+					\item To compare the development of the performance of trained GA organisms among each other within 500 generations
+				\end{enumerate}
+
+		
+			
+			This study contributes to the body of knowledge in ML.
+			Through this study, more can be known about how information gained from one method of AI can be passed on to another mechanism of AI through training.
+			This sheds light on how information from one AI player can be transmitted to an MLM such as GA.
+			This, by extension, can improve the comprehension of how machines can learn strategies in games from one with greater skill.
+
+		
+			
+			This study focuses only on \ttt\ and not other games such as Chess or G\=o because it is the simplest game to conduct the research on heuristics, namely the training of the GA under different move generators (MGs).
+			The complexity of the board game is not relevant to the study because the focus of the research is to compare the effectiveness of trained GA organisms given an \mnk.
+			Applying these heuristics on other \mnkpl\ however are beyond the time frame of the research.
+			Only three GAs were developed in this study.
+			The first is a Python implementation of the GA in the work of \textcite{bhattSearchNolossStrategies2008}.
+			Using developed AI, the second and third are modified implementations of the same GA.
+			The performance of each GA is based on how many generations it takes for the GA to find a no-loss first player for \ttt.
+			This basis for comparison of performance, specifically using the skill of an organism as a first player, is due to the fact that Python is known for being slow.
+			In line with this, indices are 0-based in this paper, as they are in Python.
 
 	\section{Methodology}
 		% TODO: Methodology
-		\subsection{Subheading for Procedure 1}
-			Methods should be described concisely and clearly to allow experiments to be repeated.
-			For commonly used methods, a simple reference is sufficient.
-			Avoid references that are not readily accessible.
+	\section{Research Design}
+			This Developmental Research is composed of two components: Software Development and Data Collection.
+			In Software Development the code for the move generators and genetic algorithms are initialized, and the efficiency of its implementation is optimized.
+			In Data Collection the genetic algorithms were simulated and after that, the fitness data collected was analyzed using $R$.
+			The independent variable is the elite preservation method.
+			The dependent variable is the number of generations the specific GA takes to find a no-loss solution.
+			Extraneous variables such as the software specifications can be held constant by the use of the same software such as the operating system and the same Python version (3.8.3 64-bit).
+			The study was not affected by hardware specifications as it concerns the number of generations instead of the time taken on the system.
+
+		\section{Locale of the Study}
+			The software was developed and data was collected mainly at the Philippine Science High School -- Cordillera Administrative Region Campus.
+			The training and data collection occurred at the aforementioned location on various personal computers.
+
+		\section{Materials and Research Instruments}
+			The software was developed with Python 3.8.3 on KDE Neon 5.18 using Visual Studio Code 1.45.1 and hosted on GitHub.
+			A link to the repository hosting the software is located in \ref{apx:documentation}.
+			The developmental computer is equipped with 4 GB of Random Access Memory (RAM).
+			Various personal computers were used to perform the training.
+
+		\section{Procedures}
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.5\textwidth]{../figures/procedural_flowchart}
+				\caption{Procedural Flowchart}
+				\label{fig:proc_flowchart}
+			\end{figure}
+			\subsection{Software Development}
+				The study aims to compare the performance of the genetic algorithms with different elite preservation methods.
+				The three are: an unmodified Python implementation of the work of \textcite{bhattSearchNolossStrategies2008}, and two with modified elite preservation methods based on MGs.
+				A preliminary for the accomplishment of such task is a game engine for the interaction between trained GA organisms.
+				This was coded in Python, as application programming interfaces (APIs) for machine learning have already been implemented in Python.
+
+				After the development of a platform for play of \ttt\ between trained organisms, the development of the required MGs followed.
+				The Random Move Generator (RMG) returns one of all possible moves in \ttt\ with equal probability.
+				Another MG is Unbeatable Move Generator (UMG).
+
+				UMG is based off of the work of \textcite{barratRobbiebarratUnbeatableTictactoe2019}.
+				It is stated to be unbeatable, however, the Move Generator has a small chance of being beat as the second player.
+				This makes an ideal opponent for trained organisms, given that the GA will find an exploit eventually.
+				In line with this, the GA might be able to use said exploit to have better performance.
+
+				\paragraph{Genetic Algorithm}
+					The organisms to be trained were implemented in Python as well.
+					The GA was composed of unique genomes with genes for each possible game state with alleles that correspond to the moves to be taken.
+					Following the flow represented in Figure~\ref{fig:genetic}, the operators are adapted from \textcite{bhattSearchNolossStrategies2008}.
+					The only aspect of the GA that differs from the implementation of that in \textcite{bhattSearchNolossStrategies2008} is the organism representation.
+					\subparagraph{Organism Representation}
+						Organisms are represented with genomes, as shown in Figure~\ref{fig:genome}.
+						Each gene in the genome represents a game state that considers rotation and symmetry using an implementation of the game-base used by \textcite{bhattSearchNolossStrategies2008}.
+						These genes have a corresponding allele that represents the move the organism will take.
+						\begin{figure}[htbp]
+							\centering
+							\includegraphics[width=0.75\textwidth]{representation}
+							\caption{Genome of an organism}
+							\label{fig:genome}
+						\end{figure}
+					\subparagraph{Initial Population}
+						For each game state represented by genes in the genome, the organism is given a random possible move for that game state.
+						Any valid move in a given game state is considered in choosing the allele randomly.
+					\subparagraph{Selection Operator}
+						The following niched fitness equation \autocite{bhattSearchNolossStrategies2008} was used to modify the implementation of the Stochastic Universal Selection operator by \textcite{panchapakesanStochasticUniversalSampling2014}:
+						\begin{equation*}
+							f_\mathrm{niched}(x_i) = \frac{1}{m} * [1 - f(x_i)]
+						\end{equation*}
+						where $m$ is the number of organisms with the same fitness.
+						Using $\frac{1}{m}$ as a factor produces a niching effect \autocite{bhattSearchNolossStrategies2008}. 
+						The $[1 - f(x_i)]$ quantity produces the opposite pattern compared to Equation~\ref{eqn:fitness}, where instead of zero as the perfect fitness and one as the worst fitness, zero is the worst fitness and one is the perfect fitness.
+						This was done due to the fact that SUS is inherently maximizing \autocite{bhattSearchNolossStrategies2008}.
+						In this study, half of the population is selected via SUS.
+					\subparagraph{Crossover Operator}
+						Similar to that of \textcite{bhattSearchNolossStrategies2008}, 50 cross-sites are randomly chosen per parent pair which is used to take alternate series of alleles from each parent.
+						This produces two new offspring with alleles from each parent.
+						The mating pool is linear, with parent pairs formed from a mating pool individual and the individual adjacent to it.
+						If the individual is last in the linear mating pool, it is paired with the first individual in the mating pool.
+					\subparagraph{Mutation Operator}
+						Using random reset mutation, $n_m$ genes are mutated based on the best fitness in the population.
+						This basis is formalized by \textcite{bhattSearchNolossStrategies2008} in the following equation:
+						\begin{equation*}
+							n_m = 250 * f_\mathrm{minimum} + 10
+						\end{equation*}
+					\subparagraph{Controlled Elite Preservation}
+						In the control genetic algorithm, the organisms from the population before crossover, the population before mutation, and the population after mutation are sorted by fitness in increasing order.
+						The solutions with sorted index $j - 1$ are chosen:
+						\begin{equation*}
+							j(i) = i + 2N * \frac{(i - 1)(i - 2)}{(N - 1)(N - 2)},~~i = 1, 2, \dots, N
+						\end{equation*}
+					\subparagraph{Modified Controlled Elite Preservation}
+						The following modifications were made to the elite preservation method to produce two other GAs:
+						In UMG-Controlled Elite Preservation, the organisms are sorted by the number of losses of each organism when played against the UMG for 300 games.
+						In RMG-Controlled Elite Preservation, the organisms are sorted by the number of losses of each organism when played against the RMG for 300 games.
+
+			\subsection{Data Collection}
+				In the beginning of the GA the organisms were behaving randomly.
+				The fitness function for the organisms was based on the possible results based on an unpredictable opponent, thus every possible win, loss and draw is computed and plugged into Equation~\ref{eqn:fitness} to retrieve the fitness of an organism.
+				Through natural selection the \enquote{best} organism prevails.
+				When the \enquote{best} organism has zero fitness, the GA stops and snapshots the population for the last time.
+				If no zero-fitness organism is found before 500 generations have passed, the GA stops itself.
+				Using this method, 30 simulations per elite preservation method was run, with 100 organisms per population.
+				The number of generations before a simulation encounters a zero-fitness (based on Equation~\ref{eqn:fitness}) or no-loss solution is recorded for each simulation.
+
+		\section{Treatment of Data}
+			\subsection{Statement of Hypotheses} \vspace{-2em}
+				\begin{align*}
+					H_0 & : \mu_\mathrm{UMG} = \mu_\mathrm{fitness} = \mu_\mathrm{RMG} \\
+					H_a & : \text{The means are not all equal}
+				\end{align*}
+			\subsection{Analysis of Data}
+				The data was analyzed through the $R$ with the use of Analysis of Variance (ANOVA) which gives the $p$-value to test the hypotheses at a given confidence interval.
+				The study utilizes $\alpha = 0.10$.
+				Should the alternative hypothesis be true, Tukey Honest Significant Differences (Tukey HSD) is applied to locate the different mean.
 
 	\section{Results}
 		% TODO: Results
 		\subsection{Subheading for Result 1}
-			In Results, present data in only one of the following: text, table, or figure.
-			Results should preferably have no more than five illustrations (tables and/or figures).
-			Do not use tables or figures to present data that can be more concisely stated in the text.
-			Discussion should interpret results in relation to previously published work.
-			Do not repeat results or reiterate the introduction.
-			\begin{table}[htbp]
-				\centering
-				\begin{threeparttable}
-					\caption{Table Label Should be Concise and in Title Case \tnote{a}}
-					\label{tab:concise_table}
-					\begin{tabularx}{\linewidth}{cXXX}
-						\toprule
-						Criteria Number & A (\si{\celsius}) & B (\si{\kilo\meter}) & C (\si{\ampere}) \\
-						\midrule
-						1               & \num{1.00(1)}     & \num{1.00(1)}        & \num{1.00(1)}    \\
-						2               & \num{1.00(1)}     & \num{1.00(1)}        & \num{1.00(1)}    \\
-						3               & \num{1.00(1)}     & \num{1.00(1)}        & \num{1.00(1)}    \\
-						4               & \num{1.00(1)}     & \num{1.00(1)}        & \num{1.00(1)}    \\
-						\bottomrule
-					\end{tabularx}
-					\begin{tablenotes}
-						\small
-						\item[a] Note: Type each table on a separate sheet.
-						Never use vertical lines to separate columns.
-						Prepare tables so that compared data read down, not across.
-						Columns that show no significant variations should be omitted.
-						Do not use tables for word lists.
-						Titles should be clear, and column headings should be brief with units of measurements in parentheses.
-						Symbols and abbreviations should be defined below the table.
-						Indicate table footnotes with a, b, c, etc.
-						Do not present the same data in both graphical and tabular form.
-						Tables should be self-explanatory or understandable without reference to the text.
-					\end{tablenotes}
-				\end{threeparttable}
-			\end{table}
-
 			\begin{figure}[htbp]
-				\centering
-				\definecolor{grrayt}{HTML}{848484}
-				\begin{tikzpicture}
-					\begin{axis}[
-							width  = \linewidth,
-							height = 8cm,
-							major x tick style = transparent,
-							ybar=2*\pgflinewidth,
-							bar width=\linewidth/12,
-							ymajorgrids = true,
-							ylabel = {Softening point (\si{\celsius})},
-							symbolic x coords={0\% PP, 2\% PP, 4\% PP, 6\% PP},
-							xtick = data,
-							scaled y ticks = false,
-							try min ticks = 10,
-							enlarge x limits=0.25,
-							ymin=0, ymax = 100
-						]
-						\addplot[style={grrayt,fill=grrayt,mark=none}, error bars/.cd,
-							y dir=both, y explicit, error bar style={color=black}]
-						coordinates {(0\% PP, 48.5)+-(4.0, 4.0) (2\% PP, 56.0)+-(2.0, 2.0) (4\% PP, 61.5)+-(2.5, 2.5) (6\% PP, 68.0)+-(2.0, 2.0)}
-						node[pos=0/4,anchor=south, color=black, yshift=10] {48.5}
-						node[pos=1/4,anchor=south, color=black, yshift=10] {56.0}
-						node[pos=3/4,anchor=south, color=black, yshift=10] {61.5}
-						node[pos=4/4,anchor=south, color=black, yshift=10] {68.0};
-					\end{axis}
-				\end{tikzpicture}
-				\caption{%
-					Figure label should be in sentence case ending in period, placed under the figure.
-					Each figure should have a legend or caption and should be self-explanatory.
-					Figure legends should be in lowercase print-type, except for the first letter of first word.
-					Abbreviations and symbols on figures should be defined in the legend.
-					Figures include line drawings, photographs, and computer plots.
-					(The graphics should be clear)%
-				}
-				\label{fig:bar_graph}
-			\end{figure}
+			\centering
+			\includegraphics[width=\textwidth]{../figures/boxplot}
+			\caption{Notched box plot of treatments}
+			\label{fig:boxplot}
+		\end{figure}
 
-	\section{Discussion}
-		% TODO: Discussion
-		Discussion should incorporate referencing of the figures or data tables presented in the Results section.
-		Literature citations should be selective, not to exceed 30 references for a research paper.
+		A notched box plot of treatment results is shown in Figure~\ref{fig:boxplot}.
+		This box plot denotes the interquartile range (IQR) where 50\% of the data is located.
+		It is shown that each treatment has a median of seven (7) generations before termination, and the population median is shown by the notches to be within six to eight generations.
+		The UMG-controlled GA shows a larger spread while the RMG-controlled GA shows more consistent data points.
+
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=\textwidth]{../figures/ctrl_ftrack}
+			\caption{Population-best fitness graph of control}
+			\label{fig:fitgraph_ctrl}
+		\end{figure}
+
+		The large spread in the data points of the UMG-controlled GA is also evident in Figure~\ref{fig:fitgraph_umg}.
+		It is easily shown by the wide standard error bar depicted along the smoothed regression model compared to the standard error bars depicted in Figure~\ref{fig:fitgraph_ctrl} and Figure~\ref{fig:fitgraph_rmg}.
+		Figure~\ref{fig:fitgraph_umg} also depicts unique cases where population-best fitness suddenly increases by a large margin.
+
+		This evident spread might invalidate the ANOVA test, thus Bartlett's Test for Homogeneity of Variances was applied to the data via $R$ \autocite{nist/sematechBartlettTest2013}.
+		This test resulted in $\chi^2 = 5.1019,~df = 2$ with a $p$-value of 0.07801.
+		Said $p$-value is greater than $\alpha = 0.05$, thus the assumption of homogeneity of variances that is necessary in ANOVA is maintained.
+
+		ANOVA was then used to test the null hypothesis that the means of the treatments are equal.
+		This returned an F-value of 0.264 and a $p$-value of 0.768.
+		The $p$-value is greater than $\alpha = 0.05$, therefore the null hypothesis that the means of the treatments are equal is not rejected.
+
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=\textwidth]{../figures/rmg_ftrack}
+			\caption{Population-best fitness graph of RMG-controlled}
+			\label{fig:fitgraph_rmg}
+		\end{figure}
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=\textwidth]{../figures/umg_ftrack}
+			\caption{Population-best fitness graph of UMG-controlled}
+			\label{fig:fitgraph_umg}
+		\end{figure}
+
+		It can be noted in Figures~\ref{fig:fitgraph_ctrl}, \ref{fig:fitgraph_rmg}, and \ref{fig:fitgraph_umg} that the GAs stop on or before 15 generations.
+		This is because the GAs can find no-loss solutions before even surpassing the 500 generation mark.
+		The 10-generation worst case tabulated by \textcite{bhattSearchNolossStrategies2008} agrees with these findings.
+		The results for each GA are comparatively lower than the 500-generation upper bound used by \textcite{bhattSearchNolossStrategies2008}.
+		This can be explained by the fact that the first player is more likely to win in \ttt\ \autocite{cranenburghTicTacToe2007}, thus the game is inherently biased towards the first player.
+
+		The ANOVA test results assert that the modifications have no effect on the number of generations a GA requires to find a no-loss solution.
+		This means that the application of an unbeatable opponent did not promote the genetic evolution of the GA towards a no-loss solution.
+		This can imply that either the modification was made in a less-effective component, or the application did not change any behaviour of the GA at all.
+		The latter implication can be disproven by the discrepancies produced by the UMG-controlled GA demonstrated in Figure~\ref{fig:fitgraph_umg}.
+		This behaviour shows that in some cases, the alignments of the UMG goes against the alignments of the fitness function.
+		Such behaviour demonstrates that the UMG modification does in fact, affect the evolution of the GA in no small way.
+
+		In the case that the UMG modification was placed in a less-effective component of the GA, it could be implied that there is no effective component in the GA that can accommodate the modification, or that there is one that is not specifically in the Controlled Elite Preservation operator.
+		To prove whether there is an effective component in the GA that can utilize the \enquote{unbeatability} of the UMG or not requires extensive research far beyond the scope of this study.
+
+		Either way, this study shows that modifying the Controlled Elite Preservation operator of the GA does not significantly improve the performance of the GA.
+		An observation that might be of use, however, is the fact that the UMG-controlled GA shows promise of increase in variability of the GA, which can be used in finding more diverse solutions in the search space.
 
 	\section{Summary and Conclusion}
 		% TODO: Summary and Conclusion
-		Point out significant findings of the study in relation to the objectives of the study.
-		Include your recommendations in this section.
+		In essence, the stated objectives: to train organisms with MGs and to compare their performance, has been achieved through the modifications to the Controlled Elite Preservation operator.
+		This study targeted the Controlled Elite Preservation operator specifically, thus further research is required to acquire more comprehensive data regarding the effects of having a \enquote{smart} opponent control the evolution of a GA.
+		
+		The study resulted in proof that modifying the Controlled Elite Preservation operator does not improve the performance of the GA.
+		This opens up more questions, on whether or not the application of MG will ever affect the behaviour of a GA.
+		It is also recommended to involve testing the performance of the GA as a second player.
+		Furthermore, this research serves as a foundation for more extensive investigations into the effects of \enquote{smart} AI on the learning of other AI.
+
 
 	\section{Acknowledgement}
 		% TODO: Acknowledgement
-		Acknowledgements should be brief and are placed under a separate heading immediately before References.
-		Acknowledge any financial support for the work being published and personal assistance.
+		We are grateful for our friends and family for their continued support in our continuous lives.
+		We are also thankful to our teachers, research teacher, and research adviser for their unwavering assistance in having the research completed.
+		Without these people, this research would never be successful.
 
-	\section{Demonstration}
-		% TODO: Remove this section
-		\subsection{This is a demo}
-			This is a demonstration of the depth of headings one might use.
-			\subsubsection{Paragraph}
-				\paragraph{I am a paragraph}
-					\blindtext
-					\subparagraph{I am a subparagraph}
-						\blindtext
-
-		\subsection{Another subsection}
-			\blindtext[2] \autocite{letcherWindEnergyEngineering2017}
-			\nocite{al-shemmeriWindTurbines2010}
-			\nocite{trewbyWindEnergyImplications2014}
 
 	\printbibliography
 		% The example bibliographical entries were in APA 6th so it is recommended that you simply generate a .bib file using software such as Zotero and use BibLaTeX to format the citations and bibliography for you.
